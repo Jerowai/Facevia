@@ -94,12 +94,26 @@ const FaceviaShaderBg = () => {
 
 // ── Plan data is now generated dynamically inside Pricing component ──
 
+type Plan = {
+  name: string;
+  tierId: string;
+  price: string;
+  label: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+  accent: string;
+  glow: string;
+  popularText?: string;
+};
+
 // ── Single glassy card ────────────────────────────────────────────────────────
 function PricingCard({
   plan,
   index,
 }: {
-  plan: any;
+  plan: Plan;
   index: number;
 }) {
   const [isLoading, setIsLoading] = React.useState(false);
