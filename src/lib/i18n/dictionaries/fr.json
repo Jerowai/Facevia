@@ -152,6 +152,7 @@
     },
     "footer": {
         "desc": "Facevia aide les gens à générer des photos IA de haute qualité pour les profils de rencontre et réseaux sociaux.",
+        "tagline": "Fait pour les profils de rencontre modernes.",
         "product": "Produits",
         "company": "Entreprise",
         "social": "Réseaux",
@@ -161,9 +162,11 @@
             "howItWorks": "Comment ça marche",
             "pricing": "Tarifs",
             "styles": "Styles de photos",
+            "faq": "FAQ",
             "privacy": "Politique de confidentialité",
             "terms": "Conditions d'utilisation",
-            "cookies": "Politique de cookies"
+            "cookies": "Politique de cookies",
+            "contact": "Contact"
         }
     },
     "presets": {

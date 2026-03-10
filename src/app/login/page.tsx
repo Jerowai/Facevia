@@ -1,40 +1,80 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Suspense } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { LoginForm } from "./login-form"
 import { SignupForm } from "./signup-form"
+import Link from "next/link"
 
 export default async function LoginPage(
-  props: {
-    searchParams: Promise<{ tab?: string }>
-  }
+  props: { searchParams: Promise<{ tab?: string }> }
 ) {
-  const searchParams = await props.searchParams;
+  const searchParams = await props.searchParams
   const defaultTab = searchParams.tab === 'signup' ? 'signup' : 'login'
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-lg border-muted">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">Welcome form</CardTitle>
-          <CardDescription>
-            Authenticate to access your dashboard
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#090b14]">
+      {/* Full-page background: couple on a date */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1920&auto=format&fit=crop')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(5px) brightness(0.25)',
+          transform: 'scale(1.05)', // prevent blur edge bleed
+        }}
+      />
+      {/* Soft gradient overlay to draw attention to center */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#090b14]/60 via-transparent to-[#090b14]/80" />
+
+      {/* Auth Card */}
+      <div className="relative z-10 w-full max-w-md px-4 py-8">
+        {/* Logo */}
+        <div className="text-center mb-8">
+          <Link href="/" className="inline-block">
+            <span className="font-black text-3xl bg-gradient-to-r from-[#ec4899] to-[#9D4EDD] bg-clip-text text-transparent tracking-tighter">
+              FACEVIA
+            </span>
+          </Link>
+          <p className="text-gray-400 text-sm mt-1">AI-powered dating photos</p>
+        </div>
+
+        {/* Glassmorphism card */}
+        <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
           <Tabs defaultValue={defaultTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="login">Log In</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 mb-8 bg-white/5 rounded-2xl p-1 border border-white/10">
+              <TabsTrigger
+                value="login"
+                className="rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ec4899] data-[state=active]:to-[#be185d] data-[state=active]:text-white data-[state=active]:shadow-md transition-all font-semibold text-gray-400"
+              >
+                Log In
+              </TabsTrigger>
+              <TabsTrigger
+                value="signup"
+                className="rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ec4899] data-[state=active]:to-[#be185d] data-[state=active]:text-white data-[state=active]:shadow-md transition-all font-semibold text-gray-400"
+              >
+                Sign Up
+              </TabsTrigger>
             </TabsList>
+
             <TabsContent value="login">
-              <LoginForm />
+              <Suspense fallback={null}>
+                <LoginForm />
+              </Suspense>
             </TabsContent>
+
             <TabsContent value="signup">
-              <SignupForm />
+              <Suspense fallback={null}>
+                <SignupForm />
+              </Suspense>
             </TabsContent>
           </Tabs>
-        </CardContent>
-      </Card>
+        </div>
+
+        {/* Trust line */}
+        <p className="text-center text-xs text-gray-500 mt-6">
+          🔒 Secure authentication powered by Supabase
+        </p>
+      </div>
     </div>
   )
 }

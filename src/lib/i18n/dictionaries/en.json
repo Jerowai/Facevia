@@ -152,6 +152,7 @@
     },
     "footer": {
         "desc": "Facevia helps people generate high-quality AI photos for dating profiles and social media.",
+        "tagline": "Built for modern dating profiles.",
         "product": "Product",
         "company": "Company",
         "social": "Social",
@@ -161,9 +162,11 @@
             "howItWorks": "How it Works",
             "pricing": "Pricing",
             "styles": "Style Presets",
+            "faq": "FAQ",
             "privacy": "Privacy Policy",
             "terms": "Terms of Service",
-            "cookies": "Cookie Policy"
+            "cookies": "Cookie Policy",
+            "contact": "Contact"
         }
     },
     "presets": {
