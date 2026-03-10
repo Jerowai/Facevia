@@ -4,27 +4,21 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedBackground } from "@/components/ui/animated-background";
-import { Check, Flame, Ghost, Instagram, Heart } from "lucide-react";
-import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { Check, Flame, Ghost, Heart } from "lucide-react";
 
 export function Hero() {
-  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-[#090b14]">
       <div className="absolute inset-0 z-0">
         <AnimatedBackground />
-
-        {/* Adds a slight dark overlay to ensure sexy/moody colors pop */}
-        <div className="absolute inset-0 bg-[#090b14]/80 md:bg-[#090b14]/70 md:backdrop-blur-[2px]"></div>
-
-        {/* Accent glow behind text */}
-        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#ec4899] rounded-full blur-[80px] md:blur-[150px] opacity-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[#090b14]/80 md:bg-[#090b14]/70 md:backdrop-blur-[2px]" />
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#ec4899] rounded-full blur-[80px] md:blur-[150px] opacity-10 pointer-events-none" />
       </div>
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full pl-4 md:pl-8 lg:pl-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
 
-          {/* LEFT COLUMN - TEXT & CTA */}
+          {/* LEFT COLUMN */}
           <div className="flex-1 w-full max-w-2xl text-left z-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -32,8 +26,8 @@ export function Hero() {
               transition={{ duration: 0.6 }}
               className="mb-8 inline-flex items-center"
             >
-              <h2 className="text-gray-400 font-bold tracking-widest text-[10px] sm:text-xs md:text-sm uppercase text-center sm:text-left">
-                {t('hero.badge')}
+              <h2 className="text-gray-400 font-bold tracking-widest text-[10px] sm:text-xs md:text-sm uppercase">
+                ✨ AI-Powered Dating Photos
               </h2>
             </motion.div>
 
@@ -43,8 +37,8 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl md:text-7xl lg:text-[4.5rem] font-bold tracking-tighter text-white mb-6 md:mb-8 leading-[1.1] text-center lg:text-left"
             >
-              <span className="text-[#ec4899]">{t('hero.title1')}</span> <br className="hidden sm:block" />
-              {t('hero.title2')}
+              <span className="text-[#ec4899]">Get better</span> <br className="hidden sm:block" />
+              matches with AI
             </motion.h1>
 
             <motion.p
@@ -53,7 +47,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-white/70 text-base sm:text-lg mb-8 text-center lg:text-left max-w-xl mx-auto lg:mx-0"
             >
-              {t('hero.subtitle')}
+              Upload a few selfies and our AI will generate realistic photos designed for Tinder, Instagram and other social platforms.
             </motion.p>
 
             <motion.ul
@@ -64,15 +58,15 @@ export function Hero() {
             >
               <li className="flex items-center">
                 <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">{t('hero.bullets.b1')}</span><span className="text-gray-400 ml-2 font-normal hidden sm:inline">{t('hero.bullets.b1sub')}</span>
+                <span className="font-semibold">Look more attractive on dating apps</span>
               </li>
               <li className="flex items-center">
                 <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">{t('hero.bullets.b2')}</span><span className="text-gray-400 ml-2 font-normal hidden sm:inline">{t('hero.bullets.b2sub')}</span>
+                <span className="font-semibold">Realistic AI photos that actually look like you</span>
               </li>
               <li className="flex items-center">
                 <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">{t('hero.bullets.b3')}</span><span className="text-gray-400 ml-2 font-normal hidden sm:inline">{t('hero.bullets.b3sub')}</span>
+                <span className="font-semibold">No expensive photoshoots needed</span>
               </li>
             </motion.ul>
 
@@ -83,7 +77,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
             >
               <Button asChild size="lg" className="h-14 sm:h-16 px-6 sm:px-10 rounded-md font-bold text-lg sm:text-xl bg-[#ec4899] text-white hover:bg-[#db2777] transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(236,72,153,0.4)] border-0 w-full sm:w-auto">
-                <Link href="/login?tab=signup">{t('hero.cta')}</Link>
+                <Link href="/login?tab=signup">Get My AI Photos</Link>
               </Button>
             </motion.div>
 
@@ -93,8 +87,36 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="text-gray-400 text-sm mt-4 text-center sm:text-left font-medium"
             >
-              {t('hero.microtext')}
+              Ready in minutes • Used by thousands of users
             </motion.p>
+
+            {/* Trust bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="mt-8 flex items-center gap-3"
+            >
+              <div className="flex -space-x-2">
+                {[
+                  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&q=80",
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&q=80",
+                  "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=40&h=40&fit=crop&q=80",
+                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&q=80",
+                ].map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt="User"
+                    className="w-8 h-8 rounded-full border-2 border-[#090b14] object-cover"
+                  />
+                ))}
+              </div>
+              <div>
+                <div className="flex text-[#ec4899] text-xs">★★★★★</div>
+                <p className="text-gray-400 text-xs font-medium">Trusted by 12,000+ users</p>
+              </div>
+            </motion.div>
           </div>
 
           {/* RIGHT COLUMN - PHONE MOCKUP */}
@@ -104,31 +126,29 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.4 }}
             className="flex-1 w-full flex justify-center lg:justify-end relative pb-10 sm:pb-0 z-10 scale-95 md:scale-100 pointer-events-none select-none"
           >
-            {/* Realistic iPhone 17 Case / Frame (Premium Pink) */}
+            {/* Premium Pink iPhone Frame */}
             <div className="relative w-full max-w-[320px] sm:max-w-[340px] aspect-[9/19] rounded-[3rem] p-1.5 bg-gradient-to-tr from-[#be185d] via-[#ec4899] to-[#fbcfe8] shadow-[0_10px_40px_rgba(236,72,153,0.3)] md:shadow-[0_20px_60px_rgba(236,72,153,0.3)] mt-12 lg:mt-0 z-10 border border-[#db2777]/80 pointer-events-none select-none">
               {/* Inner bezel */}
               <div className="relative w-full h-full rounded-[2.7rem] bg-black overflow-hidden border-[2px] border-black pointer-events-none select-none">
-                {/* Dynamic Island Notch (Slimmer for iPhone 17) */}
+                {/* Dynamic Island */}
                 <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-20 flex items-center justify-between px-2.5">
-                  {/* Fake camera lens inside the notch */}
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#050505]"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#050505]" />
                 </div>
 
-                {/* Photo */}
+                {/* Dating profile photo inside the phone */}
                 <img
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800"
-                  alt="Attractive Dating Profile AI"
+                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop"
+                  alt="AI Generated Dating Profile Photo"
                   className="w-full h-full object-cover rounded-[2.6rem] scale-[1.02] pointer-events-none select-none"
                   draggable={false}
                 />
 
-                {/* Top Gradient Overlay to ensure notch is readable/blends well */}
-                <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/50 to-transparent pointer-events-none"></div>
+                {/* Top gradient overlay */}
+                <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
               </div>
 
-              {/* Floating Notifications */}
-              {/* 1. Tinder */}
+              {/* Floating Notification: Tinder */}
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -139,12 +159,12 @@ export function Hero() {
                   <Flame className="text-white w-5 h-5 fill-white" />
                 </div>
                 <div>
-                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Tinder <span className="text-[10px] text-gray-400 font-normal">{t('hero.notifications.now')}</span></div>
-                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.tinder')}</div>
+                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Tinder <span className="text-[10px] text-gray-400 font-normal">now</span></div>
+                  <div className="text-gray-600 text-[11px]">Someone liked your photo!</div>
                 </div>
               </motion.div>
 
-              {/* 2. Snapchat */}
+              {/* Floating Notification: Snapchat */}
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -155,12 +175,12 @@ export function Hero() {
                   <Ghost className="text-black w-5 h-5 fill-black" />
                 </div>
                 <div>
-                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Snapchat <span className="text-[10px] text-gray-400 font-normal">{t('hero.notifications.ago2')}</span></div>
-                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.snapchat')}</div>
+                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Snapchat <span className="text-[10px] text-gray-400 font-normal">2m ago</span></div>
+                  <div className="text-gray-600 text-[11px]">Your story views are up 340% 🚀</div>
                 </div>
               </motion.div>
 
-              {/* 3. Instagram */}
+              {/* Floating Notification: Instagram */}
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -171,12 +191,12 @@ export function Hero() {
                   <Heart className="text-white w-5 h-5 fill-white" />
                 </div>
                 <div>
-                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Instagram <span className="text-[10px] text-gray-400 font-normal">{t('hero.notifications.ago5')}</span></div>
-                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.instagram')}</div>
+                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Instagram <span className="text-[10px] text-gray-400 font-normal">5m ago</span></div>
+                  <div className="text-gray-600 text-[11px]">237 new profile visitors</div>
                 </div>
               </motion.div>
 
-              {/* 4. Hinge */}
+              {/* Floating Notification: Hinge */}
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -187,8 +207,8 @@ export function Hero() {
                   <span className="text-white font-bold text-lg font-serif italic">H</span>
                 </div>
                 <div>
-                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Hinge <span className="text-[10px] text-gray-400 font-normal">{t('hero.notifications.ago12')}</span></div>
-                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.hinge')}</div>
+                  <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Hinge <span className="text-[10px] text-gray-400 font-normal">12m ago</span></div>
+                  <div className="text-gray-600 text-[11px]">Your photo got 12 roses 🌹</div>
                 </div>
               </motion.div>
             </div>
@@ -199,4 +219,3 @@ export function Hero() {
     </section>
   );
 }
-
