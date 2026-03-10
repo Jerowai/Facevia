@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
-import { Download, X, ZoomIn, Loader2, ImageOff, ImagePlus } from 'lucide-react'
+import { Download, X, ZoomIn, Loader2, ImageOff, ImagePlus, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
@@ -13,6 +13,7 @@ interface GalleryImage {
   image_url: string
   prompt: string
   created_at: string
+  is_favorite?: boolean
 }
 
 export default function GalleryPage() {
@@ -28,7 +29,7 @@ export default function GalleryPage() {
 
     const { data, error } = await supabase
       .from('images')
-      .select('id, image_url, prompt, created_at')
+      .select('id, image_url, prompt, created_at, is_favorite')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false })
 
@@ -43,6 +44,18 @@ export default function GalleryPage() {
   useEffect(() => {
     fetchImages()
   }, [fetchImages])
+
+  async function toggleFavorite(img: GalleryImage) {
+    const newVal = !img.is_favorite
+    setImages(prev => prev.map(i => i.id === img.id ? { ...i, is_favorite: newVal } : i))
+    if (selectedImage?.id === img.id) setSelectedImage(prev => prev ? { ...prev, is_favorite: newVal } : null)
+    const { error } = await supabase.from('images').update({ is_favorite: newVal }).eq('id', img.id)
+    if (error) {
+      toast.error('Could not update favorite.')
+      // revert
+      setImages(prev => prev.map(i => i.id === img.id ? { ...i, is_favorite: img.is_favorite } : i))
+    }
+  }
 
   async function handleDownload(img: GalleryImage) {
     try {
@@ -99,6 +112,18 @@ export default function GalleryPage() {
                 className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
+              {/* Preset label badge */}
+              {img.prompt && (
+                <div className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-1 rounded-full truncate max-w-[80%]">
+                  {img.prompt.split(' ').slice(0, 4).join(' ')}
+                </div>
+              )}
+              {/* Favorite badge */}
+              {img.is_favorite && (
+                <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
+                  <Heart className="w-3.5 h-3.5 text-white fill-white" />
+                </div>
+              )}
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                 <button
                   className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white transition-colors"
@@ -113,6 +138,13 @@ export default function GalleryPage() {
                   onClick={(e) => { e.stopPropagation(); handleDownload(img) }}
                 >
                   <Download className="h-5 w-5" />
+                </button>
+                <button
+                  className={`p-2 rounded-full backdrop-blur-sm transition-colors ${img.is_favorite ? 'bg-red-500 text-white' : 'bg-white/10 hover:bg-red-500/40 text-white'}`}
+                  title="Favorite"
+                  onClick={(e) => { e.stopPropagation(); toggleFavorite(img) }}
+                >
+                  <Heart className={`h-5 w-5 ${img.is_favorite ? 'fill-white' : ''}`} />
                 </button>
               </div>
             </motion.div>

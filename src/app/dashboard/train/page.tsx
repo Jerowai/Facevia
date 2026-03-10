@@ -1,162 +1,222 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
-import { Loader2, UploadCloud } from 'lucide-react'
+import { Loader2, UploadCloud, X, CheckCircle2 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+interface PreviewFile {
+  file: File
+  preview: string
+  id: string
+}
+
+const STEPS = [
+  { n: 1, label: 'Upload Photos' },
+  { n: 2, label: 'AI Training' },
+  { n: 3, label: 'Generate Photos' },
+]
+
+const GOOD_TIPS = [
+  'Clear face, well lit',
+  'Multiple angles',
+  'Natural expressions',
+  'Different outfits / backgrounds',
+]
+const BAD_TIPS = [
+  'Sunglasses or hats',
+  'Dark or blurry shots',
+  'Group photos',
+  'Heavy filters',
+]
 
 export default function TrainPage() {
-  const [files, setFiles] = useState<File[]>([])
+  const [previews, setPreviews] = useState<PreviewFile[]>([])
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const supabase = createClient()
 
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    if (e.target.files) {
-      const selectedFiles = Array.from(e.target.files)
-      // Validate length and type
-      if (selectedFiles.length < 10 || selectedFiles.length > 20) {
-        toast.error('Please select between 10 and 20 photos.')
-        return
-      }
-      
-      const validTypes = ['image/jpeg', 'image/png']
-      const invalidFiles = selectedFiles.filter(f => !validTypes.includes(f.type) || f.size > 10 * 1024 * 1024)
-      if (invalidFiles.length > 0) {
-        toast.error('Only JPG/PNG under 10MB are allowed.')
-        return
-      }
-
-      setFiles(selectedFiles)
+  const addFiles = useCallback((incoming: FileList | null) => {
+    if (!incoming) return
+    const valid = Array.from(incoming).filter(
+      f => ['image/jpeg', 'image/png', 'image/webp'].includes(f.type) && f.size <= 10 * 1024 * 1024
+    )
+    if (Array.from(incoming).length !== valid.length) {
+      toast.error('Some files were skipped — only JPG/PNG/WebP under 10 MB accepted.')
     }
+    const newPreviews: PreviewFile[] = valid.map(file => ({
+      file,
+      preview: URL.createObjectURL(file),
+      id: Math.random().toString(36).slice(2),
+    }))
+    setPreviews(prev => {
+      const combined = [...prev, ...newPreviews]
+      if (combined.length > 20) {
+        toast.error('Maximum 20 photos allowed. Extra files were removed.')
+        return combined.slice(0, 20)
+      }
+      return combined
+    })
+  }, [])
+
+  function removePreview(id: string) {
+    setPreviews(prev => {
+      const item = prev.find(p => p.id === id)
+      if (item) URL.revokeObjectURL(item.preview)
+      return prev.filter(p => p.id !== id)
+    })
   }
 
-  async function handleUploadAndCheckout() {
-    if (files.length === 0) return
+  function handleDrop(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault()
+    addFiles(e.dataTransfer.files)
+  }
+
+  async function handleSubmit() {
+    if (previews.length < 10) { toast.error('Please select at least 10 photos.'); return }
     setLoading(true)
 
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user) {
-      toast.error('You must be logged in')
-      router.push('/login')
-      return;
-    }
-
-    // 1. Upload files to Supabase Storage
-    const uploadPromises = files.map(async (file) => {
-      const fileExt = file.name.split('.').pop()
-      const fileName = `${Math.random().toString(36).substring(2, 15)}.${fileExt}`
-      const filePath = `${user.id}/${fileName}`
-
-      const { error } = await supabase.storage
-        .from('user-training-images')
-        .upload(filePath, file)
-
-      if (error) {
-        console.error('Error uploading:', error)
-        throw new Error(`Upload Failed: ${error.message}`)
-      }
-      
-      return filePath;
-    })
+    if (!user) { toast.error('Please log in first.'); router.push('/login'); return }
 
     try {
-      const uploadedPaths = await Promise.all(uploadPromises)
-      
-      // 2. Start Model Training via Backend API
+      const uploadedPaths: string[] = []
+      for (const p of previews) {
+        const ext = p.file.name.split('.').pop()
+        const path = `${user.id}/${Math.random().toString(36).slice(2)}.${ext}`
+        const { error } = await supabase.storage.from('user-training-images').upload(path, p.file)
+        if (error) throw new Error(`Upload failed: ${error.message}`)
+        uploadedPaths.push(path)
+      }
+
       const res = await fetch('/api/train', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ filePaths: uploadedPaths })
+        body: JSON.stringify({ filePaths: uploadedPaths }),
       })
-      
       const data = await res.json()
-      
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to start training model.')
-      }
+      if (!res.ok) throw new Error(data.error || 'Failed to start training.')
 
-      toast.success('Photos uploaded successfully! Your model is now training.')
-      router.push('/dashboard')
-
+      toast.success('Training started!')
+      router.push(data.model?.id ? `/dashboard/training/${data.model.id}` : '/dashboard')
     } catch (err: any) {
-      toast.error(err.message || 'An error occurred during upload.')
+      toast.error(err.message || 'An error occurred.')
       setLoading(false)
     }
   }
 
+  const count = previews.length
+  const ready = count >= 10
+
   return (
-    <div className="flex-1 p-8 max-w-4xl mx-auto w-full">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Create Your AI</h1>
-        <p className="text-gray-400">Teach the AI your facial features to generate stunning dating photos.</p>
+    <div className="flex-1 p-6 md:p-8 max-w-5xl mx-auto w-full space-y-8">
+      {/* Header */}
+      <div>
+        <h1 className="text-3xl font-bold text-white tracking-tight mb-1">Upload Your Photos</h1>
+        <p className="text-gray-400">Upload 10–20 clear selfies so the AI can learn your unique facial features.</p>
       </div>
 
-      <Card className="glass-card border-white/10 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#6C63FF] via-[#00E5FF] to-[#9D4EDD]"></div>
-        <CardHeader className="pb-4">
-          <CardTitle className="text-xl text-white">Upload Selfies</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-8">
-          <div className="border-2 border-dashed border-white/20 rounded-2xl p-12 text-center hover:bg-[#6C63FF]/10 transition-colors relative group">
-            <input
-              type="file"
-              multiple
-              accept="image/jpeg,image/png"
-              onChange={handleFileChange}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-              disabled={loading}
-            />
-            <div className="flex flex-col items-center justify-center space-y-4 pointer-events-none">
-              <div className="p-4 bg-white/5 rounded-full group-hover:scale-110 transition-transform">
-                <UploadCloud className="h-12 w-12 text-[#00E5FF]" />
-              </div>
-              <div>
-                <p className="font-semibold text-lg text-white">
-                  {files.length > 0 ? `${files.length} photos ready` : 'Drag & drop your selfies here'}
-                </p>
-                <p className="text-sm text-gray-400 mt-1">
-                  Or click anywhere to browse your files
-                </p>
-              </div>
-              <div className="text-xs font-medium text-[#F72585] bg-[#F72585]/10 px-3 py-1 rounded-full">
-                Requires 10-20 photos • JPG/PNG • Max 10MB
-              </div>
+      {/* Progress Steps */}
+      <div className="flex items-center gap-2">
+        {STEPS.map((s, i) => (
+          <div key={s.n} className="flex items-center gap-2">
+            <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold ${s.n === 1 ? 'bg-[#ec4899] text-white' : 'bg-white/5 text-gray-500'}`}>
+              {s.n === 1 ? <CheckCircle2 className="w-3.5 h-3.5" /> : <span className="w-3.5 h-3.5 rounded-full border border-current flex items-center justify-center text-[10px]">{s.n}</span>}
+              {s.label}
             </div>
+            {i < 2 && <div className="w-6 h-px bg-white/10" />}
           </div>
-          
-          <Button 
-            className="w-full h-14 text-lg bg-primary-gradient glow-effect border-0 text-white rounded-xl hover:opacity-90 font-semibold" 
-            onClick={handleUploadAndCheckout} 
-            disabled={files.length < 10 || loading}
-          >
-            {loading ? (
-              <>
-                <Loader2 className="mr-2 h-6 w-6 animate-spin text-white" />
-                <span>Uploading & Training...</span>
-              </>
-            ) : (
-              <span>Train My AI Model</span>
-            )}
-          </Button>
-        </CardContent>
-      </Card>
-      
-      <div className="mt-8 text-sm text-gray-400 glass-card p-6 rounded-2xl">
-        <h4 className="font-semibold text-white mb-3 text-base flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#00E5FF]"></span> 
-          Perfect Photo Guidelines
-        </h4>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <li className="flex items-center gap-2"><span className="text-[#6C63FF]">✓</span> Different angles and lighting</li>
-          <li className="flex items-center gap-2"><span className="text-[#6C63FF]">✓</span> Clear, unobstructed face</li>
-          <li className="flex items-center gap-2"><span className="text-[#F72585]">✕</span> No sunglasses or heavy makeup</li>
-          <li className="flex items-center gap-2"><span className="text-[#F72585]">✕</span> Only photos of yourself</li>
-        </ul>
+        ))}
       </div>
+
+      {/* Upload Drop Zone */}
+      <div
+        onDrop={handleDrop}
+        onDragOver={e => e.preventDefault()}
+        className="relative border-2 border-dashed border-white/20 rounded-3xl p-10 text-center hover:border-[#ec4899]/60 hover:bg-[#ec4899]/5 transition-all group cursor-pointer"
+        onClick={() => document.getElementById('file-input')?.click()}
+      >
+        <input
+          id="file-input"
+          type="file"
+          multiple
+          accept="image/jpeg,image/png,image/webp"
+          className="hidden"
+          onChange={e => addFiles(e.target.files)}
+          disabled={loading}
+        />
+        <UploadCloud className="mx-auto mb-4 h-12 w-12 text-gray-500 group-hover:text-[#ec4899] transition-colors" />
+        <p className="font-semibold text-white text-lg mb-1">Drag & drop photos here</p>
+        <p className="text-gray-400 text-sm mb-4">or click to browse files</p>
+        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold ${ready ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/5 text-gray-400'}`}>
+          {count > 0 ? `${count} / 20 photos selected` : '0 / 20 photos selected'} {ready && '✓ Ready'}
+        </div>
+      </div>
+
+      {/* Thumbnail Grid */}
+      {previews.length > 0 && (
+        <div>
+          <p className="text-sm text-gray-400 mb-3 font-medium">Selected Photos</p>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+            <AnimatePresence>
+              {previews.map(p => (
+                <motion.div
+                  key={p.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative aspect-square rounded-xl overflow-hidden group border border-white/10"
+                >
+                  <img src={p.preview} alt="" className="w-full h-full object-cover" />
+                  <button
+                    onClick={e => { e.stopPropagation(); removePreview(p.id) }}
+                    disabled={loading}
+                    className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/70 hover:bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
+
+      {/* Guidelines */}
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-5">
+          <p className="text-emerald-400 font-semibold text-sm mb-3 flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4" /> Good Photos
+          </p>
+          <ul className="space-y-1.5">
+            {GOOD_TIPS.map(t => <li key={t} className="text-sm text-gray-300 flex items-center gap-2"><span className="text-emerald-400">✓</span>{t}</li>)}
+          </ul>
+        </div>
+        <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-5">
+          <p className="text-red-400 font-semibold text-sm mb-3 flex items-center gap-2">
+            <X className="w-4 h-4" /> Avoid These
+          </p>
+          <ul className="space-y-1.5">
+            {BAD_TIPS.map(t => <li key={t} className="text-sm text-gray-300 flex items-center gap-2"><span className="text-red-400">✕</span>{t}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <button
+        onClick={handleSubmit}
+        disabled={!ready || loading}
+        className="w-full h-14 rounded-2xl bg-gradient-to-r from-[#ec4899] to-[#be185d] text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_0_30px_rgba(236,72,153,0.3)]"
+      >
+        {loading ? (
+          <><Loader2 className="w-5 h-5 animate-spin" /> Uploading &amp; Starting Training...</>
+        ) : (
+          <>Upload &amp; Start Training {!ready && `(need ${10 - count} more)`}</>
+        )}
+      </button>
     </div>
   )
 }

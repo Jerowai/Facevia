@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Upload, ImageIcon, ImagePlus, Loader2 } from 'lucide-react'
+import { Upload, ImageIcon, ImagePlus, Loader2, Coins, Plus } from 'lucide-react'
 import { AutoRefresh } from '@/components/dashboard/auto-refresh'
 import { motion } from "framer-motion";
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -30,10 +30,12 @@ const itemVariants = {
 
 export function DashboardContent({
   models,
-  user
+  user,
+  credits = 0,
 }: {
   models: Model[] | null,
-  user: any
+  user: any,
+  credits?: number,
 }) {
   const hasTrainingModels = models?.some(model => model.status === 'training')
   const trainingModelIds = models?.filter(m => m.status === 'training').map(m => m.id) || []
@@ -50,6 +52,26 @@ export function DashboardContent({
       <motion.div variants={itemVariants}>
         <h1 className="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
         <p className="text-gray-400">Manage your AI models and generate professional dating photos.</p>
+      </motion.div>
+
+      {/* ── Credits Widget ──────────────────────────── */}
+      <motion.div variants={itemVariants}>
+        <div className={`rounded-2xl border p-5 flex items-center justify-between ${credits < 5 ? 'border-orange-500/30 bg-orange-500/5' : 'border-white/10 bg-white/3'}`}>
+          <div className="flex items-center gap-4">
+            <div className={`w-11 h-11 rounded-full flex items-center justify-center ${credits < 5 ? 'bg-orange-500/20' : 'bg-[#ec4899]/20'}`}>
+              <Coins className={`w-5 h-5 ${credits < 5 ? 'text-orange-400' : 'text-[#ec4899]'}`} />
+            </div>
+            <div>
+              <p className="text-white font-bold text-2xl">{credits}</p>
+              <p className="text-gray-400 text-sm">credits remaining{credits < 5 ? ' — running low!' : ''}</p>
+            </div>
+          </div>
+          <Link href="/#pricing">
+            <Button size="sm" className={`gap-1.5 ${credits < 5 ? 'bg-orange-500 hover:bg-orange-600 text-white border-0' : 'bg-white/10 hover:bg-white/15 text-white border border-white/10'}`}>
+              <Plus className="w-4 h-4" /> Buy Credits
+            </Button>
+          </Link>
+        </div>
       </motion.div>
 
       {/* ── Onboarding Stepper ──────────────────────────── */}
