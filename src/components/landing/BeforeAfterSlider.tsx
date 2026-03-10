@@ -6,41 +6,18 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function BeforeAfterSlider() {
   const { t } = useLanguage();
-  const [isDragging, setIsDragging] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [val, setVal] = useState(50);
 
   // Motion value for the slider position (0 to 100)
   const sliderPos = useMotionValue(50);
   const smoothSliderPos = useSpring(sliderPos, { stiffness: 300, damping: 30 });
 
+  useEffect(() => {
+    sliderPos.set(val);
+  }, [val, sliderPos]);
+
   const clipPath = useTransform(smoothSliderPos, (value) => `inset(0 ${100 - value}% 0 0)`);
   const leftPos = useTransform(smoothSliderPos, (value) => `${value}%`);
-
-  const handleMove = (clientX: number) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    const percent = (x / rect.width) * 100;
-    sliderPos.set(percent);
-  };
-
-  const onMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) handleMove(e.clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (isDragging) handleMove(e.touches[0].clientX);
-  };
-
-  useEffect(() => {
-    const handleMouseUp = () => setIsDragging(false);
-    window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("touchend", handleMouseUp);
-    return () => {
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchend", handleMouseUp);
-    };
-  }, []);
 
   return (
     <section id="comparison" className="py-24 px-6 bg-[#0F172A] relative overflow-hidden">
@@ -56,19 +33,24 @@ export function BeforeAfterSlider() {
         </motion.div>
 
         <div
-          ref={containerRef}
-          className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl"
-          onMouseMove={onMouseMove}
-          onTouchMove={onTouchMove}
-          onMouseDown={() => setIsDragging(true)}
-          onTouchStart={() => setIsDragging(true)}
+          className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden select-none border border-white/10 shadow-2xl"
         >
+          {/* Native invisible range slider for perfect mobile/desktop interaction */}
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={val}
+            onChange={(e) => setVal(parseFloat(e.target.value))}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50 touch-pan-y"
+            aria-label="Before and after comparison slider"
+          />
           {/* After View (Bottom Layer) */}
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=2574"
               alt="Average Selfie"
-              className="w-full h-full object-cover blur-[2px] brightness-75 contrast-75 sepia-[0.2]"
+              className="w-full h-full object-cover brightness-50 grayscale md:grayscale-0 md:blur-[2px] md:brightness-75 md:contrast-75 md:sepia-[0.2]"
             />
             <div className="absolute bottom-6 right-6 px-5 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white/90 font-bold text-[10px] sm:text-xs tracking-wider uppercase">
               {t('beforeAfter.before')}

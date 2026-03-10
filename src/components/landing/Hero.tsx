@@ -15,10 +15,10 @@ export function Hero() {
         <AnimatedBackground />
 
         {/* Adds a slight dark overlay to ensure sexy/moody colors pop */}
-        <div className="absolute inset-0 bg-[#090b14]/70 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-[#090b14]/80 md:bg-[#090b14]/70 md:backdrop-blur-[2px]"></div>
 
         {/* Accent glow behind text */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#ec4899] rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#ec4899] rounded-full blur-[80px] md:blur-[150px] opacity-10 pointer-events-none"></div>
       </div>
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full pl-4 md:pl-8 lg:pl-16">

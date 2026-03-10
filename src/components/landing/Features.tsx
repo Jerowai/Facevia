@@ -4,9 +4,18 @@ import { motion } from "framer-motion";
 import { Zap, Shield, Camera, Users, Sparkles, Smartphone } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { useState, useEffect } from "react";
 
 export function Features() {
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(true); // Default to true to prevent initial heavy load
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const getFeatures = () => [
     {
@@ -85,8 +94,8 @@ export function Features() {
                 <GlowingEffect
                   spread={40}
                   glow={true}
-                  disabled={false}
-                  proximity={64}
+                  disabled={isMobile}
+                  proximity={isMobile ? 0 : 64}
                   inactiveZone={0.01}
                   borderWidth={2}
                 />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { RippleButton } from "@/components/multi-type-ripple-buttons";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // ── WebGL animated ring background (adapted to Facevia dark palette) ──────────
@@ -270,6 +270,14 @@ function PricingCard({
 // ── Section wrapper ───────────────────────────────────────────────────────────
 export function Pricing() {
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const PLANS = [
     {
@@ -330,11 +338,11 @@ export function Pricing() {
   return (
     <section id="pricing" className="relative py-28 px-6 bg-[#0F172A] overflow-hidden">
       {/* WebGL animated ring */}
-      <FaceviaShaderBg />
+      {!isMobile && <FaceviaShaderBg />}
 
       {/* Radial purple glow behind cards */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[700px] h-[400px] rounded-full blur-[120px] opacity-20"
+        <div className="w-[400px] h-[300px] md:w-[700px] md:h-[400px] rounded-full blur-[80px] md:blur-[120px] opacity-15 md:opacity-20"
           style={{ background: "radial-gradient(ellipse, #9D4EDD 0%, transparent 70%)" }}
         />
       </div>
