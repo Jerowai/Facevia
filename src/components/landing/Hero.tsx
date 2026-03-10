@@ -77,7 +77,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
             >
               <Button asChild size="lg" className="h-14 sm:h-16 px-6 sm:px-10 rounded-md font-bold text-lg sm:text-xl bg-[#ec4899] text-white hover:bg-[#db2777] transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(236,72,153,0.4)] border-0 w-full sm:w-auto">
-                <Link href="/login?tab=signup">Get My AI Photos</Link>
+                <Link href="/login?tab=signup">Generate My AI Photos</Link>
               </Button>
             </motion.div>
 

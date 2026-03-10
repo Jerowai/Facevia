@@ -3,9 +3,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
-import { Download, X, ZoomIn, Loader2, ImageOff } from 'lucide-react'
+import { Download, X, ZoomIn, Loader2, ImageOff, ImagePlus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 
 interface GalleryImage {
   id: string
@@ -145,6 +146,12 @@ export default function GalleryPage() {
               <div className="p-4 flex items-center justify-between gap-4">
                 <p className="text-xs text-gray-400 truncate flex-1">{selectedImage.prompt}</p>
                 <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/dashboard/generate"
+                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-colors border border-white/10"
+                  >
+                    <ImagePlus className="h-4 w-4" /> Generate More
+                  </Link>
                   <Button
                     size="sm"
                     onClick={() => handleDownload(selectedImage)}
