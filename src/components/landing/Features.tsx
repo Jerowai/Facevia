@@ -3,72 +3,75 @@
 import { motion } from "framer-motion";
 import { Zap, Shield, Camera, Users, Sparkles, Smartphone } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-
-const FEATURES = [
-  {
-    icon: <Zap className="w-6 h-6 text-[#00E5FF]" />,
-    title: "Instant Results",
-    description: "Our high-speed GPU cluster processes your AI model in minutes, not hours.",
-    area: "md:[grid-area:1/1/2/2]",
-  },
-  {
-    icon: <Shield className="w-6 h-6 text-[#6C63FF]" />,
-    title: "Privacy First",
-    description: "Your data is encrypted. We never share your selfies or generated photos with third parties.",
-    area: "md:[grid-area:1/2/2/3]",
-  },
-  {
-    icon: <Camera className="w-6 h-6 text-[#F72585]" />,
-    title: "Pro Photography",
-    description: "Get the look of a $1,000 professional photoshoot for a fraction of the cost.",
-    area: "md:[grid-area:1/3/2/4]",
-  },
-  {
-    icon: <Sparkles className="w-6 h-6 text-[#00E5FF]" />,
-    title: "AI Perfection",
-    description: "Advanced face-matching ensures you look like your best self in every shot.",
-    area: "md:[grid-area:2/1/3/2]",
-  },
-  {
-    icon: <Users className="w-6 h-6 text-[#6C63FF]" />,
-    title: "Match Guarantee",
-    description: "Join thousands of users who have tripled their matches on Tinder, Bumble, and Hinge.",
-    area: "md:[grid-area:2/2/3/3]",
-  },
-  {
-    icon: <Smartphone className="w-6 h-6 text-[#F72585]" />,
-    title: "App Optimized",
-    description: "Images are generated in 4:5 aspect ratio, optimized for all major dating platforms.",
-    area: "md:[grid-area:2/3/3/4]",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Features() {
+  const { t } = useLanguage();
+
+  const getFeatures = () => [
+    {
+      icon: <Zap className="w-6 h-6 text-[#00E5FF]" />,
+      title: t('features.f1.title'),
+      description: t('features.f1.desc'),
+      area: "md:[grid-area:1/1/2/2]",
+    },
+    {
+      icon: <Shield className="w-6 h-6 text-[#6C63FF]" />,
+      title: t('features.f2.title'),
+      description: t('features.f2.desc'),
+      area: "md:[grid-area:1/2/2/3]",
+    },
+    {
+      icon: <Camera className="w-6 h-6 text-[#F72585]" />,
+      title: t('features.f3.title'),
+      description: t('features.f3.desc'),
+      area: "md:[grid-area:1/3/2/4]",
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-[#00E5FF]" />,
+      title: t('features.f4.title'),
+      description: t('features.f4.desc'),
+      area: "md:[grid-area:2/1/3/2]",
+    },
+    {
+      icon: <Users className="w-6 h-6 text-[#6C63FF]" />,
+      title: t('features.f5.title'),
+      description: t('features.f5.desc'),
+      area: "md:[grid-area:2/2/3/3]",
+    },
+    {
+      icon: <Smartphone className="w-6 h-6 text-[#F72585]" />,
+      title: t('features.f6.title'),
+      description: t('features.f6.desc'),
+      area: "md:[grid-area:2/3/3/4]",
+    },
+  ];
+
   return (
     <section id="how-it-works" className="py-24 px-6 bg-[#0F172A]">
       <div className="container max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-white mb-4"
           >
-            Why choose Facevia?
+            {t('features.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
+            className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-4"
           >
-            The world's most advanced AI engine specifically trained for dating profile success.
+            {t('features.subtitle')}
           </motion.p>
         </div>
 
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {FEATURES.map((feature, index) => (
+          {getFeatures().map((feature, index) => (
             <motion.li
               key={index}
               initial={{ opacity: 0, y: 20 }}

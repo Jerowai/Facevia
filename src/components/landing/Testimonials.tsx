@@ -2,39 +2,41 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-
-const REVIEWS = [
-  {
-    name: "Alex Thompson",
-    role: "Product Designer",
-    image: "https://i.pravatar.cc/100?img=12",
-    text: "I was skeptical about AI photos, but Facevia blew me away. My match rate on Hinge literally tripled in the first week. The photos look exactly like me on a very good day.",
-  },
-  {
-    name: "Sarah Miller",
-    role: "Marketing Manager",
-    image: "https://i.pravatar.cc/100?img=47",
-    text: "Used this to refresh my Bumble profile. The 'Coffee Shop Candid' preset is incredible. It looks like a high-end professional shoot without the awkwardness.",
-  },
-  {
-    name: "James Wilson",
-    role: "Software Engineer",
-    image: "https://i.pravatar.cc/100?img=33",
-    text: "The best $49 I've spent. Simple process, fast results, and actually high-quality images. Finally have a profile I'm confident about.",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Testimonials() {
+  const { t } = useLanguage();
+
+  const getReviews = () => [
+    {
+      name: t('testimonials.t1.name'),
+      role: t('testimonials.t1.role'),
+      image: "https://i.pravatar.cc/100?img=12",
+      text: t('testimonials.t1.text'),
+    },
+    {
+      name: t('testimonials.t2.name'),
+      role: t('testimonials.t2.role'),
+      image: "https://i.pravatar.cc/100?img=47",
+      text: t('testimonials.t2.text'),
+    },
+    {
+      name: t('testimonials.t3.name'),
+      role: t('testimonials.t3.role'),
+      image: "https://i.pravatar.cc/100?img=33",
+      text: t('testimonials.t3.text'),
+    },
+  ];
+
   return (
     <section id="testimonials" className="py-24 px-6 bg-[#0F172A]">
       <div className="container max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Loved by <span className="text-gradient">thousands</span></h2>
-          <p className="text-gray-400 text-lg">Join the people who have transformed their dating experience.</p>
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('testimonials.title')}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {REVIEWS.map((review, index) => (
+          {getReviews().map((review, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -48,7 +50,7 @@ export function Testimonials() {
                   <Star key={i} className="w-4 h-4 fill-[#00E5FF] text-[#00E5FF]" />
                 ))}
               </div>
-              
+
               <p className="text-gray-300 text-lg italic mb-8 leading-relaxed">
                 "{review.text}"
               </p>

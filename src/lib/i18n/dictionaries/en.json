@@ -1,0 +1,169 @@
+{
+    "nav": {
+        "photos": "Photos",
+        "features": "Features",
+        "pricing": "Pricing",
+        "reviews": "Reviews",
+        "dashboard": "Dashboard",
+        "signOut": "Sign Out",
+        "login": "Log in",
+        "cta": "GET MY AI PHOTOS"
+    },
+    "hero": {
+        "badge": "Studio Quality AI Portraits",
+        "title1": "Professional Photos",
+        "title2": "in Settings.",
+        "subtitle": "Stop paying hundreds of dollars for professional photo shoots. Simply upload a few casual photos and our AI will generate extremely realistic images of you in beautiful settings.",
+        "cta": "GET MY PHOTOS NOW",
+        "scroll": "Scroll to discover",
+        "guarantee": "100% Money Back Guarantee"
+    },
+    "howItWorks": {
+        "title": "How it works?",
+        "subtitle": "Three simple steps to your best dating profile ever.",
+        "step1": {
+            "title": "Select a Style",
+            "desc": "Choose from dozens of professional styles, from corporate to casual."
+        },
+        "step2": {
+            "title": "Upload Photos",
+            "desc": "Upload 4-10 photos of yourself. Regular selfies are perfectly fine."
+        },
+        "step3": {
+            "title": "Get Results",
+            "desc": "Our AI works its magic and delivers your stunning new photos in minutes."
+        }
+    },
+    "photoGrid": {
+        "title1": "Built for",
+        "title2": "high-quality matches",
+        "subtitle": "Our AI generates photos that look completely natural. No more awkward selfies or blurry shots.",
+        "badge": "AI Generated"
+    },
+    "features": {
+        "title": "Why you 'll love us?",
+        "subtitle": "The world's most advanced AI engine specifically trained for dating profile success.",
+        "f1": {
+            "title": "Ultra-Realistic Quality",
+            "desc": "Our advanced AI models generate photos that look exactly like you, just in better settings with perfect lighting."
+        },
+        "f2": {
+            "title": "Lightning Fast",
+            "desc": "Get your professional photos in under 5 minutes. No more waiting days for a photographer to edit."
+        },
+        "f3": {
+            "title": "Affordable Pricing",
+            "desc": "Get dozens of photos for a fraction of the cost of a traditional professional photo shoot."
+        },
+        "f4": {
+            "title": "Privacy First",
+            "desc": "Your photos are encrypted and automatically deleted from our servers after 24 hours."
+        },
+        "f5": {
+            "title": "Match Guarantee",
+            "desc": "Join thousands of users who have tripled their matches on Tinder, Bumble, and Hinge."
+        },
+        "f6": {
+            "title": "App Optimized",
+            "desc": "Images are generated in 4:5 aspect ratio, optimized for all major dating platforms."
+        }
+    },
+    "beforeAfter": {
+        "title": "From ordinary to irresistible",
+        "subtitle": "Drag the slider to see how Facevia creates the ultimate dating profile.",
+        "before": "Average Selfie",
+        "after": "Facevia AI Match"
+    },
+    "pricing": {
+        "title1": "Simple,",
+        "title2": "transparent",
+        "title3": "pricing",
+        "subtitle": "Invest in your dating life. One-time payments, no subscriptions.",
+        "oneTime": "one-time",
+        "starter": "Starter",
+        "starterDesc": "Perfect for a profile refresh.",
+        "pro": "Pro",
+        "proDesc": "Our most popular match-making plan.",
+        "elite": "Elite",
+        "eliteDesc": "Maximum dating profile domination.",
+        "buy": "Start Now",
+        "buyPro": "Get Pro Access",
+        "buyElite": "Go Elite",
+        "trust": "🔒 Secure payment · 30-day money-back guarantee · Cancel anytime",
+        "features": {
+            "training": "AI Model training",
+            "photos": "AI Generated photos",
+            "standard": "Standard presets",
+            "premium": "All premium presets",
+            "luxury": "Rooftop & Luxury styles",
+            "allPresets": "All presets + Custom prompts",
+            "ready": "Ready in 15 mins",
+            "priority": "Priority processing",
+            "commercial": "Commercial license",
+            "support": "Dedicated support"
+        }
+    },
+    "testimonials": {
+        "title": "Loved by thousands",
+        "t1": {
+            "text": "I was skeptical at first, but the results blew me away. I use these for my LinkedIn and got so many compliments.",
+            "name": "Sarah J.",
+            "role": "Marketing Director"
+        },
+        "t2": {
+            "text": "Much better than spending $300 on a headshot photographer. The process was super easy.",
+            "name": "Michael T.",
+            "role": "Software Engineer"
+        },
+        "t3": {
+            "text": "The photos look so natural, nobody could tell they were AI. Highly recommended!",
+            "name": "Emily C.",
+            "role": "Real Estate Agent"
+        }
+    },
+    "cta": {
+        "title": "Ready to upgrade your online presence?",
+        "subtitle": "Join thousands of happy customers and get your professional photos today.",
+        "button": "GET STARTED NOW"
+    },
+    "footer": {
+        "rights": "All rights reserved.",
+        "links": {
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "contact": "Contact Us"
+        }
+    },
+    "presets": {
+        "title1": "Choose your",
+        "title2": "vibe",
+        "subtitle": "Pick a preset style and let our AI do the work. Perfect for any dating profile.",
+        "tryStyle": "Try This Style \u2192",
+        "styles": {
+            "tinderRooftop": {
+                "name": "Tinder Rooftop",
+                "label": "City vibes"
+            },
+            "beachSunset": {
+                "name": "Beach Sunset",
+                "label": "Summer feel"
+            },
+            "coffeeShopCandid": {
+                "name": "Coffee Shop Candid",
+                "label": "Warm & cozy"
+            },
+            "gymLifestyle": {
+                "name": "Gym Lifestyle",
+                "label": "Fit & active"
+            },
+            "travelStreet": {
+                "name": "Travel Street",
+                "label": "Adventurous"
+            },
+            "luxuryRestaurant": {
+                "name": "Luxury Restaurant",
+                "label": "Fine dining"
+            }
+        }
+    }
+}

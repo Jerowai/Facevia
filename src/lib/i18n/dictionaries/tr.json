@@ -1,0 +1,169 @@
+{
+    "nav": {
+        "photos": "Fotoğraflar",
+        "features": "Özellikler",
+        "pricing": "Fiyatlandırma",
+        "reviews": "Yorumlar",
+        "dashboard": "Panel",
+        "signOut": "Çıkış Yap",
+        "login": "Giriş Yap",
+        "cta": "YAPAY ZEKA FOTOĞRAFLARIMI AL"
+    },
+    "hero": {
+        "badge": "Stüdyo Kalitesinde Yapay Zeka Portreleri",
+        "title1": "Saniyeler İçinde",
+        "title2": "Profesyonel Fotoğraflar.",
+        "subtitle": "Profesyonel fotoğraf çekimleri için yüzlerce dolar ödemeyi bırakın. Sadece birkaç günlük fotoğrafınızı yükleyin ve yapay zekamız, sizi muhteşem ortamlarda son derece gerçekçi görüntülerle oluştursun.",
+        "cta": "FOTOĞRAFLARIMI HEMEN AL",
+        "scroll": "Keşfetmek için kaydır",
+        "guarantee": "%100 Para İade Garantisi"
+    },
+    "howItWorks": {
+        "title": "Nasıl çalışır?",
+        "subtitle": "Bugüne kadarki en iyi çöpçatanlık profiliniz için üç basit adım.",
+        "step1": {
+            "title": "Bir Stil Seç",
+            "desc": "Kurumsaldan günlüğe kadar düzinelerce profesyonel stil arasından seçim yap."
+        },
+        "step2": {
+            "title": "Fotoğraf Yükle",
+            "desc": "Kendisinin 4-10 arası fotoğrafını yükle. Normal özçekimler gayet uygun."
+        },
+        "step3": {
+            "title": "Sonuçları Al",
+            "desc": "Yapay zekamız sihrini yapar ve dakikalar içinde yeni fotoğraflarını teslim eder."
+        }
+    },
+    "photoGrid": {
+        "title1": "Kaliteli eşleşmeler",
+        "title2": "için tasarlandı",
+        "subtitle": "Yapay zekamız tamamen doğal görünen fotoğraflar üretiyor. Artık garip özçekimler veya bulanık çekimler yok.",
+        "badge": "Yapay Zeka"
+    },
+    "features": {
+        "title": "Bizi neden seveceksin?",
+        "subtitle": "Flört profili başarısı için özel olarak eğitilmiş, dünyanın en gelişmiş yapay zeka motoru.",
+        "f1": {
+            "title": "Ultra-Gerçekçi Kalite",
+            "desc": "Gelişmiş AI modellerimiz kusursuz ışıklandırma ile tamamen sana benzeyen fotoğraflar üretir."
+        },
+        "f2": {
+            "title": "Işık Hızında",
+            "desc": "Profesyonel fotoğraflarını 5 dakikadan kısa sürede al. Düzenleme için günlerce beklemeye son."
+        },
+        "f3": {
+            "title": "Uygun Fiyatlı",
+            "desc": "Geleneksel bir fotoğrafçının maliyetinin çok küçük bir kısmına düzinelerce fotoğraf elde et."
+        },
+        "f4": {
+            "title": "Önce Gizlilik",
+            "desc": "Fotoğrafların şifrelenir ve 24 saat sonra sunucularımızdan otomatik olarak silinir."
+        },
+        "f5": {
+            "title": "Eşleşme Garantisi",
+            "desc": "Tinder, Bumble ve Hinge'deki eşleşmelerini üçe katlayan binlerce kullanıcıya katıl."
+        },
+        "f6": {
+            "title": "Uygulama Optimize",
+            "desc": "Görüntüler tüm büyük çöpçatanlık platformları için optimize edilmiş 4:5 en boy oranında oluşturulur."
+        }
+    },
+    "beforeAfter": {
+        "title": "Sıradanlıktan karşı konulmazlığa",
+        "subtitle": "Facevia'nın nihai çöpçatanlık profilini nasıl oluşturduğunu görmek için kaydırıcıyı sürükle.",
+        "before": "Sıradan Özçekim",
+        "after": "Facevia AI Eşleşmesi"
+    },
+    "pricing": {
+        "title1": "Basit,",
+        "title2": "şeffaf",
+        "title3": "fiyatlandırma",
+        "subtitle": "Flört hayatına yatırım yap. Tek seferlik ödemeler, abonelik YOK.",
+        "oneTime": "tek-seferlik",
+        "starter": "Başlangıç",
+        "starterDesc": "Profil yenileme için mükemmel.",
+        "pro": "Pro",
+        "proDesc": "En popüler çöpçatanlık planımız.",
+        "elite": "Elite",
+        "eliteDesc": "Maksimum profil hakimiyeti.",
+        "buy": "Hemen Başla",
+        "buyPro": "Pro Erişimi Al",
+        "buyElite": "Elite Ol",
+        "trust": "🔒 Güvenli ödeme · 30 günlük para iade garantisi · İstediğin zaman iptal et",
+        "features": {
+            "training": "AI Model eğitimi",
+            "photos": "AI Üretilmiş fotoğraf",
+            "standard": "Standart önayarlar",
+            "premium": "Tüm premium önayarlar",
+            "luxury": "Çatı katı ve Lüks stiller",
+            "allPresets": "Tüm önayarlar + Özel komutlar",
+            "ready": "15 dakikada hazır",
+            "priority": "Öncelikli işlem",
+            "commercial": "Ticari lisans",
+            "support": "Özel destek"
+        }
+    },
+    "testimonials": {
+        "title": "Binlerce kişi tarafından seviliyor",
+        "t1": {
+            "text": "Başlangıçta şüpheliydim ama sonuçlar beni benden aldı. Bunları LinkedIn için kullanıyorum.",
+            "name": "Sarah J.",
+            "role": "Pazarlama Direktörü"
+        },
+        "t2": {
+            "text": "Bir fotoğrafçıya 300 dolar harcamaktan çok daha mantıklı. Süreç çok kolaydı.",
+            "name": "Michael T.",
+            "role": "Yazılım Mühendisi"
+        },
+        "t3": {
+            "text": "Fotoğraflar o kadar doğal ki kimse AI olduğunu anlayamadı. Kesinlikle öneririm!",
+            "name": "Emily C.",
+            "role": "Emlak Danışmanı"
+        }
+    },
+    "cta": {
+        "title": "Dijital varlığını yenilemeye hazır mısın?",
+        "subtitle": "Binlerce mutlu müşteriye katıl ve profesyonel fotoğraflarını bugün al.",
+        "button": "HEMEN BAŞLA"
+    },
+    "footer": {
+        "rights": "Tüm hakları saklıdır.",
+        "links": {
+            "privacy": "Gizlilik Politikası",
+            "terms": "Hizmet Şartları",
+            "contact": "İletişim"
+        }
+    },
+    "presets": {
+        "title1": "Kendi",
+        "title2": "tarzını seç",
+        "subtitle": "Önceden ayarlanmış bir stil seçin ve gerisini yapay zekamıza bırakın. Herhangi bir çöpçatanlık profili için mükemmel.",
+        "tryStyle": "Bu Stili Dene \u2192",
+        "styles": {
+            "tinderRooftop": {
+                "name": "Tinder Çatısı",
+                "label": "Şehir havası"
+            },
+            "beachSunset": {
+                "name": "Sahil Gün Batımı",
+                "label": "Yaz hissi"
+            },
+            "coffeeShopCandid": {
+                "name": "Kahve Dükkanı Doğal",
+                "label": "Sıcak & samimi"
+            },
+            "gymLifestyle": {
+                "name": "Spor Salonu Yaşam Tarzı",
+                "label": "Zinde & aktif"
+            },
+            "travelStreet": {
+                "name": "Sokak Gezisi",
+                "label": "Maceracı"
+            },
+            "luxuryRestaurant": {
+                "name": "Lüks Restoran",
+                "label": "Seçkin yemek"
+            }
+        }
+    }
+}

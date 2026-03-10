@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="py-20 px-6 bg-[#0F172A] border-t border-white/5">
       <div className="container max-w-7xl mx-auto">
@@ -12,30 +15,30 @@ export function Footer() {
               Facevia
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Transforming dating profiles with high-end AI portrait photography. Join the revolution of digital attraction.
+              {t('footer.desc')}
             </p>
           </div>
-          
+
           <div>
-            <h4 className="text-white font-bold mb-6">Product</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.product')}</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="/how-it-works" className="hover:text-white transition-colors">How it works</Link></li>
-              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              <li><Link href="/presets" className="hover:text-white transition-colors">Style Presets</Link></li>
+              <li><Link href="/#how-it-works" className="hover:text-white transition-colors">{t('footer.links.howItWorks')}</Link></li>
+              <li><Link href="/#pricing" className="hover:text-white transition-colors">{t('footer.links.pricing')}</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.styles')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Company</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.company')}</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.privacy')}</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.terms')}</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.cookies')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Social</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.social')}</h4>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link href="#" className="hover:text-white transition-colors">Twitter (X)</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Instagram</Link></li>
@@ -43,14 +46,14 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-xs text-center md:text-left">
-            © {new Date().getFullYear()} Facevia. All rights reserved. Not affiliated with Tinder, Bumble, or Hinge.
+          <p className="text-gray-500 text-[10px] md:text-xs text-center md:text-left">
+            © {new Date().getFullYear()} {t('footer.rights')}
           </p>
           <div className="flex items-center gap-6">
-             <div className="h-2 w-2 rounded-full bg-[#00E5FF] animate-pulse"></div>
-             <p className="text-gray-500 text-xs">AI Systems Operational</p>
+            <div className="h-2 w-2 rounded-full bg-[#00E5FF] animate-pulse"></div>
+            <p className="text-gray-500 text-[10px] md:text-xs">{t('footer.operational')}</p>
           </div>
         </div>
       </div>

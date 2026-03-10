@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import Link from "next/link";
 import { RippleButton } from "@/components/multi-type-ripple-buttons";
 import React, { useRef, useEffect } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // ── WebGL animated ring background (adapted to Facevia dark palette) ──────────
 const FaceviaShaderBg = () => {
@@ -56,13 +57,13 @@ const FaceviaShaderBg = () => {
 
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
     const pos = gl.getAttribLocation(prog, "aPosition");
     gl.enableVertexAttribArray(pos);
     gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
 
     const timeLoc = gl.getUniformLocation(prog, "iTime");
-    const resLoc  = gl.getUniformLocation(prog, "iResolution");
+    const resLoc = gl.getUniformLocation(prog, "iResolution");
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -91,69 +92,14 @@ const FaceviaShaderBg = () => {
   );
 };
 
-// ── Plan data ────────────────────────────────────────────────────────────────
-const PLANS = [
-  {
-    name: "Starter",
-    tierId: "starter",
-    price: "$29",
-    label: "/one-time",
-    description: "Perfect for a profile refresh.",
-    features: [
-      "1 AI Model training",
-      "50+ AI Generated photos",
-      "Standard presets",
-      "Ready in 15 mins",
-    ],
-    cta: "Start Now",
-    popular: false,
-    accent: "#6C63FF",
-    glow: "rgba(108,99,255,0.18)",
-  },
-  {
-    name: "Pro",
-    tierId: "pro",
-    price: "$49",
-    label: "/one-time",
-    description: "Our most popular match-making plan.",
-    features: [
-      "2 AI Model trainings",
-      "120+ AI Generated photos",
-      "All premium presets",
-      "Rooftop & Luxury styles",
-      "Priority processing",
-    ],
-    cta: "Get Pro Access",
-    popular: true,
-    accent: "#9D4EDD",
-    glow: "rgba(157,78,221,0.30)",
-  },
-  {
-    name: "Elite",
-    tierId: "elite",
-    price: "$79",
-    label: "/one-time",
-    description: "Maximum dating profile domination.",
-    features: [
-      "5 AI Model trainings",
-      "300+ AI Generated photos",
-      "All presets + Custom prompts",
-      "Commercial license",
-      "Dedicated support",
-    ],
-    cta: "Go Elite",
-    popular: false,
-    accent: "#F72585",
-    glow: "rgba(247,37,133,0.18)",
-  },
-];
+// ── Plan data is now generated dynamically inside Pricing component ──
 
 // ── Single glassy card ────────────────────────────────────────────────────────
 function PricingCard({
   plan,
   index,
 }: {
-  plan: (typeof PLANS)[0];
+  plan: any;
   index: number;
 }) {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -204,10 +150,10 @@ function PricingCard({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.12 + 0.2 }}
-          className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 px-5 py-1.5 rounded-full text-[11px] font-black tracking-widest uppercase text-white"
+          className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 px-5 py-1.5 rounded-full text-[11px] font-black tracking-widest uppercase text-white whitespace-nowrap"
           style={{ background: `linear-gradient(135deg, #6C63FF, #9D4EDD)` }}
         >
-          ⭐ Most Popular
+          ⭐ {plan.popularText || "Most Popular"}
         </motion.div>
       )}
 
@@ -294,9 +240,8 @@ function PricingCard({
             }
           >
             <RippleButton
-              className={`w-full py-3.5 font-bold text-sm tracking-wide bg-transparent border-0 ${
-                plan.popular ? "text-white" : "text-white/90 hover:text-white"
-              }`}
+              className={`w-full py-3.5 font-bold text-sm tracking-wide bg-transparent border-0 ${plan.popular ? "text-white" : "text-white/90 hover:text-white"
+                }`}
               rippleColor={`${plan.accent}66`}
             >
               {isLoading ? "Loading..." : plan.cta}
@@ -310,6 +255,64 @@ function PricingCard({
 
 // ── Section wrapper ───────────────────────────────────────────────────────────
 export function Pricing() {
+  const { t } = useLanguage();
+
+  const PLANS = [
+    {
+      name: t('pricing.starter'),
+      tierId: "starter",
+      price: "$29",
+      label: `/${t('pricing.oneTime')}`,
+      description: t('pricing.starterDesc'),
+      features: [
+        `1 ${t('pricing.features.training')}`,
+        `50+ ${t('pricing.features.photos')}`,
+        t('pricing.features.standard'),
+        t('pricing.features.ready'),
+      ],
+      cta: t('pricing.buy'),
+      popular: false,
+      accent: "#6C63FF",
+      glow: "rgba(108,99,255,0.18)",
+    },
+    {
+      name: t('pricing.pro'),
+      tierId: "pro",
+      price: "$49",
+      label: `/${t('pricing.oneTime')}`,
+      description: t('pricing.proDesc'),
+      features: [
+        `2 ${t('pricing.features.training')}`,
+        `120+ ${t('pricing.features.photos')}`,
+        t('pricing.features.premium'),
+        t('pricing.features.luxury'),
+        t('pricing.features.priority'),
+      ],
+      cta: t('pricing.buyPro'),
+      popular: true,
+      accent: "#9D4EDD",
+      glow: "rgba(157,78,221,0.30)",
+    },
+    {
+      name: t('pricing.elite'),
+      tierId: "elite",
+      price: "$79",
+      label: `/${t('pricing.oneTime')}`,
+      description: t('pricing.eliteDesc'),
+      features: [
+        `5 ${t('pricing.features.training')}`,
+        `300+ ${t('pricing.features.photos')}`,
+        t('pricing.features.allPresets'),
+        t('pricing.features.commercial'),
+        t('pricing.features.support'),
+      ],
+      cta: t('pricing.buyElite'),
+      popular: false,
+      accent: "#F72585",
+      glow: "rgba(247,37,133,0.18)",
+    },
+  ];
+
   return (
     <section id="pricing" className="relative py-28 px-6 bg-[#0F172A] overflow-hidden">
       {/* WebGL animated ring */}
@@ -329,13 +332,13 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <span className="inline-block mb-4 text-xs font-bold tracking-[0.3em] uppercase text-[#00E5FF]">
-            Pricing
+          <span className="inline-block mb-4 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-[#00E5FF]">
+            {t('nav.pricing')}
           </span>
-          <h2 className="text-4xl md:text-6xl font-extralight tracking-tight text-white mb-4">
-            Simple,{" "}
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-extralight tracking-tight text-white mb-4">
+            {t('pricing.title1')} {" "}
             <span
               className="font-black"
               style={{
@@ -344,17 +347,17 @@ export function Pricing() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              transparent
+              {t('pricing.title2')}
             </span>{" "}
-            pricing
+            {t('pricing.title3')}
           </h2>
-          <p className="text-white/50 text-lg">
-            Invest in your dating life. One-time payments, no subscriptions.
+          <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto px-4">
+            {t('pricing.subtitle')}
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch md:items-end">
           {PLANS.map((plan, i) => (
             <PricingCard key={plan.name} plan={plan} index={i} />
           ))}
@@ -366,9 +369,9 @@ export function Pricing() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center text-white/30 text-sm mt-14"
+          className="text-center text-white/30 text-[11px] sm:text-sm mt-14 px-4"
         >
-          🔒 Secure payment · 30-day money-back guarantee · Cancel anytime
+          {t('pricing.trust')}
         </motion.p>
       </div>
     </section>

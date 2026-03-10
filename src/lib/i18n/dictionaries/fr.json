@@ -1,0 +1,169 @@
+{
+    "nav": {
+        "photos": "Photos",
+        "features": "Caractéristiques",
+        "pricing": "Tarifs",
+        "reviews": "Avis",
+        "dashboard": "Tableau de Bord",
+        "signOut": "Déconnexion",
+        "login": "Connexion",
+        "cta": "OBTENIR MES PHOTOS IA"
+    },
+    "hero": {
+        "badge": "Portraits IA Qualité Studio",
+        "title1": "Photos Pro",
+        "title2": "en Secondes.",
+        "subtitle": "Arrêtez de payer des centaines de dollars pour des séances photo professionnelles. Téléchargez quelques photos décontractées et notre IA générera des images extrêmement réalistes dans des cadres magnifiques.",
+        "cta": "OBTENIR MES PHOTOS",
+        "scroll": "Défiler pour découvrir",
+        "guarantee": "100% Satisfait ou Remboursé"
+    },
+    "howItWorks": {
+        "title": "Comment ça marche ?",
+        "subtitle": "Trois étapes simples pour votre meilleur profil de rencontre.",
+        "step1": {
+            "title": "Choisissez un Style",
+            "desc": "Choisissez parmi des dizaines de styles pros, du corporate au décontracté."
+        },
+        "step2": {
+            "title": "Téléchargez des Photos",
+            "desc": "Téléchargez 4 à 10 photos de vous. Des selfies normaux feront l'affaire."
+        },
+        "step3": {
+            "title": "Obtenez les Résultats",
+            "desc": "Notre IA fait sa magie et vous livre de nouvelles photos en quelques minutes."
+        }
+    },
+    "photoGrid": {
+        "title1": "Conçu pour des",
+        "title2": "rencontres de qualité",
+        "subtitle": "Notre intelligence artificielle génère des photos d'apparence totalement naturelle. Finis les selfies gênants et flous.",
+        "badge": "Généré par IA"
+    },
+    "features": {
+        "title": "Pourquoi nous choisir ?",
+        "subtitle": "Le moteur d'IA le plus avancé au monde, spécifiquement entraîné pour le succès des profils de rencontres.",
+        "f1": {
+            "title": "Qualité Ultra-Réaliste",
+            "desc": "Nos modèles d'IA génèrent des photos qui vous ressemblent avec un éclairage parfait."
+        },
+        "f2": {
+            "title": "Vitesse Éclair",
+            "desc": "Obtenez vos photos pro en moins de 5 minutes. Plus d'attente pour l'édition."
+        },
+        "f3": {
+            "title": "Prix Abordable",
+            "desc": "Obtenez des dizaines de photos pour une fraction du coût d'une séance."
+        },
+        "f4": {
+            "title": "La Confidentialité d'Abord",
+            "desc": "Vos photos sont cryptées et automatiquement supprimées de nos serveurs."
+        },
+        "f5": {
+            "title": "Garantie de Correspondance",
+            "desc": "Rejoignez des milliers d'utilisateurs qui ont triplé leurs correspondances sur Tinder, Bumble et Hinge."
+        },
+        "f6": {
+            "title": "Optimisé pour l'Appli",
+            "desc": "Les images sont générées dans un ratio 4:5, optimisées pour toutes les grandes plateformes."
+        }
+    },
+    "beforeAfter": {
+        "title": "D'ordinaire à irrésistible",
+        "subtitle": "Faites glisser le curseur pour voir comment Facevia crée le profil de rencontre ultime.",
+        "before": "Selfie Moyen",
+        "after": "Match Facevia IA"
+    },
+    "pricing": {
+        "title1": "Des prix simples et",
+        "title2": "transparents",
+        "title3": "",
+        "subtitle": "Investissez dans vos rencontres. Paiement unique, pas d'abonnements.",
+        "oneTime": "1fois",
+        "starter": "Démarrage",
+        "starterDesc": "Parfait pour rafraîchir son profil.",
+        "pro": "Pro",
+        "proDesc": "Notre plan le plus populaire pour Tinder.",
+        "elite": "Élite",
+        "eliteDesc": "Domination maximale des profils.",
+        "buy": "Commencer",
+        "buyPro": "Accès Pro",
+        "buyElite": "Go Élite",
+        "trust": "🔒 Paiement sécurisé · 30 jours satisfait ou remboursé · Annulez à tout moment",
+        "features": {
+            "training": "Entraînement de modèle IA",
+            "photos": "Photos générées par IA",
+            "standard": "Styles standards",
+            "premium": "Tous les styles premium",
+            "luxury": "Styles Toit-Terrasse et Luxe",
+            "allPresets": "Tous les styles + IA sur mesure",
+            "ready": "Prêt en 15 mins",
+            "priority": "Traitement prioritaire",
+            "commercial": "Licence commerciale",
+            "support": "Support dédié"
+        }
+    },
+    "testimonials": {
+        "title": "Aimé par des milliers",
+        "t1": {
+            "text": "J'étais sceptique au début, mais les résultats m'ont bluffé. Je les utilise pour LinkedIn.",
+            "name": "Sarah J.",
+            "role": "Directrice Marketing"
+        },
+        "t2": {
+            "text": "Bien mieux que de dépenser 300 $ chez un photographe. Le processus était très facile.",
+            "name": "Michael T.",
+            "role": "Ingénieur Logiciel"
+        },
+        "t3": {
+            "text": "Les photos semblent si naturelles, personne ne remarque que c'est l'IA. Je recommande !",
+            "name": "Emily C.",
+            "role": "Agent Immobilier"
+        }
+    },
+    "cta": {
+        "title": "Prêt à améliorer votre image en ligne ?",
+        "subtitle": "Rejoignez des milliers de clients satisfaits et obtenez vos photos pros aujourd'hui.",
+        "button": "COMMENCER MAINTENANT"
+    },
+    "footer": {
+        "rights": "Tous droits réservés.",
+        "links": {
+            "privacy": "Confidentialité",
+            "terms": "Conditions d'Utilisation",
+            "contact": "Contact"
+        }
+    },
+    "presets": {
+        "title1": "Choisissez votre",
+        "title2": "style",
+        "subtitle": "Choisissez un style prédéfini et laissez notre IA faire le travail. Parfait pour n'importe quel profil de rencontre.",
+        "tryStyle": "Essayer ce style \u2192",
+        "styles": {
+            "tinderRooftop": {
+                "name": "Rooftop Tinder",
+                "label": "Ambiance urbaine"
+            },
+            "beachSunset": {
+                "name": "Coucher de soleil",
+                "label": "Sensation estivale"
+            },
+            "coffeeShopCandid": {
+                "name": "Café décalé",
+                "label": "Chaleureux et douillet"
+            },
+            "gymLifestyle": {
+                "name": "Style fitness",
+                "label": "En forme et actif"
+            },
+            "travelStreet": {
+                "name": "Voyage de rue",
+                "label": "Aventureux"
+            },
+            "luxuryRestaurant": {
+                "name": "Restaurant de luxe",
+                "label": "Cuisine raffinée"
+            }
+        }
+    }
+}
