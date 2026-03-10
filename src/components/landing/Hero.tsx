@@ -86,6 +86,15 @@ export function Hero() {
                 <Link href="/login?tab=signup">{t('hero.cta')}</Link>
               </Button>
             </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-gray-400 text-sm mt-4 text-center sm:text-left font-medium"
+            >
+              {t('hero.microtext')}
+            </motion.p>
           </div>
 
           {/* RIGHT COLUMN - PHONE MOCKUP */}

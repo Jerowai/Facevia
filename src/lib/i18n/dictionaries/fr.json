@@ -11,18 +11,19 @@
     },
     "hero": {
         "badge": "Portraits IA Qualité Studio",
-        "title1": "Obtenez des photos de rencontre",
-        "title2": "avec l'IA",
-        "subtitle": "Téléchargez quelques selfies et notre IA générera des photos réalistes et de haute qualité conçues pour les applications de rencontre et les profils de réseaux sociaux.",
+        "title1": "Obtenez de meilleurs matchs avec des",
+        "title2": "photos générées par l'IA",
+        "subtitle": "Téléchargez quelques selfies et notre IA générera des photos réalistes conçues pour Tinder, Instagram et d'autres plateformes sociales.",
         "bullets": {
-            "b1": "Soyez plus séduisant sur Tinder, Instagram et les applications sociales",
+            "b1": "Soyez plus séduisant sur les applications de rencontre",
             "b1sub": "",
             "b2": "Des photos IA réalistes qui vous ressemblent vraiment",
             "b2sub": "",
-            "b3": "Pas besoin de shooting — téléchargez juste quelques photos",
+            "b3": "Pas de séance photo coûteuse nécessaire",
             "b3sub": ""
         },
         "cta": "Obtenir mes photos IA",
+        "microtext": "Prêt en quelques minutes • Utilisé par des milliers d'utilisateurs",
         "scroll": "Défiler pour découvrir",
         "guarantee": "100% Satisfait ou Remboursé",
         "notifications": {

@@ -11,18 +11,19 @@
     },
     "hero": {
         "badge": "Retratos de Inteligencia Artificial",
-        "title1": "Obtén fotos de citas irresistibles",
-        "title2": "con IA",
-        "subtitle": "Sube algunas selfies y nuestra IA generará fotos realistas y de alta calidad diseñadas para aplicaciones de citas y perfiles de redes sociales.",
+        "title1": "Obtén mejores matches con",
+        "title2": "fotos generadas por IA",
+        "subtitle": "Sube algunas selfies y nuestra IA generará fotos realistas diseñadas para Tinder, Instagram y otras plataformas sociales.",
         "bullets": {
-            "b1": "Luce más atractivo en Tinder, Instagram y aplicaciones sociales",
+            "b1": "Luce más atractivo en aplicaciones de citas",
             "b1sub": "",
             "b2": "Fotos de IA realistas que realmente se parecen a ti",
             "b2sub": "",
-            "b3": "No se necesita sesión de fotos — solo sube algunas fotos",
+            "b3": "No se necesitan costosas sesiones de fotos",
             "b3sub": ""
         },
         "cta": "Obtener mis fotos de IA",
+        "microtext": "Listo en minutos • Usado por miles de usuarios",
         "scroll": "Desplázate para descubrir",
         "guarantee": "100% Garantía de Devolución",
         "notifications": {

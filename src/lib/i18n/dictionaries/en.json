@@ -11,18 +11,19 @@
     },
     "hero": {
         "badge": "Studio Quality AI Portraits",
-        "title1": "Get irresistible dating photos",
-        "title2": "with AI",
-        "subtitle": "Upload a few selfies and our AI will generate realistic, high-quality photos designed for dating apps and social media profiles.",
+        "title1": "Get better matches with",
+        "title2": "AI-generated photos",
+        "subtitle": "Upload a few selfies and our AI will generate realistic photos designed for Tinder, Instagram and other social platforms.",
         "bullets": {
-            "b1": "Look more attractive on Tinder, Instagram and social apps",
+            "b1": "Look more attractive on dating apps",
             "b1sub": "",
             "b2": "Realistic AI photos that actually look like you",
             "b2sub": "",
-            "b3": "No photoshoot needed — just upload a few pictures",
+            "b3": "No expensive photoshoots needed",
             "b3sub": ""
         },
         "cta": "Get My AI Photos",
+        "microtext": "Ready in minutes • Used by thousands of users",
         "scroll": "Scroll to discover",
         "guarantee": "100% Money Back Guarantee",
         "notifications": {
