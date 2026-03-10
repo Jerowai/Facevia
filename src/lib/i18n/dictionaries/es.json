@@ -127,11 +127,19 @@
         "button": "EMPEZAR AHORA"
     },
     "footer": {
-        "rights": "Todos los derechos reservados.",
+        "desc": "Facevia ayuda a las personas a generar fotos de IA de alta calidad para perfiles de citas y redes sociales.",
+        "product": "Producto",
+        "company": "Empresa",
+        "social": "Social",
+        "rights": "Facevia. Todos los derechos reservados.",
+        "operational": "Sistemas operativos",
         "links": {
-            "privacy": "Privacidad",
-            "terms": "Términos del Servicio",
-            "contact": "Contacto"
+            "howItWorks": "Cómo funciona",
+            "pricing": "Precios",
+            "styles": "Estilos de fotos",
+            "privacy": "Política de privacidad",
+            "terms": "Términos de servicio",
+            "cookies": "Política de cookies"
         }
     },
     "presets": {

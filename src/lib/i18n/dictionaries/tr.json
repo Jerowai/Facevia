@@ -127,11 +127,19 @@
         "button": "HEMEN BAŞLA"
     },
     "footer": {
-        "rights": "Tüm hakları saklıdır.",
+        "desc": "Facevia, insanların flört profilleri ve sosyal medya için yüksek kaliteli yapay zeka fotoğrafları oluşturmasına yardımcı olur.",
+        "product": "Ürün",
+        "company": "Şirket",
+        "social": "Sosyal Medya",
+        "rights": "Facevia. Tüm hakları saklıdır.",
+        "operational": "Tüm sistemler aktif",
         "links": {
+            "howItWorks": "Nasıl Çalışır",
+            "pricing": "Fiyatlandırma",
+            "styles": "Stil Önayarları",
             "privacy": "Gizlilik Politikası",
             "terms": "Hizmet Şartları",
-            "contact": "İletişim"
+            "cookies": "Çerez Politikası"
         }
     },
     "presets": {

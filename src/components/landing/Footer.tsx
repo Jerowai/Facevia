@@ -7,53 +7,57 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="py-20 px-6 bg-[#0F172A] border-t border-white/5">
-      <div className="container max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
+    <footer className="py-20 px-6 bg-[#090b14] border-t border-white/10 relative overflow-hidden">
+      {/* Decorative background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-[#ec4899]/50 to-transparent"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#ec4899] opacity-[0.03] blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div className="container max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          <div className="lg:col-span-1">
             <Link href="/" className="font-black text-2xl tracking-tighter text-gradient mb-6 inline-block">
               Facevia
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               {t('footer.desc')}
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">{t('footer.product')}</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="/#how-it-works" className="hover:text-white transition-colors">{t('footer.links.howItWorks')}</Link></li>
-              <li><Link href="/#pricing" className="hover:text-white transition-colors">{t('footer.links.pricing')}</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.styles')}</Link></li>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.product')}</h4>
+            <ul className="space-y-4 text-sm text-gray-400 font-medium">
+              <li><Link href="/how-it-works" className="hover:text-[#ec4899] transition-colors">{t('footer.links.howItWorks')}</Link></li>
+              <li><Link href="/pricing" className="hover:text-[#ec4899] transition-colors">{t('footer.links.pricing')}</Link></li>
+              <li><Link href="/styles" className="hover:text-[#ec4899] transition-colors">{t('footer.links.styles')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">{t('footer.company')}</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.privacy')}</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.terms')}</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">{t('footer.links.cookies')}</Link></li>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.company')}</h4>
+            <ul className="space-y-4 text-sm text-gray-400 font-medium">
+              <li><Link href="/privacy-policy" className="hover:text-[#ec4899] transition-colors">{t('footer.links.privacy')}</Link></li>
+              <li><Link href="/terms" className="hover:text-[#ec4899] transition-colors">{t('footer.links.terms')}</Link></li>
+              <li><Link href="/cookies" className="hover:text-[#ec4899] transition-colors">{t('footer.links.cookies')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">{t('footer.social')}</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="#" className="hover:text-white transition-colors">Twitter (X)</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Instagram</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">TikTok</Link></li>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.social')}</h4>
+            <ul className="space-y-4 text-sm text-gray-400 font-medium">
+              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">Twitter (X)</Link></li>
+              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">Instagram</Link></li>
+              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">TikTok</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-[10px] md:text-xs text-center md:text-left">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-xs md:text-sm text-center md:text-left font-medium">
             © {new Date().getFullYear()} {t('footer.rights')}
           </p>
-          <div className="flex items-center gap-6">
-            <div className="h-2 w-2 rounded-full bg-[#00E5FF] animate-pulse"></div>
-            <p className="text-gray-500 text-[10px] md:text-xs">{t('footer.operational')}</p>
+          <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+            <div className="h-2.5 w-2.5 rounded-full bg-[#00E5FF] animate-pulse shadow-[0_0_10px_#00E5FF]"></div>
+            <p className="text-gray-300 text-xs font-semibold tracking-wide uppercase">{t('footer.operational')}</p>
           </div>
         </div>
       </div>
