@@ -34,17 +34,17 @@ export async function POST(req: Request) {
     let description = '';
 
     if (tier === 'starter') {
-      price = 2900; // $29
+      price = 900; // $9
       name = 'Starter Plan';
-      description = '1 AI Model training, 50+ AI Generated photos.';
+      description = '20 AI Photos, 5 style presets, standard speed.';
     } else if (tier === 'pro') {
-      price = 4900; // $49
-      name = 'Pro Plan - Most Popular';
-      description = '2 AI Model trainings, 120+ photos, Premium presets.';
-    } else if (tier === 'elite') {
-      price = 7900; // $79
-      name = 'Elite Plan';
-      description = '5 AI Model trainings, 300+ photos, Commercial license.';
+      price = 1900; // $19
+      name = 'Pro Plan — Most Popular';
+      description = '60 AI Photos, 15 style presets, faster generation, higher resolution.';
+    } else if (tier === 'premium') {
+      price = 2900; // $29
+      name = 'Premium Plan';
+      description = '120 AI Photos, all style presets, fastest generation, priority processing.';
     } else {
       return NextResponse.json({ error: 'Invalid tier selected' }, { status: 400 });
     }

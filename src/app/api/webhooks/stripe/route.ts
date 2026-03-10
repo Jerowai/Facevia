@@ -25,43 +25,47 @@ export async function POST(req: Request) {
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session
     const userId = session.metadata?.userId
+    const tier = session.metadata?.tier
 
-    if (userId) {
-      console.log('Payment successful for user:', userId)
-      
+    if (userId && tier) {
+      console.log(`Payment successful for user: ${userId}, Tier: ${tier}`)
+
       const supabase = await createClient()
 
       try {
-        // Fetch all user images from the storage bucket
-        const { data: files, error: storageError } = await supabase
-          .storage
-          .from('user-training-images')
-          .list(userId, { limit: 20 })
+        let addedCredits = 0;
+        if (tier === 'starter') addedCredits = 20;
+        if (tier === 'pro') addedCredits = 60;
+        if (tier === 'elite' || tier === 'premium') addedCredits = 120;
 
-        if (storageError || !files || files.length === 0) {
-          throw new Error('No images found or error fetching images')
-        }
+        if (addedCredits > 0) {
+          // Grant credits to user via Supabase RPC or direct update
+          // Since user_credits row is created on signup, we can just update it
+          // OR upsert if missing
+          const { error: creditsError } = await supabase.rpc('increment_user_credits', {
+            u_id: userId,
+            c_amount: addedCredits
+          });
 
-        // Normally, here you would format the files into a ZIP URL
-        // and send it to Replicate to start LoRA training.
-        // Example:
-        // const zipUrl = await createZipUrl(userId, files)
-        // const prediction = await replicate.train('ostris/flux-dev-lora-trainer', { input: { input_images: zipUrl, steps: 1000 } })
-        
-        // For the MVP MVP scope, we'll simulate the replicate model row insert
-        const { error: insertError } = await supabase
-          .from('models')
-          .insert({
-            user_id: userId,
-            replicate_model_id: 'simulated-training-job-' + Math.random().toString(36).substring(7),
-            status: 'training' // Changes to 'ready' later
-          })
+          // Fallback if RPC isn't created: manually fetch and update
+          if (creditsError) {
+            console.log('RPC failed, falling back to manual update', creditsError);
+            const { data: currentCtx } = await supabase
+              .from('user_credits')
+              .select('credits')
+              .eq('user_id', userId)
+              .single();
 
-        if (insertError) {
-           console.error('Error inserting model row:', insertError)
+            const newTotal = (currentCtx?.credits || 0) + addedCredits;
+
+            await supabase
+              .from('user_credits')
+              .upsert({ user_id: userId, credits: newTotal }, { onConflict: 'user_id' });
+          }
+          console.log(`Successfully added ${addedCredits} credits to user ${userId}`);
         }
       } catch (err) {
-        console.error('Failed to trigger training:', err)
+        console.error('Failed to parse and add credits:', err)
       }
     }
   }

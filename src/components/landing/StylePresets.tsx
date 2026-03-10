@@ -2,48 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { PHOTO_PRESETS } from "@/lib/constants/presets";
+import Link from "next/link";
 
 export function StylePresets() {
   const { t } = useLanguage();
-
-  const PRESETS = [
-    {
-      name: t('presets.styles.tinderRooftop.name'),
-      icon: '🌆',
-      image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2574&auto=format&fit=crop',
-      label: t('presets.styles.tinderRooftop.label')
-    },
-    {
-      name: t('presets.styles.beachSunset.name'),
-      icon: '🌅',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop',
-      label: t('presets.styles.beachSunset.label')
-    },
-    {
-      name: t('presets.styles.coffeeShopCandid.name'),
-      icon: '☕',
-      image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop',
-      label: t('presets.styles.coffeeShopCandid.label')
-    },
-    {
-      name: t('presets.styles.gymLifestyle.name'),
-      icon: '🏋️',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2574&auto=format&fit=crop',
-      label: t('presets.styles.gymLifestyle.label')
-    },
-    {
-      name: t('presets.styles.travelStreet.name'),
-      icon: '✈️',
-      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2574&auto=format&fit=crop',
-      label: t('presets.styles.travelStreet.label')
-    },
-    {
-      name: t('presets.styles.luxuryRestaurant.name'),
-      icon: '🥂',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2574&auto=format&fit=crop',
-      label: t('presets.styles.luxuryRestaurant.label')
-    },
-  ];
 
   return (
     <section className="py-24 px-6 bg-[#0F172A]">
@@ -68,45 +31,53 @@ export function StylePresets() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {PRESETS.map((preset, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+          {PHOTO_PRESETS.map((preset, index) => (
             <motion.div
-              key={index}
+              key={preset.id}
               initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "100px" }}
-              transition={{ delay: index * 0.08, duration: 0.4 }}
+              transition={{ delay: index * 0.06, duration: 0.4 }}
               className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             >
-              {/* Background image */}
               <img
                 src={preset.image}
                 alt={preset.name}
                 className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
               />
-              {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-              {/* Hover color overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#6C63FF]/30 to-[#F72585]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
+              <div className="absolute bottom-0 left-0 right-0 p-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{preset.icon}</span>
+                  <span className="text-lg">{preset.icon}</span>
                   <span className="text-xs font-medium text-[#00E5FF] tracking-widest uppercase">{preset.label}</span>
                 </div>
-                <p className="text-lg font-bold text-white">{preset.name}</p>
+                <p className="text-sm font-bold text-white">{preset.name}</p>
               </div>
 
-              {/* Hover "Try This Style" badge */}
-              <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+              <div className="absolute top-3 right-3 bg-white/10 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                 {t('presets.tryStyle')}
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <Link
+            href="/login"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#6C63FF] to-[#00E5FF] text-white font-semibold hover:opacity-90 transition-opacity shadow-lg"
+          >
+            Try All Styles →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
 }
-
