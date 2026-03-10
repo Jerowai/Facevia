@@ -74,7 +74,7 @@ export function StylePresets() {
               key={index}
               initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "100px" }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
               className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             >

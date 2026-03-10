@@ -26,7 +26,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0a0f1e]/90 backdrop-blur-xl h-[72px] flex items-center px-6 md:px-12">
+    <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0a0f1e] md:bg-[#0a0f1e]/90 md:backdrop-blur-xl h-[72px] flex items-center px-6 md:px-12">
       {/* Logo */}
       <Link href="/" className="font-black text-2xl tracking-tighter text-white flex-shrink-0">
         <span className="text-gradient">FACEVIA</span>
@@ -102,7 +102,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[72px] left-0 w-full bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-white/5 py-4 px-6 flex flex-col gap-4 lg:hidden shadow-2xl animate-in slide-in-from-top-2">
+        <div className="absolute top-[72px] left-0 w-full bg-[#0a0f1e] border-b border-white/5 py-4 px-6 flex flex-col gap-4 lg:hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-in slide-in-from-top-2">
           <div className="pb-4 border-b border-white/5 flex justify-between items-center">
             <span className="text-white/60 text-sm font-medium">{t('nav.language')}</span>
             <LanguageSwitcher />
