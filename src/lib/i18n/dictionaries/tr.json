@@ -11,12 +11,30 @@
     },
     "hero": {
         "badge": "Stüdyo Kalitesinde Yapay Zeka Portreleri",
-        "title1": "Saniyeler İçinde",
-        "title2": "Profesyonel Fotoğraflar.",
-        "subtitle": "Profesyonel fotoğraf çekimleri için yüzlerce dolar ödemeyi bırakın. Sadece birkaç günlük fotoğrafınızı yükleyin ve yapay zekamız, sizi muhteşem ortamlarda son derece gerçekçi görüntülerle oluştursun.",
-        "cta": "FOTOĞRAFLARIMI HEMEN AL",
+        "title1": "Yapay zeka ile karşı konulmaz",
+        "title2": "flört fotoğrafları elde edin",
+        "subtitle": "Birkaç özçekim yükleyin ve yapay zekamız flört uygulamaları ve sosyal medya profilleri için tasarlanmış gerçekçi, yüksek kaliteli fotoğraflar üretsin.",
+        "bullets": {
+            "b1": "Tinder, Instagram ve sosyal uygulamalarda daha çekici görünün",
+            "b1sub": "",
+            "b2": "Gerçekten size benzeyen gerçekçi yapay zeka fotoğrafları",
+            "b2sub": "",
+            "b3": "Fotoğraf çekimine gerek yok — sadece birkaç fotoğraf yükleyin",
+            "b3sub": ""
+        },
+        "cta": "Yapay Zeka Fotoğraflarımı Al",
         "scroll": "Keşfetmek için kaydır",
-        "guarantee": "%100 Para İade Garantisi"
+        "guarantee": "%100 Para İade Garantisi",
+        "notifications": {
+            "now": "şimdi",
+            "tinder": "Yeni Eşleşme!",
+            "ago2": "2dk önce",
+            "snapchat": "Yeni Snap",
+            "ago5": "5dk önce",
+            "instagram": "seni takip etmeye başladı",
+            "ago12": "12dk önce",
+            "hinge": "fotoğrafını beğendi"
+        }
     },
     "howItWorks": {
         "title": "Nasıl çalışır?",

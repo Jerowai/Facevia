@@ -11,12 +11,30 @@
     },
     "hero": {
         "badge": "Retratos de Inteligencia Artificial",
-        "title1": "Fotos Profesionales",
-        "title2": "en Segundos.",
-        "subtitle": "Deja de pagar cientos de dólares por sesiones de fotos profesionales. Sube algunas fotos tuyas y nuestra IA generará imágenes extremadamente realistas en entornos hermosos.",
-        "cta": "OBTENER MIS FOTOS",
+        "title1": "Obtén fotos de citas irresistibles",
+        "title2": "con IA",
+        "subtitle": "Sube algunas selfies y nuestra IA generará fotos realistas y de alta calidad diseñadas para aplicaciones de citas y perfiles de redes sociales.",
+        "bullets": {
+            "b1": "Luce más atractivo en Tinder, Instagram y aplicaciones sociales",
+            "b1sub": "",
+            "b2": "Fotos de IA realistas que realmente se parecen a ti",
+            "b2sub": "",
+            "b3": "No se necesita sesión de fotos — solo sube algunas fotos",
+            "b3sub": ""
+        },
+        "cta": "Obtener mis fotos de IA",
         "scroll": "Desplázate para descubrir",
-        "guarantee": "100% Garantía de Devolución"
+        "guarantee": "100% Garantía de Devolución",
+        "notifications": {
+            "now": "ahora",
+            "tinder": "¡Nuevo Match!",
+            "ago2": "hace 2m",
+            "snapchat": "Nuevo Snap",
+            "ago5": "hace 5m",
+            "instagram": "comenzó a seguirte",
+            "ago12": "hace 12m",
+            "hinge": "le ha gustado tu foto"
+        }
     },
     "howItWorks": {
         "title": "¿Cómo funciona?",

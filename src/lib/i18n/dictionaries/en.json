@@ -11,12 +11,30 @@
     },
     "hero": {
         "badge": "Studio Quality AI Portraits",
-        "title1": "Professional Photos",
-        "title2": "in Settings.",
-        "subtitle": "Stop paying hundreds of dollars for professional photo shoots. Simply upload a few casual photos and our AI will generate extremely realistic images of you in beautiful settings.",
-        "cta": "GET MY PHOTOS NOW",
+        "title1": "Get irresistible dating photos",
+        "title2": "with AI",
+        "subtitle": "Upload a few selfies and our AI will generate realistic, high-quality photos designed for dating apps and social media profiles.",
+        "bullets": {
+            "b1": "Look more attractive on Tinder, Instagram and social apps",
+            "b1sub": "",
+            "b2": "Realistic AI photos that actually look like you",
+            "b2sub": "",
+            "b3": "No photoshoot needed — just upload a few pictures",
+            "b3sub": ""
+        },
+        "cta": "Get My AI Photos",
         "scroll": "Scroll to discover",
-        "guarantee": "100% Money Back Guarantee"
+        "guarantee": "100% Money Back Guarantee",
+        "notifications": {
+            "now": "now",
+            "tinder": "New Match!",
+            "ago2": "2m ago",
+            "snapchat": "New Snap",
+            "ago5": "5m ago",
+            "instagram": "started following you",
+            "ago12": "12m ago",
+            "hinge": "liked your photo"
+        }
     },
     "howItWorks": {
         "title": "How it works?",

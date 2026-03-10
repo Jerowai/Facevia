@@ -11,12 +11,30 @@
     },
     "hero": {
         "badge": "Portraits IA Qualité Studio",
-        "title1": "Photos Pro",
-        "title2": "en Secondes.",
-        "subtitle": "Arrêtez de payer des centaines de dollars pour des séances photo professionnelles. Téléchargez quelques photos décontractées et notre IA générera des images extrêmement réalistes dans des cadres magnifiques.",
-        "cta": "OBTENIR MES PHOTOS",
+        "title1": "Obtenez des photos de rencontre",
+        "title2": "avec l'IA",
+        "subtitle": "Téléchargez quelques selfies et notre IA générera des photos réalistes et de haute qualité conçues pour les applications de rencontre et les profils de réseaux sociaux.",
+        "bullets": {
+            "b1": "Soyez plus séduisant sur Tinder, Instagram et les applications sociales",
+            "b1sub": "",
+            "b2": "Des photos IA réalistes qui vous ressemblent vraiment",
+            "b2sub": "",
+            "b3": "Pas besoin de shooting — téléchargez juste quelques photos",
+            "b3sub": ""
+        },
+        "cta": "Obtenir mes photos IA",
         "scroll": "Défiler pour découvrir",
-        "guarantee": "100% Satisfait ou Remboursé"
+        "guarantee": "100% Satisfait ou Remboursé",
+        "notifications": {
+            "now": "maint.",
+            "tinder": "Nouveau Match!",
+            "ago2": "il y a 2m",
+            "snapchat": "Nouveau Snap",
+            "ago5": "il y a 5m",
+            "instagram": "a commencé à vous suivre",
+            "ago12": "il y a 12m",
+            "hinge": "a aimé votre photo"
+        }
     },
     "howItWorks": {
         "title": "Comment ça marche ?",
