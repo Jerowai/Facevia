@@ -48,11 +48,11 @@ export function BeforeAfterSlider() {
           {/* After View (Bottom Layer) */}
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=2574"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop"
               alt="Average Selfie"
-              className="w-full h-full object-cover brightness-50 grayscale md:grayscale-0 md:blur-[2px] md:brightness-75 md:contrast-75 md:sepia-[0.2]"
+              className="w-full h-full object-cover grayscale-[80%] blur-[4px] brightness-50 contrast-75 sepia-[0.3]"
             />
-            <div className="absolute bottom-6 right-6 px-5 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white/90 font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+            <div className="absolute bottom-6 right-6 px-5 py-2.5 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white/50 font-bold text-[10px] sm:text-xs tracking-wider uppercase">
               {t('beforeAfter.before')}
             </div>
           </div>
@@ -63,9 +63,9 @@ export function BeforeAfterSlider() {
             style={{ clipPath }}
           >
             <img
-              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=2574"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop"
               alt="Premium AI Dating Photo"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
             />
             <div className="absolute bottom-6 left-6 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ec4899] to-[#be185d] border border-white/20 text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-[0_4px_20px_rgba(236,72,153,0.5)]">
               {t('beforeAfter.after')}

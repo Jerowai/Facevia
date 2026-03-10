@@ -10,37 +10,37 @@ export function StylePresets() {
     {
       name: t('presets.styles.tinderRooftop.name'),
       icon: '🌆',
-      image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?q=80&w=2570&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2574&auto=format&fit=crop',
       label: t('presets.styles.tinderRooftop.label')
     },
     {
       name: t('presets.styles.beachSunset.name'),
       icon: '🌅',
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2573&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop',
       label: t('presets.styles.beachSunset.label')
     },
     {
       name: t('presets.styles.coffeeShopCandid.name'),
       icon: '☕',
-      image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=2571&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop',
       label: t('presets.styles.coffeeShopCandid.label')
     },
     {
       name: t('presets.styles.gymLifestyle.name'),
       icon: '🏋️',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2570&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2574&auto=format&fit=crop',
       label: t('presets.styles.gymLifestyle.label')
     },
     {
       name: t('presets.styles.travelStreet.name'),
       icon: '✈️',
-      image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2570&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2574&auto=format&fit=crop',
       label: t('presets.styles.travelStreet.label')
     },
     {
       name: t('presets.styles.luxuryRestaurant.name'),
       icon: '🥂',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2570&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2574&auto=format&fit=crop',
       label: t('presets.styles.luxuryRestaurant.label')
     },
   ];
