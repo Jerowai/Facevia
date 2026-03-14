@@ -116,6 +116,7 @@ function PricingCard({
   plan: Plan;
   index: number;
 }) {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleCheckout = async () => {
@@ -167,7 +168,7 @@ function PricingCard({
           className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 px-5 py-1.5 rounded-full text-[11px] font-black tracking-widest uppercase text-white whitespace-nowrap"
           style={{ background: `linear-gradient(135deg, #6C63FF, #9D4EDD)` }}
         >
-          ⭐ {plan.popularText || "Most Popular"}
+          ⭐ {plan.popularText || t('pricing.mostPopular')}
         </motion.div>
       )}
 
@@ -258,7 +259,7 @@ function PricingCard({
                 }`}
               rippleColor={`${plan.accent}66`}
             >
-              {isLoading ? "Loading..." : plan.cta}
+              {isLoading ? t('pricing.loading') : plan.cta}
             </RippleButton>
           </div>
         </div>

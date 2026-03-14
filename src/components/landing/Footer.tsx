@@ -53,9 +53,9 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.social')}</h4>
             <ul className="space-y-4 text-sm text-gray-400 font-medium">
-              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">Instagram</Link></li>
-              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">TikTok</Link></li>
-              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">X / Twitter</Link></li>
+              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">{t('footer.links.instagram')}</Link></li>
+              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">{t('footer.links.tiktok')}</Link></li>
+              <li><Link href="#" className="hover:text-[#ec4899] transition-colors">{t('footer.links.twitter')}</Link></li>
             </ul>
           </div>
         </div>
@@ -64,7 +64,7 @@ export function Footer() {
           <p className="text-gray-500 text-xs md:text-sm text-center md:text-left font-medium">
             © 2026 {t('footer.rights')} <br className="md:hidden" />
             <span className="hidden md:inline"> | </span>
-            Operated by UMUT KAYDIM ENTERPRISE LTD.
+            {t('footer.operatedBy')} UMUT KAYDIM ENTERPRISE LTD.
           </p>
           <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
             <div className="h-2.5 w-2.5 rounded-full bg-[#00E5FF] animate-pulse shadow-[0_0_10px_#00E5FF]" />

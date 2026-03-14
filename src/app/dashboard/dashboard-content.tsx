@@ -1,12 +1,10 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { Upload, ImageIcon, ImagePlus, Loader2, Coins, Plus } from 'lucide-react'
+import { Upload, ImageIcon, ImagePlus, Loader2, Coins, Plus, Sparkles, CheckCircle2, ChevronRight, Activity } from 'lucide-react'
 import { AutoRefresh } from '@/components/dashboard/auto-refresh'
+import Link from 'next/link'
 import { motion } from "framer-motion";
-import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface Model {
   id: string;
@@ -37,207 +35,191 @@ export function DashboardContent({
   user: any,
   credits?: number,
 }) {
+  const { t } = useLanguage();
   const hasTrainingModels = models?.some(model => model.status === 'training')
   const trainingModelIds = models?.filter(m => m.status === 'training').map(m => m.id) || []
+  const readyModels = models?.filter(m => m.status === 'ready') || []
 
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="flex-1 p-8 w-full max-w-6xl mx-auto space-y-8"
+      className="flex-1 p-6 md:p-10 w-full max-w-[1440px] mx-auto space-y-12"
     >
       {hasTrainingModels && <AutoRefresh intervalMs={15000} trainingModelIds={trainingModelIds} />}
 
-      <motion.div variants={itemVariants}>
-        <h1 className="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
-        <p className="text-gray-400">Manage your AI models and generate professional dating photos.</p>
+      {/* ── Welcome Header ── */}
+      <motion.div variants={itemVariants} className="relative">
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#ec4899]/10 blur-[100px] rounded-full" />
+        <h1 className="text-4xl md:text-5xl font-[1000] tracking-tighter text-white mb-2 relative z-10">
+          {t('dashboard.title')}, {user?.email?.split('@')[0]}
+        </h1>
+        <p className="text-gray-400 text-lg max-w-2xl">{t('dashboard.subtitle')}</p>
       </motion.div>
 
-      {/* ── Credits Widget ──────────────────────────── */}
-      <motion.div variants={itemVariants}>
-        <div className={`rounded-2xl border p-5 flex items-center justify-between ${credits < 5 ? 'border-orange-500/30 bg-orange-500/5' : 'border-white/10 bg-white/3'}`}>
-          <div className="flex items-center gap-4">
-            <div className={`w-11 h-11 rounded-full flex items-center justify-center ${credits < 5 ? 'bg-orange-500/20' : 'bg-[#ec4899]/20'}`}>
-              <Coins className={`w-5 h-5 ${credits < 5 ? 'text-orange-400' : 'text-[#ec4899]'}`} />
+      {/* ── Stats Grid ── */}
+      <motion.div variants={itemVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { label: t('dashboard.credits'), value: credits, icon: Coins, color: '#ec4899', trend: credits < 5 ? t('dashboard.runningLow') : '' },
+          { label: t('dashboard.stats.personas'), value: readyModels.length, icon: Sparkles, color: '#00E5FF' },
+          { label: t('dashboard.stats.activeTraining'), value: trainingModelIds.length, icon: Loader2, color: '#9D4EDD', spin: trainingModelIds.length > 0 },
+          { label: t('dashboard.stats.totalGenerations'), value: 'Coming Soon', icon: ImagePlus, color: '#F72585' },
+        ].map((stat, i) => (
+          <div key={i} className="relative group p-6 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-md overflow-hidden hover:bg-white/[0.05] transition-all">
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6`} style={{ backgroundColor: `${stat.color}10`, border: `1px solid ${stat.color}20` }}>
+              <stat.icon className={`w-6 h-6 ${stat.spin ? 'animate-spin' : ''}`} style={{ color: stat.color }} />
             </div>
-            <div>
-              <p className="text-white font-bold text-2xl">{credits}</p>
-              <p className="text-gray-400 text-sm">credits remaining{credits < 5 ? ' — running low!' : ''}</p>
+            <p className="text-[10px] font-black tracking-widest text-gray-500 uppercase mb-1">{stat.label}</p>
+            <div className="flex items-baseline gap-2">
+              <span className="text-2xl font-black text-white">{stat.value}</span>
+              {stat.trend && <span className="text-[9px] font-bold text-orange-500 uppercase">{stat.trend}</span>}
             </div>
+            <div className="absolute top-0 right-0 w-24 h-24 blur-3xl rounded-full opacity-10 group-hover:opacity-20 transition-opacity" style={{ backgroundColor: stat.color }} />
           </div>
-          <Link href="/#pricing">
-            <Button size="sm" className={`gap-1.5 ${credits < 5 ? 'bg-orange-500 hover:bg-orange-600 text-white border-0' : 'bg-white/10 hover:bg-white/15 text-white border border-white/10'}`}>
-              <Plus className="w-4 h-4" /> Buy Credits
-            </Button>
-          </Link>
-        </div>
+        ))}
       </motion.div>
 
-      {/* ── Onboarding Stepper ──────────────────────────── */}
-      <motion.div variants={itemVariants}>
-        <div className="rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm p-6">
-          <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-5">Your Progress</p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-0">
-            {[
-              { step: 1, label: 'Upload Photos', sub: 'Train your AI model', done: models && models.length > 0, href: '/dashboard/train', icon: '📸' },
-              { step: 2, label: 'AI Training', sub: 'Model learns your face', done: models?.some(m => m.status === 'ready'), href: '/dashboard', icon: '🤖' },
-              { step: 3, label: 'Generate Photos', sub: 'Create dating photos', done: false, href: '/dashboard/generate', icon: '✨' },
-            ].map((item, idx) => {
-              const isActive = !item.done && (idx === 0 || (idx === 1 && models && models.length > 0) || (idx === 2 && models?.some(m => m.status === 'ready')));
-              return (
-                <div key={item.step} className="flex items-center flex-1 w-full sm:w-auto">
-                  <a href={item.href} className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all w-full sm:w-auto ${isActive ? 'bg-[#ec4899]/10 border border-[#ec4899]/30' : item.done ? 'opacity-60' : 'opacity-40'}`}>
-                    <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${item.done ? 'bg-emerald-500 text-white' : isActive ? 'bg-[#ec4899] text-white' : 'bg-white/10 text-gray-400'}`}>
-                      {item.done ? '✓' : item.step}
+      {/* ── Main Dashboard Sections ── */}
+      <div className="grid lg:grid-cols-[1fr_400px] gap-12">
+        
+        <div className="space-y-12">
+          {/* Onboarding Stepper (Modernized) */}
+          <motion.div variants={itemVariants}>
+            <div className="p-8 rounded-[2.5rem] bg-gradient-to-br from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5">
+                <CheckCircle2 className="w-32 h-32 text-emerald-500" />
+              </div>
+              <h2 className="text-xs font-black tracking-[0.3em] text-[#00E5FF] uppercase mb-8">{t('dashboard.progress')}</h2>
+              
+              <div className="space-y-6">
+                {[
+                  { step: 1, label: t('dashboard.steps.upload.title'), sub: t('dashboard.steps.upload.desc'), done: models && models.length > 0, href: '/dashboard/train', icon: Upload },
+                  { step: 2, label: t('dashboard.steps.training.title'), sub: t('dashboard.steps.training.desc'), done: models?.some(m => m.status === 'ready'), href: '/dashboard', icon: Sparkles },
+                  { step: 3, label: t('dashboard.steps.generate.title'), sub: t('dashboard.steps.generate.desc'), done: false, href: '/dashboard/generate', icon: ImagePlus },
+                ].map((item, idx) => {
+                  const isActive = !item.done && (idx === 0 || (idx === 1 && models && models.length > 0) || (idx === 2 && models?.some(m => m.status === 'ready')));
+                  return (
+                    <div key={item.step} className="flex items-center gap-6 group">
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border-2 transition-all ${
+                        item.done ? 'bg-emerald-500 border-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]' : 
+                        isActive ? 'bg-[#ec4899] border-[#ec4899] text-white shadow-[0_0_20px_rgba(236,72,153,0.3)] scale-110' : 
+                        'bg-white/5 border-white/10 text-gray-500'
+                      }`}>
+                        {item.done ? <CheckCircle2 className="w-7 h-7" /> : <item.icon className="w-7 h-7" />}
+                      </div>
+                      <div className="flex-1">
+                          <Link href={item.href} className={`block group/link`}>
+                            <h3 className={`font-black tracking-tight text-lg mb-0.5 flex items-center gap-2 ${item.done ? 'text-emerald-400' : isActive ? 'text-white' : 'text-gray-500'}`}>
+                              {item.label}
+                              {isActive && <ChevronRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />}
+                            </h3>
+                            <p className="text-sm text-gray-500 line-clamp-1">{item.sub}</p>
+                          </Link>
+                      </div>
+                      {idx < 2 && idx === 0 && (
+                        <div className="hidden sm:block flex-1 border-t border-dashed border-white/10 mx-4" />
+                      )}
                     </div>
-                    <div>
-                      <p className={`font-semibold text-sm ${item.done ? 'text-emerald-400' : isActive ? 'text-white' : 'text-gray-500'}`}>{item.label}</p>
-                      <p className="text-xs text-gray-500">{item.sub}</p>
-                    </div>
-                  </a>
-                  {idx < 2 && <div className="hidden sm:block w-8 h-px bg-white/10 mx-1 shrink-0" />}
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Training Alert */}
+          {hasTrainingModels && (
+            <motion.div variants={itemVariants}>
+              <div className="p-8 rounded-[2.5rem] bg-[#00E5FF]/5 border border-[#00E5FF]/20 flex items-center gap-6 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="w-16 h-16 rounded-full bg-[#00E5FF]/10 flex items-center justify-center shrink-0">
+                  <Loader2 className="h-8 w-8 text-[#00E5FF] animate-spin" />
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </motion.div>
+                <div>
+                  <h3 className="text-xl font-black text-white mb-1">{t('trainingStatus.training.title')}</h3>
+                  <p className="text-sm text-[#00E5FF]/70">{t('trainingStatus.training.desc')}</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
 
-      {hasTrainingModels && (
-
-        <motion.div variants={itemVariants}>
-          <Card className="glass-card border-[#00E5FF]/30 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/10 to-[#6C63FF]/10 opacity-50"></div>
-            <CardHeader className="flex flex-row items-center space-x-4 pb-2 relative z-10">
-              <Loader2 className="h-8 w-8 text-[#00E5FF] animate-spin" />
-              <div>
-                <CardTitle className="text-2xl text-white">Your AI model is training</CardTitle>
+          {/* Active Personas Grid */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+              <Sparkles className="w-6 h-6 text-[#ec4899]" />
+              {t('dashboard.models.title')}
+            </h2>
+            {(!models || models.length === 0) ? (
+              <div className="p-16 rounded-[3rem] border border-dashed border-white/10 bg-white/[0.02] text-center">
+                <Upload className="w-12 h-12 text-gray-700 mx-auto mb-4" />
+                <p className="text-gray-500 font-medium">{t('dashboard.models.subtitle')}</p>
               </div>
-            </CardHeader>
-            <CardContent className="ml-12 relative z-10">
-              <p className="text-gray-300">
-                This usually takes a few minutes for our AI to learn your features.<br />
-                <span className="text-[#00E5FF] font-medium">You can close this page and come back later.</span>
-              </p>
-            </CardContent>
-          </Card>
-        </motion.div>
-      )}
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <motion.div variants={itemVariants}>
-          <div className="relative rounded-2xl h-full">
-            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <Card className="relative glass-card h-full flex flex-col justify-between group transition-all duration-300">
-              <div>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-lg font-semibold text-gray-200">Train AI Model</CardTitle>
-                  <div className="p-2 bg-white/5 rounded-full"><Upload className="h-5 w-5 text-[#6C63FF]" /></div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-400 mt-2">
-                    Upload 10-20 everyday selfies so the AI can learn your exact facial structure and angles.
-                  </p>
-                </CardContent>
-              </div>
-              <div className="p-6 pt-0 mt-auto">
-                <Button asChild className="w-full bg-primary-gradient glow-effect border-0 text-white hover:opacity-90" size="lg">
-                  <Link href="/dashboard/train">Create New Model</Link>
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <div className="relative rounded-2xl h-full">
-            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <Card className="relative glass-card h-full flex flex-col justify-between group transition-all duration-300">
-              <div>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-lg font-semibold text-gray-200">Generate Photos</CardTitle>
-                  <div className="p-2 bg-white/5 rounded-full"><ImagePlus className="h-5 w-5 text-[#00E5FF]" /></div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-400 mt-2">
-                    Use your custom AI model to generate irresistible dating photos in any setting or style.
-                  </p>
-                </CardContent>
-              </div>
-              <div className="p-6 pt-0 mt-auto">
-                <Button asChild className="w-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10" size="lg" disabled={!models || models.length === 0}>
-                  <Link href="/dashboard/generate">Generate Now</Link>
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <div className="relative rounded-2xl h-full">
-            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <Card className="relative glass-card h-full flex flex-col justify-between group transition-all duration-300">
-              <div>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-lg font-semibold text-gray-200">My Gallery</CardTitle>
-                  <div className="p-2 bg-white/5 rounded-full"><ImageIcon className="h-5 w-5 text-[#F72585]" /></div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-400 mt-2">
-                    View, download, and manage your previously generated professional dating lifestyle shots.
-                  </p>
-                </CardContent>
-              </div>
-              <div className="p-6 pt-0 mt-auto">
-                <Button asChild variant="outline" className="w-full bg-transparent border-white/10 text-white hover:bg-white/5" size="lg">
-                  <Link href="/dashboard/gallery">View Gallery</Link>
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </motion.div>
-      </div>
-
-      <motion.div variants={itemVariants} className="space-y-6 pt-8">
-        <h2 className="text-2xl font-bold text-white">Your Models</h2>
-        {(!models || models.length === 0) ? (
-          <div className="rounded-3xl border border-dashed border-white/20 bg-white/5 backdrop-blur-sm p-12 text-center text-gray-400 flex flex-col justify-center items-center">
-            <div className="h-16 w-16 bg-white/5 rounded-full flex items-center justify-center mb-4">
-              <Upload className="h-8 w-8 text-gray-500" />
-            </div>
-            <p className="text-lg">You don't have any trained models yet.</p>
-            <p className="text-sm mb-6">Click "Create New Model" above to start your journey.</p>
-          </div>
-        ) : (
-          <div className="grid gap-4 md:grid-cols-2">
-            {models.map((model) => (
-              <Card key={model.id} className="p-6 glass-card flex items-center justify-between hover:border-white/20 transition-colors">
-                <div className="flex-1">
-                  <p className="font-bold text-lg text-white mb-1">Model {model.id.slice(0, 8).toUpperCase()}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2.5 w-2.5">
-                      {model.status === 'training' && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E5FF] opacity-75"></span>}
-                      <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${model.status === 'ready' ? 'bg-[#00E5FF]' : model.status === 'failed' ? 'bg-[#F72585]' : 'bg-[#6C63FF]'}`}></span>
-                    </span>
-                    <p className="text-sm text-gray-400 capitalize">{model.status}</p>
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2">
+                {models.map((model) => (
+                  <div key={model.id} className="p-6 rounded-3xl bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all group flex flex-col justify-between min-h-[160px]">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">AI PERSONA</p>
+                        <h3 className="text-lg font-black text-white">#{model.id.slice(0, 8).toUpperCase()}</h3>
+                      </div>
+                      <div className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase ${
+                        model.status === 'ready' ? 'bg-emerald-500/10 text-emerald-500' : 
+                        model.status === 'failed' ? 'bg-red-500/10 text-red-500' : 
+                        'bg-[#6C63FF]/10 text-[#6C63FF]'
+                      }`}>
+                        {model.status}
+                      </div>
+                    </div>
+                    
+                    {model.status === 'ready' ? (
+                      <Link 
+                        href={`/dashboard/generate?modelId=${model.id}`}
+                        className="mt-6 w-full py-3 bg-white text-black text-xs font-black uppercase tracking-widest rounded-xl hover:bg-[#ec4899] hover:text-white transition-all flex items-center justify-center gap-2"
+                      >
+                       <ImagePlus className="w-3.5 h-3.5" /> {t('dashboard.cards.generate.btn')}
+                      </Link>
+                    ) : (
+                      <div className="mt-6 flex items-center gap-2 text-[10px] text-gray-500 font-bold uppercase italic">
+                        <Activity className="w-3 h-3" /> {t('dashboard.models.processing')}
+                      </div>
+                    )}
                   </div>
-                  {model.status === 'failed' && model.error_message && (
-                    <p className="text-xs text-[#F72585] mt-2 bg-[#F72585]/10 p-2 rounded-md truncate" title={model.error_message}>
-                      {model.error_message}
-                    </p>
-                  )}
-                </div>
-                {model.status === 'ready' && (
-                  <Button size="sm" className="bg-primary-gradient glow-effect border-0 text-white rounded-full px-6" asChild>
-                    <Link href={`/dashboard/generate?modelId=${model.id}`}>Generate Images</Link>
-                  </Button>
-                )}
-              </Card>
-            ))}
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </div>
+
+        {/* ── Sidebar Actions ── */}
+        <div className="space-y-8">
+          <div className="p-8 rounded-[2.5rem] bg-gradient-to-br from-[#ec4899] to-[#9D4EDD] shadow-[0_20px_50px_rgba(236,72,153,0.2)]">
+            <h3 className="text-2xl font-black text-white tracking-tighter mb-2">{t('dashboard.marketing.title')}</h3>
+            <p className="text-white/80 text-sm mb-8 leading-relaxed">{t('dashboard.marketing.subtitle')}</p>
+            <div className="space-y-3">
+               <Link href="/dashboard/train" className="flex items-center gap-3 w-full p-4 rounded-2xl bg-white text-black font-black text-sm uppercase tracking-widest hover:scale-[1.02] transition-transform">
+                  <Upload className="w-5 h-5 text-[#ec4899]" />
+                  {t('dashboard.cards.train.btn')}
+               </Link>
+               <Link href="/dashboard/generate" className="flex items-center gap-3 w-full p-4 rounded-2xl bg-black/20 text-white font-black text-sm uppercase tracking-widest hover:bg-black/30 transition-all border border-white/10">
+                  <Sparkles className="w-5 h-5 text-white" />
+                  {t('dashboard.marketing.quickGen')}
+               </Link>
+            </div>
           </div>
-        )}
-      </motion.div>
+
+          {/* Tips Card */}
+          <div className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/10 backdrop-blur-md">
+             <h4 className="text-xs font-black tracking-widest text-gray-500 uppercase mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#ec4899]" /> {t('dashboard.marketing.tipTitle')}
+             </h4>
+             <p className="text-gray-400 text-sm italic leading-relaxed">
+               {t('dashboard.marketing.tipText')}
+             </p>
+          </div>
+        </div>
+
+      </div>
     </motion.div>
   )
 }

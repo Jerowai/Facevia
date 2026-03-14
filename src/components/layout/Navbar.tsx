@@ -4,18 +4,20 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-
-const NAV_LINKS = [
-  { href: '/#comparison', label: 'Examples' },
-  { href: '/#how-it-works', label: 'How It Works' },
-  { href: '/#pricing', label: 'Pricing' },
-  { href: '/#testimonials', label: 'Reviews' },
-]
+import { useLanguage } from '@/lib/i18n/LanguageContext'
 
 export default function Navbar() {
   const [user, setUser] = useState<any>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const supabase = createClient()
+  const { t } = useLanguage()
+
+  const NAV_LINKS = [
+    { href: '/#comparison', label: t('nav.photos') },
+    { href: '/#how-it-works', label: t('nav.howItWorks') || 'How It Works' },
+    { href: '/#pricing', label: t('nav.pricing') },
+    { href: '/#testimonials', label: t('nav.reviews') },
+  ]
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -55,14 +57,14 @@ export default function Navbar() {
               href="/dashboard"
               className="hidden sm:block text-[15px] font-semibold text-white/80 hover:text-white transition-colors"
             >
-              Dashboard
+              {t('nav.dashboard')}
             </Link>
             <form action="/auth/signout" method="post" className="hidden sm:block">
               <button
                 type="submit"
                 className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
               >
-                Sign Out
+                {t('nav.signOut')}
               </button>
             </form>
           </>
@@ -72,13 +74,13 @@ export default function Navbar() {
               href="/login"
               className="hidden md:block text-[15px] font-semibold text-white/70 hover:text-white transition-colors"
             >
-              Log In
+              {t('nav.login')}
             </Link>
             <Link
               href="/login?tab=signup"
               className="hidden sm:inline-flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-[#ec4899] to-[#be185d] hover:from-[#db2777] hover:to-[#9d1c5f] text-white px-5 py-2.5 md:px-7 md:py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(236,72,153,0.35)] border border-[#ec4899]/30"
             >
-              ✨ Get Started Free
+              ✨ {t('nav.cta')}
             </Link>
           </>
         )}
@@ -103,7 +105,7 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="absolute top-[72px] left-0 w-full bg-[#0a0f1e] border-b border-white/5 py-4 px-6 flex flex-col gap-4 lg:hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-50">
           <div className="pb-4 border-b border-white/5 flex justify-between items-center">
-            <span className="text-white/60 text-sm font-medium">Language</span>
+            <span className="text-white/60 text-sm font-medium">{t('dashboard.settings.language')}</span>
             <LanguageSwitcher />
           </div>
 
@@ -124,23 +126,23 @@ export default function Navbar() {
             {user ? (
               <>
                 <Link href="/dashboard" className="text-lg font-semibold text-white/90" onClick={() => setIsMobileMenuOpen(false)}>
-                  Dashboard
+                  {t('nav.dashboard')}
                 </Link>
                 <form action="/auth/signout" method="post">
-                  <button type="submit" className="text-lg font-semibold text-[#ec4899]">Sign Out</button>
+                  <button type="submit" className="text-lg font-semibold text-[#ec4899]">{t('nav.signOut')}</button>
                 </form>
               </>
             ) : (
               <>
                 <Link href="/login" className="text-lg font-semibold text-white/90" onClick={() => setIsMobileMenuOpen(false)}>
-                  Log In
+                  {t('nav.login')}
                 </Link>
                 <Link
                   href="/login?tab=signup"
                   className="inline-flex justify-center items-center gap-2 text-base font-bold bg-gradient-to-r from-[#ec4899] to-[#be185d] text-white px-7 py-3.5 rounded-full"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  ✨ Get Started Free
+                  ✨ {t('nav.cta')}
                 </Link>
               </>
             )}

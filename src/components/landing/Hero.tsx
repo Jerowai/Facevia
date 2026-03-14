@@ -4,9 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedBackground } from "@/components/ui/animated-background";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { Check, Flame, Ghost, Heart } from "lucide-react";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-[#090b14]">
       <div className="absolute inset-0 z-0">
@@ -27,7 +30,7 @@ export function Hero() {
               className="mb-8 inline-flex items-center"
             >
               <h2 className="text-gray-400 font-bold tracking-widest text-[10px] sm:text-xs md:text-sm uppercase">
-                ✨ AI-Powered Dating Photos
+                {t('hero.badge')}
               </h2>
             </motion.div>
 
@@ -37,8 +40,8 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl md:text-7xl lg:text-[4.5rem] font-bold tracking-tighter text-white mb-6 md:mb-8 leading-[1.1] text-center lg:text-left"
             >
-              <span className="text-[#ec4899]">Get better</span> <br className="hidden sm:block" />
-              matches with AI
+              <span className="text-[#ec4899]">{t('hero.title1')}</span> <br className="hidden sm:block" />
+              {t('hero.title2')}
             </motion.h1>
 
             <motion.p
@@ -47,7 +50,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-white/70 text-base sm:text-lg mb-8 text-center lg:text-left max-w-xl mx-auto lg:mx-0"
             >
-              Upload a few selfies and our AI will generate realistic photos designed for Tinder, Instagram and other social platforms.
+              {t('hero.subtitle')}
             </motion.p>
 
             <motion.ul
@@ -58,15 +61,15 @@ export function Hero() {
             >
               <li className="flex items-center">
                 <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">Look more attractive on dating apps</span>
+                <span className="font-semibold">{t('hero.bullets.b1')}</span>
               </li>
               <li className="flex items-center">
                 <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">Realistic AI photos that actually look like you</span>
+                <span className="font-semibold">{t('hero.bullets.b2')}</span>
               </li>
               <li className="flex items-center">
                 <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">No expensive photoshoots needed</span>
+                <span className="font-semibold">{t('hero.bullets.b3')}</span>
               </li>
             </motion.ul>
 
@@ -77,7 +80,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
             >
               <Button asChild size="lg" className="h-14 sm:h-16 px-6 sm:px-10 rounded-md font-bold text-lg sm:text-xl bg-[#ec4899] text-white hover:bg-[#db2777] transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(236,72,153,0.4)] border-0 w-full sm:w-auto">
-                <Link href="/login?tab=signup">Generate My AI Photos</Link>
+                <Link href="/login?tab=signup">{t('hero.cta')}</Link>
               </Button>
             </motion.div>
 
@@ -87,7 +90,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="text-gray-400 text-sm mt-4 text-center sm:text-left font-medium"
             >
-              Ready in minutes • Used by thousands of users
+              {t('hero.meta')}
             </motion.p>
 
             {/* Trust bar */}
@@ -114,7 +117,7 @@ export function Hero() {
               </div>
               <div>
                 <div className="flex text-[#ec4899] text-xs">★★★★★</div>
-                <p className="text-gray-400 text-xs font-medium">Trusted by 12,000+ users</p>
+                <p className="text-gray-400 text-xs font-medium">{t('hero.trust')}</p>
               </div>
             </motion.div>
           </div>
@@ -138,7 +141,7 @@ export function Hero() {
 
                 {/* Dating profile photo inside the phone */}
                 <img
-                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
                   alt="AI Generated Dating Profile Photo"
                   className="w-full h-full object-cover rounded-[2.6rem] scale-[1.02] pointer-events-none select-none"
                   draggable={false}
@@ -160,7 +163,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Tinder <span className="text-[10px] text-gray-400 font-normal">now</span></div>
-                  <div className="text-gray-600 text-[11px]">Someone liked your photo!</div>
+                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.tinder')}</div>
                 </div>
               </motion.div>
 
@@ -176,7 +179,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Snapchat <span className="text-[10px] text-gray-400 font-normal">2m ago</span></div>
-                  <div className="text-gray-600 text-[11px]">Your story views are up 340% 🚀</div>
+                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.snapchat')}</div>
                 </div>
               </motion.div>
 
@@ -192,7 +195,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Instagram <span className="text-[10px] text-gray-400 font-normal">5m ago</span></div>
-                  <div className="text-gray-600 text-[11px]">237 new profile visitors</div>
+                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.instagram')}</div>
                 </div>
               </motion.div>
 
@@ -208,7 +211,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div className="text-black font-bold text-[13px] leading-tight flex items-center gap-1">Hinge <span className="text-[10px] text-gray-400 font-normal">12m ago</span></div>
-                  <div className="text-gray-600 text-[11px]">Your photo got 12 roses 🌹</div>
+                  <div className="text-gray-600 text-[11px]">{t('hero.notifications.hinge')}</div>
                 </div>
               </motion.div>
             </div>

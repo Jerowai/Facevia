@@ -5,6 +5,8 @@ export interface Preset {
     image: string;
     icon: string;
     promptTemplate: string;
+    isTrending?: boolean;
+    isRecommended?: boolean;
 }
 
 export const PHOTO_PRESETS: Preset[] = [
@@ -14,7 +16,8 @@ export const PHOTO_PRESETS: Preset[] = [
         label: 'Urban Vibe',
         icon: '🌆',
         image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=800&auto=format&fit=crop',
-        promptTemplate: "A professional cinematic portrait of @USER_TRIGGER, standing on a modern city rooftop at sunset, blurred skyline background, soft golden hour lighting, 85mm lens, high fashion editorial dating profile photo, highly detailed face"
+        promptTemplate: "A professional cinematic portrait of @USER_TRIGGER, standing on a modern city rooftop at sunset, blurred skyline background, soft golden hour lighting, 85mm lens, high fashion editorial dating profile photo, highly detailed face",
+        isTrending: true
     },
     {
         id: 'beach',
@@ -22,14 +25,15 @@ export const PHOTO_PRESETS: Preset[] = [
         label: 'Summer Feel',
         icon: '🌅',
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
-        promptTemplate: "A candid lifestyle portrait of @USER_TRIGGER on a beautiful sandy beach at golden hour, ocean waves in the background, casual stylish summer clothing, wind subtly blowing hair, warm cinematic lighting, looking directly at camera, 50mm lens, Tinder profile photo"
+        promptTemplate: "A candid lifestyle portrait of @USER_TRIGGER on a beautiful sandy beach at golden hour, ocean waves in the background, casual stylish summer clothing, wind subtly blowing hair, warm cinematic lighting, looking directly at camera, 50mm lens, Tinder profile photo",
+        isRecommended: true
     },
     {
         id: 'coffee',
         name: 'Coffee Shop Candid',
         label: 'Cozy & Warm',
         icon: '☕',
-        image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1512152329560-c9e9b042f72a?q=80&w=800&auto=format&fit=crop',
         promptTemplate: "A candid lifestyle shot of @USER_TRIGGER sitting in an aesthetic hipster coffee shop, holding a ceramic coffee cup, smiling naturally, bokeh background with warm indoor lighting, stylish casual outfit, photorealistic dating app photo"
     },
     {
@@ -46,7 +50,8 @@ export const PHOTO_PRESETS: Preset[] = [
         label: 'Adventurous',
         icon: '✈️',
         image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop',
-        promptTemplate: "An adventurous travel portrait of @USER_TRIGGER walking down a cobblestone street in Europe, wearing fashionable streetwear, shallow depth of field, natural sunlight, cinematic street photography, confident and approachable smile"
+        promptTemplate: "An adventurous travel portrait of @USER_TRIGGER walking down a cobblestone street in Europe, wearing fashionable streetwear, shallow depth of field, natural sunlight, cinematic street photography, confident and approachable smile",
+        isTrending: true
     },
     {
         id: 'luxury',
@@ -54,7 +59,8 @@ export const PHOTO_PRESETS: Preset[] = [
         label: 'Fine Dining',
         icon: '🥂',
         image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop',
-        promptTemplate: "An elegant evening portrait of @USER_TRIGGER sitting at a table in a Michelin-star luxury restaurant, dressed in sharp smart-casual evening wear, glass of wine on table, dim romantic ambient lighting, soft focus background, high-end dating profile photo"
+        promptTemplate: "An elegant evening portrait of @USER_TRIGGER sitting at a table in a Michelin-star luxury restaurant, dressed in sharp smart-casual evening wear, glass of wine on table, dim romantic ambient lighting, soft focus background, high-end dating profile photo",
+        isRecommended: true
     },
     {
         id: 'night_city',

@@ -7,42 +7,15 @@
         "dashboard": "Dashboard",
         "signOut": "Sign Out",
         "login": "Log in",
-        "cta": "GET MY AI PHOTOS"
-    },
-    "hero": {
-        "badge": "Studio Quality AI Portraits",
-        "title1": "Get better matches with",
-        "title2": "AI-generated photos",
-        "subtitle": "Upload a few selfies and our AI will generate realistic photos designed for Tinder, Instagram and other social platforms.",
-        "bullets": {
-            "b1": "Look more attractive on dating apps",
-            "b1sub": "",
-            "b2": "Realistic AI photos that actually look like you",
-            "b2sub": "",
-            "b3": "No expensive photoshoots needed",
-            "b3sub": ""
-        },
-        "cta": "Get My AI Photos",
-        "microtext": "Ready in minutes • Used by thousands of users",
-        "scroll": "Scroll to discover",
-        "guarantee": "100% Money Back Guarantee",
-        "notifications": {
-            "now": "now",
-            "tinder": "New Match!",
-            "ago2": "2m ago",
-            "snapchat": "New Snap",
-            "ago5": "5m ago",
-            "instagram": "started following you",
-            "ago12": "12m ago",
-            "hinge": "liked your photo"
-        }
+        "cta": "GET MY AI PHOTOS",
+        "howItWorks": "How It Works"
     },
     "howItWorks": {
         "title": "How it works?",
         "subtitle": "Three simple steps to your best dating profile ever.",
         "step1": {
             "title": "Select a Style",
-            "desc": "Choose from dozens of professional styles, from corporate to casual."
+            "desc": "Choose from dozens of premium styles, from rooftop bars to sunset beaches."
         },
         "step2": {
             "title": "Upload Photos",
@@ -91,13 +64,16 @@
         "title": "From ordinary to irresistible",
         "subtitle": "Drag the slider to see how Facevia creates the ultimate dating profile.",
         "before": "Average Selfie",
-        "after": "Facevia AI Match"
+        "after": "Facevia AI Match",
+        "caption": "← drag to compare → • Generated in under 60 seconds"
     },
     "pricing": {
         "title1": "Simple,",
         "title2": "Transparent",
         "title3": "Pricing",
         "subtitle": "Choose the perfect plan for you. Pay once, use forever.",
+        "mostPopular": "Most Popular",
+        "loading": "Loading...",
         "oneTime": "one-time",
         "starter": "Starter",
         "starterDesc": "Perfect for trying out our AI photo generation.",
@@ -124,31 +100,52 @@
             "p3_f3": "Fastest generation",
             "p3_f4": "Highest resolution photos",
             "p3_f5": "Commercial usage allowed",
-            "p3_f6": "Priority processing"
+            "p3_f6": "Priority processing",
+            "ready": "Ready in under 5 minutes"
         }
     },
     "testimonials": {
-        "title": "Loved by thousands",
+        "title": "Trusted by millions of singles",
         "t1": {
-            "text": "I was skeptical at first, but the results blew me away. I use these for my LinkedIn and got so many compliments.",
-            "name": "Sarah J.",
-            "role": "Marketing Director"
+            "text": "I was struggling with Tinder, but these AI photos changed everything. I'm getting 5x more matches now!",
+            "name": "Jake M.",
+            "role": "Verified User"
         },
         "t2": {
-            "text": "Much better than spending $300 on a headshot photographer. The process was super easy.",
-            "name": "Michael T.",
-            "role": "Software Engineer"
+            "text": "The rooftop and beach styles look so real. My friends thought I actually went on a luxury vacation.",
+            "name": "Sofia R.",
+            "role": "Social Media Influencer"
         },
         "t3": {
-            "text": "The photos look so natural, nobody could tell they were AI. Highly recommended!",
-            "name": "Emily C.",
-            "role": "Real Estate Agent"
+            "text": "Facevia saved me hundreds on a professional photoshoot. The AI portraits are even better than real life!",
+            "name": "David L.",
+            "role": "Verified User"
+        }
+    },
+    "hero": {
+        "badge": "✨ AI-Powered Dating Photos",
+        "title1": "Get better",
+        "title2": "matches with AI",
+        "subtitle": "Upload a few selfies and our AI will generate realistic photos designed for Tinder, Instagram and other social platforms.",
+        "bullets": {
+            "b1": "Look more attractive on dating apps",
+            "b2": "Realistic AI photos that actually look like you",
+            "b3": "No expensive photoshoots needed"
+        },
+        "cta": "Get My AI Photos",
+        "meta": "Ready in minutes • Used by thousands of users",
+        "trust": "Trusted by 12,000+ users",
+        "notifications": {
+            "tinder": "Someone liked your photo!",
+            "snapchat": "Your story views are up 340% 🚀",
+            "instagram": "237 new profile visitors",
+            "hinge": "Your photo got 12 roses 🌹"
         }
     },
     "cta": {
-        "title": "Ready to upgrade your online presence?",
-        "subtitle": "Join thousands of happy customers and get your professional photos today.",
-        "button": "GET STARTED NOW"
+        "title": "Ready to get more matches?",
+        "subtitle": "Join thousands of users who have upgraded their dating profiles with Facevia.",
+        "button": "GENERATE MY PHOTOS"
     },
     "footer": {
         "desc": "Facevia helps people generate high-quality AI photos for dating profiles and social media.",
@@ -156,9 +153,13 @@
         "product": "Product",
         "company": "Company",
         "social": "Social",
-        "rights": "Facevia. All rights reserved.",
+        "rights": "All rights reserved.",
         "operational": "All systems operational",
+        "operatedBy": "Operated by",
         "links": {
+            "instagram": "Instagram",
+            "tiktok": "TikTok",
+            "twitter": "X / Twitter",
             "howItWorks": "How it Works",
             "pricing": "Pricing",
             "styles": "Style Presets",
@@ -175,29 +176,392 @@
         "subtitle": "Pick a preset style and let our AI do the work. Perfect for any dating profile.",
         "tryStyle": "Try This Style \u2192",
         "styles": {
-            "tinderRooftop": {
+            "rooftop": {
                 "name": "Tinder Rooftop",
-                "label": "City vibes"
+                "label": "City Vibes"
             },
-            "beachSunset": {
+            "beach": {
                 "name": "Beach Sunset",
-                "label": "Summer feel"
+                "label": "Summer Feel"
             },
-            "coffeeShopCandid": {
+            "coffee": {
                 "name": "Coffee Shop Candid",
-                "label": "Warm & cozy"
+                "label": "Warm & Cozy"
             },
-            "gymLifestyle": {
+            "gym": {
                 "name": "Gym Lifestyle",
-                "label": "Fit & active"
+                "label": "Fit & Active"
             },
-            "travelStreet": {
+            "travel": {
                 "name": "Travel Street",
                 "label": "Adventurous"
             },
-            "luxuryRestaurant": {
+            "luxury": {
                 "name": "Luxury Restaurant",
-                "label": "Fine dining"
+                "label": "Fine Dining"
+            },
+            "night_city": {
+                "name": "Night City",
+                "label": "Neon Nights"
+            },
+            "studio": {
+                "name": "Studio Portrait",
+                "label": "Professional"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Welcome Back",
+        "subtitle": "Everything you need to transform your dating life.",
+        "nav": {
+            "home": "Overview",
+            "train": "Train Model",
+            "generate": "Generate Photos",
+            "gallery": "My Gallery",
+            "settings": "Settings"
+        },
+        "stats": {
+            "personas": "AI Personas",
+            "activeTraining": "Active Training",
+            "totalGenerations": "Generations"
+        },
+        "settings": {
+            "profile": "Profile",
+            "language": "Language",
+            "billing": "Billing",
+            "security": "Security",
+            "updateProfile": "Update your personal information",
+            "displayName": "Display Name",
+            "save": "Save Changes",
+            "selected": "Selected",
+            "subtitle": "Manage your account and preferences",
+            "emailLabel": "Email Address",
+            "langTitle": "Global Language",
+            "langSubtitle": "Select your preferred interface language",
+            "billingTitle": "Subscription & Billing",
+            "billingSubtitle": "Manage your plan and transaction history",
+            "activePlan": "Active Plan",
+            "upgradeText": "Upgrade to unlock full potential",
+            "upgradeBtn": "Upgrade Plan",
+            "securityTitle": "Account Security",
+            "securitySubtitle": "Secure your account with multi-factor authentication",
+            "emailLoginOnly": "Email Login Only",
+            "emailLoginDesc": "Your account is secured via email and password.",
+            "changePassword": "Change Password",
+            "twoFactor": "Two-Factor Auth",
+            "comingSoon": "Coming Soon",
+            "twoFactorDesc": "Add an extra layer of security to your account."
+        },
+        "credits": "Your Credits",
+        "runningLow": "— running low!",
+        "buyCredits": "Buy Credits",
+        "progress": "Your Progress",
+        "steps": {
+            "upload": {
+                "title": "Upload Photos",
+                "desc": "Train your AI model"
+            },
+            "training": {
+                "title": "AI Training",
+                "desc": "Model learns your face"
+            },
+            "generate": {
+                "title": "Generate Photos",
+                "desc": "Create dating photos"
+            }
+        },
+        "cards": {
+            "generate": {
+                "title": "Generate New Photos",
+                "desc": "Create new dating or social media photos using your trained AI model.",
+                "ready": "Ready to generate",
+                "btn": "Generate Photos"
+            },
+            "train": {
+                "title": "Train New Model",
+                "desc": "Upload photos of a different person to train a new AI model.",
+                "btn": "Upload Photos"
+            },
+            "gallery": {
+                "title": "View Gallery",
+                "desc": "Browse and download all the photos you have generated so far.",
+                "btn": "Open Gallery"
+            }
+        },
+        "models": {
+            "title": "Your AI Models",
+            "subtitle": "Active models available for photo generation.",
+            "status": "Status",
+            "ready": "ready",
+            "failed": "failed",
+            "training": "training",
+            "created": "Created",
+            "processing": "Processing Persona Data..."
+        },
+        "marketing": {
+            "title": "Transform Your Dating Life",
+            "subtitle": "Unlock premium style presets and generate photos that get 10x more matches.",
+            "quickGen": "Quick Generation",
+            "tipTitle": "Dating Pro Tip",
+            "tipText": "\"Photos in Lifestyle contexts (coffee shops, streets) feel more authentic and approachable than studio shots for dating apps.\""
+        }
+    },
+    "train": {
+        "title": "Upload Your Photos",
+        "subtitle": "Upload 10–20 clear selfies so the AI can learn your unique facial features.",
+        "steps": {
+            "s1": "Upload Photos",
+            "s2": "AI Training",
+            "s3": "Generate Photos"
+        },
+        "dropzone": {
+            "title": "Drag & drop photos here",
+            "subtitle": "or click to browse files",
+            "selected": "{count} / 20 photos selected",
+            "ready": "Ready"
+        },
+        "grid": {
+            "title": "Selected Photos"
+        },
+        "guidelines": {
+            "good": "Good Photos",
+            "bad": "Avoid These",
+            "tips": {
+                "g1": "Clear face, well lit",
+                "g2": "Multiple angles",
+                "g3": "Natural expressions",
+                "g4": "Different outfits / backgrounds",
+                "b1": "Sunglasses or hats",
+                "b2": "Dark or blurry shots",
+                "b3": "Group photos",
+                "b4": "Heavy filters"
+            }
+        },
+        "errors": {
+            "min": "Please select at least 10 photos.",
+            "max": "Maximum 20 photos allowed. Extra files were removed.",
+            "format": "Some files were skipped — only JPG/PNG/WebP under 10 MB accepted.",
+            "login": "Please log in first."
+        },
+        "cta": {
+            "uploading": "Uploading & Starting Training...",
+            "upload": "Upload & Start Training",
+            "need": "(need {count} more)"
+        }
+    },
+    "trainingStatus": {
+        "ready": {
+            "title": "Your AI model is ready!",
+            "desc": "Time to generate your dating photos.",
+            "btn": "Generate My Photos"
+        },
+        "failed": {
+            "title": "Training failed",
+            "desc": "Something went wrong. Please try again.",
+            "btn": "Try Again"
+        },
+        "training": {
+            "title": "Training your AI model",
+            "desc": "This typically takes 15–25 minutes. You can close this page and come back later."
+        },
+        "stages": {
+            "uploading": {
+                "title": "Uploading photos",
+                "desc": "Your photos are being securely uploaded."
+            },
+            "preparing": {
+                "title": "Preparing training data",
+                "desc": "We are processing and packaging your selfies."
+            },
+            "training": {
+                "title": "AI model training",
+                "desc": "The LoRA model is learning your facial features."
+            },
+            "ready": {
+                "title": "Training complete!",
+                "desc": "Your personal AI is ready to generate photos."
+            }
+        },
+        "elapsed": "Time elapsed",
+        "back": "Back to Dashboard"
+    },
+    "generate": {
+        "title": "Generate Photos",
+        "subtitle": "Choose a style and create ultra-realistic dating profile photos.",
+        "credits": {
+            "loading": "Loading credits...",
+            "remaining": "{count} credits remaining",
+            "buy": "Buy More",
+            "error": "No credits remaining. Please purchase a plan."
+        },
+        "model": {
+            "title": "AI Model",
+            "desc": "Select the trained model you want to use",
+            "error": "No trained model found. Please upload photos first.",
+            "ready": "Ready"
+        },
+        "prompt": {
+            "title": "Custom Prompt",
+            "desc": "Optional: describe exactly what you want",
+            "placeholder": "e.g., A professional headshot in a bright office, wearing a navy blue suit..."
+        },
+        "cta": {
+            "generating": "Generating photo...",
+            "generate": "Generate Photo (-1 Credit)",
+            "error": "Please select a style preset or enter a custom prompt."
+        },
+        "result": {
+            "generating": "Generating your photo...",
+            "wait": "This usually takes 15-30 seconds",
+            "empty": "Select a style and click generate to see your photo here.",
+            "success": "Photo generated!",
+            "download": "Download Photo",
+            "gallery": "View in Gallery"
+        }
+    },
+    "gallery": {
+        "title": "My Photos",
+        "subtitle": "All your AI-generated dating photos in one place.",
+        "errors": {
+            "load": "Failed to load gallery.",
+            "favorite": "Could not update favorite.",
+            "download": "Failed to download. Try right-clicking and saving the image."
+        },
+        "empty": {
+            "title": "No photos generated yet",
+            "desc": "Head to the Generate page, pick a style, and create your first AI photo!",
+            "btn": "Generate Photos"
+        },
+        "success": {
+            "download": "Photo downloaded!"
+        },
+        "modal": {
+            "preview": "Preview",
+            "download": "Download",
+            "favorite": "Favorite",
+            "generateMore": "Generate More"
+        }
+    },
+    "auth": {
+        "google": "Continue with Google",
+        "or": "or",
+        "orEmail": "or sign up with email",
+        "email": "Email",
+        "emailPlaceholder": "you@example.com",
+        "password": "Password",
+        "passwordPlaceholder": "••••••••",
+        "panda": {
+            "peeking": "Not peeking...",
+            "watching": "Watching you type..."
+        },
+        "showPassword": "Toggle password visibility",
+        "tabLogin": "Log In",
+        "tabSignup": "Sign Up",
+        "login": {
+            "signingIn": "Signing in...",
+            "submit": "Log In",
+            "success": "Welcome back!"
+        },
+        "signup": {
+            "creating": "Creating account...",
+            "create": "Create My Account",
+            "agree": "By signing up you agree to our",
+            "and": "and",
+            "success": "Account created! Check your email.",
+            "weak": "Please choose a stronger password.",
+            "great": "Great password!",
+            "levels": {
+                "0": "Too short",
+                "1": "Weak",
+                "2": "Fair",
+                "3": "Good",
+                "4": "Strong"
+            },
+            "validation": {
+                "length": "At least 8 characters",
+                "upper": "Include an uppercase letter",
+                "number": "Include a number",
+                "symbol": "Include a symbol (!, @, #…)"
+            }
+        }
+    },
+    "legal": {
+        "faq": {
+            "back": "back to home",
+            "title": "Frequently Asked Questions",
+            "q1": "How many photos do I need to upload?",
+            "a1": "For the best results, we recommend uploading 4 to 10 photos of yourself. Regular selfies with clear lighting work perfectly.",
+            "q2": "How long does it take to get my AI photos?",
+            "a2": "Our advanced AI models typically generate your high-quality professional photos in under 15 minutes.",
+            "q3": "Are my photos private?",
+            "a3": "Yes, absolutely. We prioritize your privacy. All uploaded and generated photos are automatically deleted from our secure servers within 24 hours.",
+            "q4": "Can I use these photos for LinkedIn?",
+            "a4": "Yes! While our primary styles are optimized for dating profiles, we also offer corporate and casual styles that are perfect for LinkedIn and professional use."
+        },
+        "contact": {
+            "title": "Contact Us",
+            "subtitle": "We'd love to hear from you. Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions.",
+            "emailTitle": "Email Us",
+            "locationTitle": "Company Location"
+        },
+        "privacy": {
+            "title": "Privacy Policy",
+            "lastUpdated": "Last updated: March 10, 2026",
+            "s1": {
+                "title": "1. Introduction",
+                "p": "Welcome to Facevia. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you."
+            },
+            "s2": {
+                "title": "2. The Data We Collect About You",
+                "p": "We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:",
+                "l1": "Identity Data: includes first name, last name.",
+                "l2": "Contact Data: includes email address.",
+                "l3": "Image Data: includes the photos you upload to our service to generate AI avatars.",
+                "l4": "Technical Data: includes IP address, login data, browser type."
+            },
+            "s3": {
+                "title": "3. Data Security & Image Retention",
+                "p": "We have put in place appropriate security measures to prevent your personal data from being accidentally lost. All uploaded photos and generated images are automatically deleted from our servers 24 hours after your generation is complete."
+            }
+        },
+        "terms": {
+            "title": "Terms of Service",
+            "lastUpdated": "Last updated: March 10, 2026",
+            "s1": {
+                "title": "1. Agreement to Terms",
+                "p": "By accessing or using Facevia, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
+            },
+            "s2": {
+                "title": "2. Use License",
+                "p1": "Permission is granted to temporarily download one copy of the materials (information or software) on Facevia's website for personal, non-commercial transitory viewing only.",
+                "p2": "This is the grant of a license, not a transfer of title, and under this license you may not:",
+                "l1": "modify or copy the materials;",
+                "l2": "use the materials for any commercial purpose, or for any public display (commercial or non-commercial);",
+                "l3": "attempt to decompile or reverse engineer any software contained on Facevia's website;",
+                "l4": "remove any copyright or other proprietary notations from the materials; or",
+                "l5": "transfer the materials to another person or \"mirror\" the materials on any other server."
+            },
+            "s3": {
+                "title": "3. Disclaimer",
+                "p": "The materials on Facevia's website are provided on an 'as is' basis. Facevia makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
+            }
+        },
+        "cookies": {
+            "title": "Cookie Policy",
+            "lastUpdated": "Last updated: March 10, 2026",
+            "s1": {
+                "title": "1. What Are Cookies",
+                "p": "As is common practice with almost all professional websites, this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies."
+            },
+            "s2": {
+                "title": "2. How We Use Cookies",
+                "p": "We use cookies for a variety of reasons detailed below. Unfortunately, in most cases, there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site."
+            },
+            "s3": {
+                "title": "3. The Cookies We Set",
+                "l1": "Account related cookies: If you create an account with us then we will use cookies for the management of the signup process and general administration.",
+                "l2": "Login related cookies: We use cookies when you are logged in so that we can remember this fact.",
+                "l3": "Site preferences cookies: In order to provide you with a great experience on this site, we provide the functionality to set your preferences, such as your selected language."
             }
         }
     }

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // Visually distinct before/after images:
 // BEFORE: grainy, gloomy unfiltered bathroom selfie
@@ -10,6 +11,7 @@ const BEFORE_IMG = "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d
 const AFTER_IMG = "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1200&auto=format&fit=crop";
 
 export function BeforeAfterSlider() {
+  const { t } = useLanguage();
   const [val, setVal] = useState(45);
 
   const sliderPos = useMotionValue(45);
@@ -33,10 +35,10 @@ export function BeforeAfterSlider() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            See the <span className="text-[#ec4899]">Transformation</span>
+            {t('beforeAfter.title')}
           </h2>
           <p className="text-gray-400 text-lg px-4">
-            Drag to compare your original selfie vs. your AI-generated dating photo
+            {t('beforeAfter.subtitle')}
           </p>
         </motion.div>
 
@@ -64,7 +66,7 @@ export function BeforeAfterSlider() {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-transparent" />
             <div className="absolute bottom-6 right-6 px-5 py-2.5 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white/50 font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Before
+              {t('beforeAfter.before')}
             </div>
           </div>
 
@@ -77,7 +79,7 @@ export function BeforeAfterSlider() {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-[#ec4899]/10 to-transparent" />
             <div className="absolute bottom-6 left-6 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ec4899] to-[#be185d] border border-white/20 text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-[0_4px_20px_rgba(236,72,153,0.5)]">
-              AI Photo ✨
+              {t('beforeAfter.after')} ✨
             </div>
           </motion.div>
 
@@ -106,7 +108,7 @@ export function BeforeAfterSlider() {
           viewport={{ once: true }}
           className="text-gray-500 text-sm mt-6 text-center"
         >
-          ← drag to compare → &nbsp;•&nbsp; Generated in under 60 seconds
+          {t('beforeAfter.caption')}
         </motion.p>
       </div>
     </section>

@@ -7,42 +7,14 @@
         "dashboard": "Tableau de Bord",
         "signOut": "Déconnexion",
         "login": "Connexion",
-        "cta": "OBTENIR MES PHOTOS IA"
-    },
-    "hero": {
-        "badge": "Portraits IA Qualité Studio",
-        "title1": "Obtenez de meilleurs matchs avec des",
-        "title2": "photos générées par l'IA",
-        "subtitle": "Téléchargez quelques selfies et notre IA générera des photos réalistes conçues pour Tinder, Instagram et d'autres plateformes sociales.",
-        "bullets": {
-            "b1": "Soyez plus séduisant sur les applications de rencontre",
-            "b1sub": "",
-            "b2": "Des photos IA réalistes qui vous ressemblent vraiment",
-            "b2sub": "",
-            "b3": "Pas de séance photo coûteuse nécessaire",
-            "b3sub": ""
-        },
-        "cta": "Obtenir mes photos IA",
-        "microtext": "Prêt en quelques minutes • Utilisé par des milliers d'utilisateurs",
-        "scroll": "Défiler pour découvrir",
-        "guarantee": "100% Satisfait ou Remboursé",
-        "notifications": {
-            "now": "maint.",
-            "tinder": "Nouveau Match!",
-            "ago2": "il y a 2m",
-            "snapchat": "Nouveau Snap",
-            "ago5": "il y a 5m",
-            "instagram": "a commencé à vous suivre",
-            "ago12": "il y a 12m",
-            "hinge": "a aimé votre photo"
-        }
+        "cta": "OBTENER MES PHOTOS IA"
     },
     "howItWorks": {
         "title": "Comment ça marche ?",
         "subtitle": "Trois étapes simples pour votre meilleur profil de rencontre.",
         "step1": {
             "title": "Choisissez un Style",
-            "desc": "Choisissez parmi des dizaines de styles pros, du corporate au décontracté."
+            "desc": "Choisissez parmi des dizaines de styles premium, des bars sur les toits aux plages au coucher du soleil."
         },
         "step2": {
             "title": "Téléchargez des Photos",
@@ -91,13 +63,16 @@
         "title": "D'ordinaire à irrésistible",
         "subtitle": "Faites glisser le curseur pour voir comment Facevia crée le profil de rencontre ultime.",
         "before": "Selfie Moyen",
-        "after": "Match Facevia IA"
+        "after": "Facevia Match IA",
+        "caption": "← glisser pour comparer → • Généré en moins de 60 secondes"
     },
     "pricing": {
         "title1": "Simple,",
         "title2": "Transparent",
         "title3": "Tarification",
         "subtitle": "Choisissez le plan parfait pour vous. Payez une fois, utilisez pour toujours.",
+        "mostPopular": "Le Plus Populaire",
+        "loading": "Chargement...",
         "oneTime": "unique",
         "starter": "Starter",
         "starterDesc": "Parfait pour essayer notre génération de photos IA.",
@@ -128,27 +103,47 @@
         }
     },
     "testimonials": {
-        "title": "Aimé par des milliers",
+        "title": "Approuvé par des millions de célibataires",
         "t1": {
-            "text": "J'étais sceptique au début, mais les résultats m'ont bluffé. Je les utilise pour LinkedIn.",
-            "name": "Sarah J.",
-            "role": "Directrice Marketing"
+            "text": "Je galérais sur Tinder, mais ces photos IA ont tout changé. J'ai 5x plus de matchs maintenant !",
+            "name": "Jake M.",
+            "role": "Utilisateur Vérifié"
         },
         "t2": {
-            "text": "Bien mieux que de dépenser 300 $ chez un photographe. Le processus était très facile.",
-            "name": "Michael T.",
-            "role": "Ingénieur Logiciel"
+            "text": "Les styles rooftop et plage ont l'air si réels. Mes amis ont cru que j'étais vraiment parti en vacances de luxe.",
+            "name": "Sofia R.",
+            "role": "Influenceuse Réseaux Sociaux"
         },
         "t3": {
-            "text": "Les photos semblent si naturelles, personne ne remarque que c'est l'IA. Je recommande !",
-            "name": "Emily C.",
-            "role": "Agent Immobilier"
+            "text": "Facevia m'a fait économiser des centaines d'euros en shooting pro. Les portraits IA sont encore mieux qu'en vrai !",
+            "name": "David L.",
+            "role": "Utilisateur Vérifié"
+        }
+    },
+    "hero": {
+        "badge": "✨ Photos de Rencontres Propulsées par l'IA",
+        "title1": "Obtenez de meilleurs",
+        "title2": "matchs avec l'IA",
+        "subtitle": "Téléchargez quelques selfies et notre IA générera des photos réalistes conçues pour Tinder, Instagram et d'autres plateformes sociales.",
+        "bullets": {
+            "b1": "Soyez plus attirant sur les applications de rencontre",
+            "b2": "Des photos IA réalistes qui vous ressemblent vraiment",
+            "b3": "Pas besoin de séances photo coûteuses"
+        },
+        "cta": "Générer mes photos IA",
+        "meta": "Prêt en quelques minutes • Utilisé par des milliers d'utilisateurs",
+        "trust": "Approuvé par plus de 12 000 utilisateurs",
+        "notifications": {
+            "tinder": "Quelqu'un a aimé votre photo !",
+            "snapchat": "Vos vues en story ont augmenté de 340 % ! 🚀",
+            "instagram": "237 nouveaux visiteurs sur le profil",
+            "hinge": "Votre photo a reçu 12 roses 🌹"
         }
     },
     "cta": {
-        "title": "Prêt à améliorer votre image en ligne ?",
-        "subtitle": "Rejoignez des milliers de clients satisfaits et obtenez vos photos pros aujourd'hui.",
-        "button": "COMMENCER MAINTENANT"
+        "title": "Prêt à avoir plus de matchs ?",
+        "subtitle": "Rejoignez des milliers d'utilisateurs qui ont amélioré leur profil de rencontre avec Facevia.",
+        "button": "GÉNÉRER MES PHOTOS"
     },
     "footer": {
         "desc": "Facevia aide les gens à générer des photos IA de haute qualité pour les profils de rencontre et réseaux sociaux.",
@@ -156,9 +151,13 @@
         "product": "Produits",
         "company": "Entreprise",
         "social": "Réseaux",
-        "rights": "Facevia. Tous droits réservés.",
-        "operational": "Tous systèmes opérationnels",
+        "rights": "Tous droits réservés.",
+        "operational": "Tous les systèmes sont opérationnels",
+        "operatedBy": "Exploité par",
         "links": {
+            "instagram": "Instagram",
+            "tiktok": "TikTok",
+            "twitter": "X / Twitter",
             "howItWorks": "Comment ça marche",
             "pricing": "Tarifs",
             "styles": "Styles de photos",
@@ -175,30 +174,338 @@
         "subtitle": "Choisissez un style prédéfini et laissez notre IA faire le travail. Parfait pour n'importe quel profil de rencontre.",
         "tryStyle": "Essayer ce style \u2192",
         "styles": {
-            "tinderRooftop": {
-                "name": "Rooftop Tinder",
-                "label": "Ambiance urbaine"
+            "rooftop": {
+                "name": "Toit-Terrasse",
+                "label": "Ambiance Urbaine"
             },
-            "beachSunset": {
-                "name": "Coucher de soleil",
-                "label": "Sensation estivale"
+            "beach": {
+                "name": "Plage au Coucher du Soleil",
+                "label": "Esprit d'Été"
             },
-            "coffeeShopCandid": {
-                "name": "Café décalé",
-                "label": "Chaleureux et douillet"
+            "coffee": {
+                "name": "Café Spontané",
+                "label": "Chaleureux & Douillet"
             },
-            "gymLifestyle": {
-                "name": "Style fitness",
-                "label": "En forme et actif"
+            "gym": {
+                "name": "Style de Vie Fitness",
+                "label": "Fit & Actif"
             },
-            "travelStreet": {
-                "name": "Voyage de rue",
-                "label": "Aventureux"
+            "travel": {
+                "name": "Rue de Voyage",
+                "label": "Aventurier"
             },
-            "luxuryRestaurant": {
-                "name": "Restaurant de luxe",
-                "label": "Cuisine raffinée"
+            "luxury": {
+                "name": "Restaurant de Luxe",
+                "label": "Dîner Raffiné"
+            },
+            "night_city": {
+                "name": "Ville de Nuit",
+                "label": "Nuits au Néon"
+            },
+            "studio": {
+                "name": "Portrait de Studio",
+                "label": "Professionnel"
             }
+        }
+    },
+    "dashboard": {
+        "title": "Bon Retour",
+        "subtitle": "Tout ce dont vous avez besoin pour transformer votre vie amoureuse.",
+        "nav": {
+            "home": "Aperçu",
+            "train": "Entraîner le Modèle",
+            "generate": "Générer des Photos",
+            "gallery": "Ma Galerie",
+            "settings": "Paramètres"
+        },
+        "credits": "Vos Crédits",
+        "runningLow": "— bientôt épuisé !",
+        "buyCredits": "Acheter des Crédits",
+        "progress": "Votre Progression",
+        "steps": {
+            "upload": {
+                "title": "Télécharger Photos",
+                "desc": "Entraînez votre modèle d'IA"
+            },
+            "training": {
+                "title": "Entraînement IA",
+                "desc": "Le modèle apprend votre visage"
+            },
+            "generate": {
+                "title": "Générer Photos",
+                "desc": "Créez des photos de rencontre"
+            }
+        },
+        "cards": {
+            "generate": {
+                "title": "Générer de Nouvelles Photos",
+                "desc": "Créez de nouvelles photos de rencontres ou pour les réseaux sociaux à l'aide de votre modèle d'IA entraîné.",
+                "ready": "Prêt à générer",
+                "btn": "Générer Photos"
+            },
+            "train": {
+                "title": "Entraîner un Nouveau Modèle",
+                "desc": "Téléchargez des photos d'une personne différente pour entraîner un nouveau modèle d'IA.",
+                "btn": "Télécharger Photos"
+            },
+            "gallery": {
+                "title": "Voir la Galerie",
+                "desc": "Parcourez et téléchargez toutes les photos que vous avez générées jusqu'à présent.",
+                "btn": "Ouvrir la Galerie"
+            }
+        },
+        "models": {
+            "title": "Vos Modèles d'IA",
+            "subtitle": "Modèles actifs disponibles pour la génération de photos.",
+            "status": "Statut",
+            "ready": "prêt",
+            "failed": "échoué",
+            "training": "en entraînement",
+            "created": "Créé"
+        }
+    },
+    "train": {
+        "title": "Téléchargez Vos Photos",
+        "subtitle": "Téléchargez entre 10 et 20 selfies clairs pour que l'IA puisse apprendre vos traits du visage uniques.",
+        "steps": {
+            "s1": "Télécharger Photos",
+            "s2": "Entraînement IA",
+            "s3": "Générer Photos"
+        },
+        "dropzone": {
+            "title": "Glissez-déposez vos photos ici",
+            "subtitle": "ou cliquez pour parcourir les fichiers",
+            "selected": "{count} / 20 photos sélectionnées",
+            "ready": "Prêt"
+        },
+        "grid": {
+            "title": "Photos Sélectionnées"
+        },
+        "guidelines": {
+            "good": "Belles Photos",
+            "bad": "Évitez Celles-ci",
+            "tips": {
+                "g1": "Visage clair, bien éclairé",
+                "g2": "Plusieurs angles",
+                "g3": "Expressions naturelles",
+                "g4": "Différentes tenues / arrière-plans",
+                "b1": "Lunettes de soleil ou chapeaux",
+                "b2": "Photos sombres ou floues",
+                "b3": "Photos de groupe",
+                "b4": "Filtres exagérés"
+            }
+        },
+        "errors": {
+            "min": "Veuillez sélectionner au moins 10 photos.",
+            "max": "Maximum 20 photos autorisées. Les fichiers supplémentaires ont été supprimés.",
+            "format": "Certains fichiers ont été ignorés — seuls les JPG/PNG/WebP de moins de 10 Mo sont acceptés.",
+            "login": "Veuillez d'abord vous connecter."
+        },
+        "cta": {
+            "uploading": "Téléchargement et Début de l'Entraînement...",
+            "upload": "Télécharger et Commencer l'Entraînement",
+            "need": "(il manque {count} photo)"
+        }
+    },
+    "trainingStatus": {
+        "ready": {
+            "title": "Votre modèle d'IA est prêt !",
+            "desc": "Il est temps de générer vos photos de rencontres.",
+            "btn": "Générer Mes Photos"
+        },
+        "failed": {
+            "title": "Échec de l'entraînement",
+            "desc": "Une erreur s'est produite. Veuillez réessayer.",
+            "btn": "Réessayer"
+        },
+        "training": {
+            "title": "Entraînement de votre modèle d'IA",
+            "desc": "Cela prend généralement entre 15 et 25 minutes. Vous pouvez fermer cette page et revenir plus tard."
+        },
+        "stages": {
+            "uploading": {
+                "title": "Téléchargement des photos",
+                "desc": "Vos photos sont téléchargées en toute sécurité."
+            },
+            "preparing": {
+                "title": "Préparation des données d'entraînement",
+                "desc": "Nous traitons et emballons vos selfies."
+            },
+            "training": {
+                "title": "Entraînement du modèle IA",
+                "desc": "Le modèle LoRA apprend les traits de votre visage."
+            },
+            "ready": {
+                "title": "Entraînement terminé !",
+                "desc": "Votre IA personnelle est prête à générer des photos."
+            }
+        },
+        "elapsed": "Temps écoulé",
+        "back": "Retour au Tableau de Bord"
+    },
+    "generate": {
+        "title": "Générer des Photos",
+        "subtitle": "Choisissez un style et créez des photos de profil de rencontre ultra-réalistes.",
+        "credits": {
+            "loading": "Chargement des crédits...",
+            "remaining": "{count} crédits restants",
+            "buy": "Acheter Plus",
+            "error": "Aucun crédit restant. Veuillez acheter un plan."
+        },
+        "model": {
+            "title": "Modèle d'IA",
+            "desc": "Sélectionnez le modèle entraîné que vous souhaitez utiliser",
+            "error": "Aucun modèle entraîné trouvé. Veuillez d'abord télécharger des photos.",
+            "ready": "Prêt"
+        },
+        "prompt": {
+            "title": "Invite (Prompt) Personnalisée",
+            "desc": "Facultatif : décrivez exactement ce que vous voulez",
+            "placeholder": "ex : Un portrait professionnel dans un bureau lumineux, portant un costume bleu marine..."
+        },
+        "cta": {
+            "generating": "Génération de la photo...",
+            "generate": "Générer une Photo (-1 Crédit)",
+            "error": "Veuillez sélectionner un style prédéfini ou entrer une invite personnalisée."
+        },
+        "result": {
+            "generating": "Génération de votre photo...",
+            "wait": "Cela prend généralement entre 15 et 30 secondes",
+            "empty": "Sélectionnez un style et cliquez sur générer pour voir votre photo ici.",
+            "success": "Photo générée !",
+            "download": "Télécharger la Photo",
+            "gallery": "Voir dans la Galerie"
+        }
+    },
+    "gallery": {
+        "title": "Mes Photos",
+        "subtitle": "Toutes vos photos de rencontres générées par l'IA au même endroit.",
+        "errors": {
+            "load": "Échec du chargement de la galerie.",
+            "favorite": "Impossible de mettre à jour le statut favori.",
+            "download": "Échec du téléchargement. Essayez un clic droit puis de sauvegarder l'image."
+        },
+        "empty": {
+            "title": "Aucune photo générée pour le moment",
+            "desc": "Rendez-vous sur la page Générer, choisissez un style et créez votre première photo d'IA !",
+            "btn": "Générer des Photos"
+        },
+        "success": {
+            "download": "Photo téléchargée !"
+        },
+        "modal": {
+            "preview": "Aperçu",
+            "download": "Télécharger",
+            "favorite": "Favori",
+            "generateMore": "Générer Plus"
+        }
+    },
+    "auth": {
+        "google": "Continuer avec Google",
+        "or": "ou",
+        "orEmail": "ou s'inscrire avec l'e-mail",
+        "email": "E-mail",
+        "emailPlaceholder": "vous@exemple.com",
+        "password": "Mot de passe",
+        "passwordPlaceholder": "••••••••",
+        "panda": {
+            "peeking": "Je ne regarde pas...",
+            "watching": "Je vous regarde taper..."
+        },
+        "showPassword": "Afficher/masquer le mot de passe",
+        "tabLogin": "Se connecter",
+        "tabSignup": "S'inscrire",
+        "login": {
+            "signingIn": "Connexion en cours...",
+            "submit": "Se connecter",
+            "success": "Bon retour !"
+        },
+        "signup": {
+            "creating": "Création du compte...",
+            "create": "Créer Mon Compte",
+            "agree": "En vous inscrivant, vous acceptez nos",
+            "and": "et",
+            "success": "Compte créé ! Vérifiez votre e-mail.",
+            "weak": "Veuillez choisir un mot de passe plus fort.",
+            "great": "Super mot de passe !",
+            "levels": {
+                "0": "Trop court",
+                "1": "Faible",
+                "2": "Moyen",
+                "3": "Bon",
+                "4": "Fort"
+            },
+            "validation": {
+                "length": "Au moins 8 caractères",
+                "upper": "Inclure une majuscule",
+                "number": "Inclure un chiffre",
+                "symbol": "Inclure un symbole (!, @, #…)"
+            }
+        }
+    },
+    "legal": {
+        "faq": {
+            "back": "retour à l'accueil",
+            "title": "Foire Aux Questions",
+            "q1": "Combien de photos dois-je télécharger ?",
+            "a1": "Pour les meilleurs résultats, nous recommandons de télécharger 4 à 10 photos de vous. Les selfies réguliers avec un bon éclairage fonctionnent parfaitement.",
+            "q2": "Combien de temps faut-il pour obtenir mes photos d'IA ?",
+            "a2": "Nos modèles d'IA avancés génèrent généralement vos photos professionnelles de haute qualité en moins de 15 minutes.",
+            "q3": "Mes photos sont-elles privées ?",
+            "a3": "Oui, absolument. Nous donnons la priorité à votre confidentialité. Toutes les photos téléchargées et générées sont automatiquement supprimées de nos serveurs sécurisés dans les 24 heures.",
+            "q4": "Puis-je utiliser ces photos pour LinkedIn ?",
+            "a4": "Oui ! Bien que nos styles principaux soient optimisés pour les profils de rencontres, nous proposons également des styles corporate et décontractés parfaits pour LinkedIn et une utilisation professionnelle."
+        },
+        "contact": {
+            "title": "Nous Contacter",
+            "subtitle": "Nous serions ravis d'avoir de vos nouvelles. Que vous ayez une question sur les fonctionnalités, les prix ou autre, notre équipe est prête à y répondre.",
+            "emailTitle": "Envoyez-nous un Email",
+            "locationTitle": "Emplacement de l'Entreprise"
+        },
+        "privacy": {
+            "title": "Politique de Confidentialité",
+            "lastUpdated": "Dernière mise à jour : 10 Mars 2026",
+            "s1": {
+                "title": "1. Introduction",
+                "p": "Bienvenue sur Facevia. Nous respectons votre vie privée et nous nous engageons à protéger vos données personnelles. Cette politique de confidentialité vous expliquera comment nous gérons vos données personnelles lorsque vous visitez notre site web."
+            },
+            "s2": {
+                "title": "2. Les Données Que Nous Collectons",
+                "p": "Nous pouvons collecter, utiliser, stocker et transférer différents types de données personnelles vous concernant, que nous avons regroupées comme suit :",
+                "l1": "Données d'Identité : comprend le prénom et le nom.",
+                "l2": "Données de Contact : comprend l'adresse e-mail.",
+                "l3": "Données d'Image : comprend les photos que vous téléchargez sur notre service pour générer des avatars.",
+                "l4": "Données Techniques : comprend l'adresse IP, les données de connexion, le type de navigateur."
+            },
+            "s3": {
+                "title": "3. Sécurité des Données et Conservation des Images",
+                "p": "Nous avons mis en place des mesures de sécurité appropriées pour empêcher la perte accidentelle de vos données. Toutes les photos téléchargées et les images générées sont automatiquement supprimées de nos serveurs 24 heures après la fin de votre génération."
+            }
+        },
+        "terms": {
+            "title": "Conditions d'Utilisation",
+            "lastUpdated": "Dernière mise à jour : 10 Mars 2026",
+            "s1": {
+                "title": "1. Acceptation des Conditions",
+                "p": "En accédant ou en utilisant Facevia, vous acceptez d'être lié par ces Conditions d'Utilisation et par toutes les lois et réglementations applicables. Si vous n'êtes pas d'accord avec l'une de ces conditions, il vous est interdit d'utiliser ou d'accéder à ce site."
+            },
+            "s2": {
+                "title": "2. Licence d'Utilisation",
+                "p1": "La permission est accordée de télécharger temporairement une copie des documents (informations ou logiciels) sur le site web de Facevia à des fins de visualisation transitoire personnelle et non commerciale uniquement.",
+                "p2": "Il s'agit de l'octroi d'une licence, et non d'un transfert de titre, et sous cette licence vous ne pouvez pas :",
+                "l1": "modifier ou copier le matériel ;",
+                "l2": "utiliser le matériel à des fins commerciales ou pour toute présentation publique (commerciale ou non) ;",
+                "l3": "tenter de décompiler ou de désosser tout logiciel contenu sur le site de Facevia ;",
+                "l4": "supprimer tout droit d'auteur ou autres mentions de propriété des documents ; ou",
+                "l5": "transférer les documents à une autre personne ou \"reproduire\" les documents sur un autre serveur."
+            },
+            "s3": {
+                "title": "3. Clause de Non-responsabilité",
+                "p": "Les documents sur le site web de Facevia sont fournis « tels quels ». Facevia n'offre aucune garantie, expresse ou implicite, et par la présente décline et annule toutes les autres garanties, y compris, sans s'y limiter, les garanties ou conditions implicites de qualité marchande, d'adéquation à un usage particulier, ou de non-violation de la propriété intellectuelle ou autre violation des droits."
+            }
+        },
+        "cookies": {
+            "title": "Politique relative aux Cookies"
         }
     }
 }

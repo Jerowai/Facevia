@@ -1,14 +1,18 @@
+'use client'
+
 import { Suspense } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { LoginForm } from "./login-form"
 import { SignupForm } from "./signup-form"
 import Link from "next/link"
+import { useLanguage } from "@/lib/i18n/LanguageContext"
+import { useSearchParams } from "next/navigation"
 
-export default async function LoginPage(
-  props: { searchParams: Promise<{ tab?: string }> }
-) {
-  const searchParams = await props.searchParams
-  const defaultTab = searchParams.tab === 'signup' ? 'signup' : 'login'
+function LoginPageContent() {
+  const searchParams = useSearchParams()
+  const tab = searchParams.get('tab')
+  const defaultTab = tab === 'signup' ? 'signup' : 'login'
+  const { t } = useLanguage()
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#090b14]">
@@ -31,11 +35,11 @@ export default async function LoginPage(
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">
-            <span className="font-black text-3xl bg-gradient-to-r from-[#ec4899] to-[#9D4EDD] bg-clip-text text-transparent tracking-tighter">
+            <span className="font-black text-3xl bg-gradient-to-r from-[#ec4899] to-[#9D4EDD] bg-clip-text text-transparent tracking-tighter transition-opacity hover:opacity-80">
               FACEVIA
             </span>
           </Link>
-          <p className="text-gray-400 text-sm mt-1">AI-powered dating photos</p>
+          <p className="text-gray-400 text-sm mt-1">{t('footer.desc')}</p>
         </div>
 
         {/* Glassmorphism card */}
@@ -46,13 +50,13 @@ export default async function LoginPage(
                 value="login"
                 className="rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ec4899] data-[state=active]:to-[#be185d] data-[state=active]:text-white data-[state=active]:shadow-md transition-all font-semibold text-gray-400"
               >
-                Log In
+                {t('auth.tabLogin')}
               </TabsTrigger>
               <TabsTrigger
                 value="signup"
                 className="rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ec4899] data-[state=active]:to-[#be185d] data-[state=active]:text-white data-[state=active]:shadow-md transition-all font-semibold text-gray-400"
               >
-                Sign Up
+                {t('auth.tabSignup')}
               </TabsTrigger>
             </TabsList>
 
@@ -76,5 +80,13 @@ export default async function LoginPage(
         </p>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#090b14]" />}>
+      <LoginPageContent />
+    </Suspense>
   )
 }

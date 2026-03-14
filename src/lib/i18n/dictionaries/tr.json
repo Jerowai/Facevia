@@ -7,42 +7,15 @@
         "dashboard": "Panel",
         "signOut": "Çıkış Yap",
         "login": "Giriş Yap",
-        "cta": "YAPAY ZEKA FOTOĞRAFLARIMI AL"
-    },
-    "hero": {
-        "badge": "Stüdyo Kalitesinde Yapay Zeka Portreleri",
-        "title1": "Yapay zeka fotoğraflarıyla",
-        "title2": "daha iyi eşleşmeler elde edin",
-        "subtitle": "Birkaç özçekim yükleyin ve yapay zekamız Tinder, Instagram ve diğer sosyal platformlar için tasarlanmış gerçekçi fotoğraflar üretsin.",
-        "bullets": {
-            "b1": "Flört uygulamalarında daha çekici görünün",
-            "b1sub": "",
-            "b2": "Gerçekten size benzeyen gerçekçi yapay zeka fotoğrafları",
-            "b2sub": "",
-            "b3": "Pahalı fotoğraf çekimlerine gerek yok",
-            "b3sub": ""
-        },
-        "cta": "Yapay Zeka Fotoğraflarımı Al",
-        "microtext": "Dakikalar içinde hazır • Binlerce kullanıcı tarafından kullanılıyor",
-        "scroll": "Keşfetmek için kaydır",
-        "guarantee": "%100 Para İade Garantisi",
-        "notifications": {
-            "now": "şimdi",
-            "tinder": "Yeni Eşleşme!",
-            "ago2": "2dk önce",
-            "snapchat": "Yeni Snap",
-            "ago5": "5dk önce",
-            "instagram": "seni takip etmeye başladı",
-            "ago12": "12dk önce",
-            "hinge": "fotoğrafını beğendi"
-        }
+        "cta": "YAPAY ZEKA FOTOĞRAFLARIMI AL",
+        "howItWorks": "Nasıl Çalışır"
     },
     "howItWorks": {
         "title": "Nasıl çalışır?",
         "subtitle": "Bugüne kadarki en iyi çöpçatanlık profiliniz için üç basit adım.",
         "step1": {
             "title": "Bir Stil Seç",
-            "desc": "Kurumsaldan günlüğe kadar düzinelerce profesyonel stil arasından seçim yap."
+            "desc": "Çatı katı barları, gün batımı sahilleri ve daha onlarca premium stil arasından seçim yap."
         },
         "step2": {
             "title": "Fotoğraf Yükle",
@@ -91,13 +64,16 @@
         "title": "Sıradanlıktan karşı konulmazlığa",
         "subtitle": "Facevia'nın nihai çöpçatanlık profilini nasıl oluşturduğunu görmek için kaydırıcıyı sürükle.",
         "before": "Sıradan Özçekim",
-        "after": "Facevia AI Eşleşmesi"
+        "after": "Facevia AI Eşleşmesi",
+        "caption": "← karşılaştırmak için kaydır → • 60 saniyenin altında oluşturuldu"
     },
     "pricing": {
         "title1": "Basit,",
         "title2": "Şeffaf",
         "title3": "Fiyatlandırma",
         "subtitle": "Sizin için mükemmel planı seçin. Bir kez ödeyin, sonsuza dek kullanın.",
+        "mostPopular": "En Popüler",
+        "loading": "Yükleniyor...",
         "oneTime": "tek seferlik",
         "starter": "Başlangıç",
         "starterDesc": "Yapay zeka fotoğraf üretimimizi denemek için mükemmel.",
@@ -124,31 +100,52 @@
             "p3_f3": "En hızlı üretim",
             "p3_f4": "En yüksek çözünürlüklü fotoğraflar",
             "p3_f5": "Ticari kullanıma izin verilir",
-            "p3_f6": "Öncelikli işleme"
+            "p3_f6": "Öncelikli işleme",
+            "ready": "5 dakikadan kısa sürede hazır"
         }
     },
     "testimonials": {
-        "title": "Binlerce kişi tarafından seviliyor",
+        "title": "Milyonlarca bekarın tercihi",
         "t1": {
-            "text": "Başlangıçta şüpheliydim ama sonuçlar beni benden aldı. Bunları LinkedIn için kullanıyorum.",
-            "name": "Sarah J.",
-            "role": "Pazarlama Direktörü"
+            "text": "Tinder'da zorlanıyordum ama bu yapay zeka fotoğrafları her şeyi değiştirdi. Artık 5 kat daha fazla eşleşme alıyorum!",
+            "name": "Jake M.",
+            "role": "Doğrulanmış Kullanıcı"
         },
         "t2": {
-            "text": "Bir fotoğrafçıya 300 dolar harcamaktan çok daha mantıklı. Süreç çok kolaydı.",
-            "name": "Michael T.",
-            "role": "Yazılım Mühendisi"
+            "text": "Teras ve plaj stilleri o kadar gerçekçi görünüyor ki. Arkadaşlarım gerçekten lüks bir tatile gittiğimi sandı.",
+            "name": "Sofia R.",
+            "role": "Sosyal Medya Fenomeni"
         },
         "t3": {
-            "text": "Fotoğraflar o kadar doğal ki kimse AI olduğunu anlayamadı. Kesinlikle öneririm!",
-            "name": "Emily C.",
-            "role": "Emlak Danışmanı"
+            "text": "Facevia beni profesyonel fotoğraf çekimi masrafından kurtardı. Yapay zeka portreleri gerçek hayattan bile daha iyi!",
+            "name": "David L.",
+            "role": "Doğrulanmış Kullanıcı"
+        }
+    },
+    "hero": {
+        "badge": "✨ AI Destekli Flört Fotoğrafları",
+        "title1": "AI ile daha iyi",
+        "title2": "eşleşmeler yakalayın",
+        "subtitle": "Birkaç selfie yükleyin ve yapay zekamız Tinder, Instagram ve diğer sosyal platformlar için tasarlanmış gerçekçi fotoğraflar üretsin.",
+        "bullets": {
+            "b1": "Flört uygulamalarında daha çekici görünün",
+            "b2": "Gerçekten size benzeyen gerçekçi AI fotoğrafları",
+            "b3": "Pahalı fotoğraf çekimlerine gerek yok"
+        },
+        "cta": "AI Fotoğraflarımı Oluştur",
+        "meta": "Dakikalar içinde hazır • Binlerce kullanıcı tarafından kullanılıyor",
+        "trust": "12.000'den fazla kullanıcı tarafından güveniliyor",
+        "notifications": {
+            "tinder": "Birisi fotoğrafını beğendi!",
+            "snapchat": "Hikaye görüntülemelerin %340 arttı 🚀",
+            "instagram": "237 yeni profil ziyaretçisi",
+            "hinge": "Fotoğrafın 12 gül aldı 🌹"
         }
     },
     "cta": {
-        "title": "Dijital varlığını yenilemeye hazır mısın?",
-        "subtitle": "Binlerce mutlu müşteriye katıl ve profesyonel fotoğraflarını bugün al.",
-        "button": "HEMEN BAŞLA"
+        "title": "Daha fazla eşleşme almaya hazır mısın?",
+        "subtitle": "Facevia ile çöpçatanlık profillerini yükselten binlerce kullanıcıya katıl.",
+        "button": "FOTOĞRAFLARIMI OLUŞTUR"
     },
     "footer": {
         "desc": "Facevia, insanların flört profilleri ve sosyal medya için yüksek kaliteli yapay zeka fotoğrafları oluşturmasına yardımcı olur.",
@@ -156,9 +153,13 @@
         "product": "Ürün",
         "company": "Şirket",
         "social": "Sosyal Medya",
-        "rights": "Facevia. Tüm hakları saklıdır.",
-        "operational": "Tüm sistemler aktif",
+        "rights": "Tüm hakları saklıdır.",
+        "operational": "Tüm sistemler çalışıyor",
+        "operatedBy": "İşleten:",
         "links": {
+            "instagram": "Instagram",
+            "tiktok": "TikTok",
+            "twitter": "X / Twitter",
             "howItWorks": "Nasıl Çalışır",
             "pricing": "Fiyatlandırma",
             "styles": "Stil Önayarları",
@@ -175,29 +176,392 @@
         "subtitle": "Önceden ayarlanmış bir stil seçin ve gerisini yapay zekamıza bırakın. Herhangi bir çöpçatanlık profili için mükemmel.",
         "tryStyle": "Bu Stili Dene \u2192",
         "styles": {
-            "tinderRooftop": {
-                "name": "Tinder Çatısı",
-                "label": "Şehir havası"
+            "rooftop": {
+                "name": "Şehir Terası",
+                "label": "Şehir Havası"
             },
-            "beachSunset": {
-                "name": "Sahil Gün Batımı",
-                "label": "Yaz hissi"
+            "beach": {
+                "name": "Gün Batımı Sahili",
+                "label": "Yaz Hissi"
             },
-            "coffeeShopCandid": {
-                "name": "Kahve Dükkanı Doğal",
-                "label": "Sıcak & samimi"
+            "coffee": {
+                "name": "Samimi Kafe",
+                "label": "Sıcak & Rahat"
             },
-            "gymLifestyle": {
-                "name": "Spor Salonu Yaşam Tarzı",
-                "label": "Zinde & aktif"
+            "gym": {
+                "name": "Spor Yaşam Tarzı",
+                "label": "Fit & Aktif"
             },
-            "travelStreet": {
-                "name": "Sokak Gezisi",
+            "travel": {
+                "name": "Seyahat Caddesi",
                 "label": "Maceracı"
             },
-            "luxuryRestaurant": {
+            "luxury": {
                 "name": "Lüks Restoran",
-                "label": "Seçkin yemek"
+                "label": "Şık Akşam Yemeği"
+            },
+            "night_city": {
+                "name": "Gece Şehri",
+                "label": "Neon Geceleri"
+            },
+            "studio": {
+                "name": "Stüdyo Portresi",
+                "label": "Profesyonel"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Tekrar Hoş Geldiniz",
+        "subtitle": "Flört hayatınızı dönüştürmek için ihtiyacınız olan her şey.",
+        "nav": {
+            "home": "Genel Bakış",
+            "train": "Model Eğit",
+            "generate": "Fotoğraf Üret",
+            "gallery": "Galerim",
+            "settings": "Ayarlar"
+        },
+        "stats": {
+            "personas": "AI Karakterleri",
+            "activeTraining": "Aktif Eğitim",
+            "totalGenerations": "Üretimler"
+        },
+        "settings": {
+            "profile": "Profil",
+            "language": "Dil",
+            "billing": "Faturalandırma",
+            "security": "Güvenlik",
+            "updateProfile": "Kişisel bilgilerinizi güncelleyin",
+            "displayName": "Görünen Ad",
+            "save": "Değişiklikleri Kaydet",
+            "selected": "Seçildi",
+            "subtitle": "Hesabınızı ve tercihlerinizi yönetin",
+            "emailLabel": "E-posta Adresi",
+            "langTitle": "Global Dil",
+            "langSubtitle": "Tercih ettiğiniz arayüz dilini seçin",
+            "billingTitle": "Abonelik ve Faturalandırma",
+            "billingSubtitle": "Planınızı ve işlem geçmişinizi yönetin",
+            "activePlan": "Aktif Plan",
+            "upgradeText": "Tam potansiyeli açmak için yükseltin",
+            "upgradeBtn": "Planı Yükselt",
+            "securityTitle": "Hesap Güvenliği",
+            "securitySubtitle": "Hesabınızı çok faktörlü kimlik doğrulama ile güvence altına alın",
+            "emailLoginOnly": "Sadece E-posta Girişi",
+            "emailLoginDesc": "Hesabınız e-posta ve şifre ile korunmaktadır.",
+            "changePassword": "Şifreyi Değiştir",
+            "twoFactor": "İki Faktörlü Kimlik Doğrulama",
+            "comingSoon": "Yakında",
+            "twoFactorDesc": "Hesabınıza ekstra bir güvenlik katmanı ekleyin."
+        },
+        "credits": "Kredileriniz",
+        "runningLow": "— azalıyor!",
+        "buyCredits": "Kredi Satın Al",
+        "progress": "İlerlemeniz",
+        "steps": {
+            "upload": {
+                "title": "Fotoğraf Yükle",
+                "desc": "Yapay zeka modelini eğit"
+            },
+            "training": {
+                "title": "Yapay Zeka Eğitimi",
+                "desc": "Model yüzünüzü öğrenir"
+            },
+            "generate": {
+                "title": "Fotoğraf Üret",
+                "desc": "Flört fotoğrafları oluştur"
+            }
+        },
+        "cards": {
+            "generate": {
+                "title": "Yeni Fotoğraflar Üret",
+                "desc": "Eğitilmiş yapay zeka modelinizi kullanarak yeni flört veya sosyal medya fotoğrafları oluşturun.",
+                "ready": "Üretime hazır",
+                "btn": "Fotoğraf Üret"
+            },
+            "train": {
+                "title": "Yeni Model Eğit",
+                "desc": "Yeni bir yapay zeka modeli eğitmek için farklı bir kişinin fotoğraflarını yükleyin.",
+                "btn": "Fotoğraf Yükle"
+            },
+            "gallery": {
+                "title": "Galeriyi Görüntüle",
+                "desc": "Şimdiye kadar oluşturduğunuz tüm fotoğraflara göz atın ve indirin.",
+                "btn": "Galeriyi Aç"
+            }
+        },
+        "models": {
+            "title": "Yapay Zeka Modelleriniz",
+            "subtitle": "Fotoğraf üretimi için kullanıma hazır aktif modeller.",
+            "status": "Durum",
+            "ready": "hazır",
+            "failed": "başarısız",
+            "training": "eğitiliyor",
+            "created": "Oluşturulma",
+            "processing": "Persona Verileri İşleniyor..."
+        },
+        "marketing": {
+            "title": "Çöpçatanlık Hayatınızı Dönüştürün",
+            "subtitle": "Premium stil ayarlarının kilidini açın ve 10 kat daha fazla eşleşme sağlayan fotoğraflar üretin.",
+            "quickGen": "Hızlı Üretim",
+            "tipTitle": "Dating İpucu",
+            "tipText": "\"Yaşam tarzı bağlamlarındaki (kafeler, sokaklar) fotoğraflar, dating uygulamaları için stüdyo çekimlerinden daha samimi ve yaklaşılabilir hissettirir.\""
+        }
+    },
+    "train": {
+        "title": "Fotoğraflarınızı Yükleyin",
+        "subtitle": "Yapay zekanın benzersiz yüz hatlarınızı öğrenebilmesi için 10-20 net özçekim yükleyin.",
+        "steps": {
+            "s1": "Fotoğraf Yükle",
+            "s2": "Yapay Zeka Eğitimi",
+            "s3": "Fotoğraf Üret"
+        },
+        "dropzone": {
+            "title": "Fotoğrafları buraya sürükleyip bırakın",
+            "subtitle": "veya dosyalara göz atmak için tıklayın",
+            "selected": "{count} / 20 fotoğraf seçildi",
+            "ready": "Hazır"
+        },
+        "grid": {
+            "title": "Seçilen Fotoğraflar"
+        },
+        "guidelines": {
+            "good": "İyi Fotoğraflar",
+            "bad": "Bunlardan Kaçının",
+            "tips": {
+                "g1": "Net yüz, iyi aydınlatılmış",
+                "g2": "Birden fazla açı",
+                "g3": "Doğal ifadeler",
+                "g4": "Farklı kıyafetler / arka planlar",
+                "b1": "Güneş gözlüğü veya şapka",
+                "b2": "Karanlık veya bulanık çekimler",
+                "b3": "Grup fotoğrafları",
+                "b4": "Aşırı filtreler"
+            }
+        },
+        "errors": {
+            "min": "Lütfen en az 10 fotoğraf seçin.",
+            "max": "Maksimum 20 fotoğrafa izin verilir. Fazla dosyalar kaldırıldı.",
+            "format": "Bazı dosyalar atlandı — sadece 10 MB altı JPG/PNG/WebP kabul edilir.",
+            "login": "Lütfen önce giriş yapın."
+        },
+        "cta": {
+            "uploading": "Yükleniyor ve Eğitim Başlatılıyor...",
+            "upload": "Yükle ve Eğitimi Başlat",
+            "need": "({count} fotoğraf daha gerekli)"
+        }
+    },
+    "trainingStatus": {
+        "ready": {
+            "title": "Yapay zeka modeliniz hazır!",
+            "desc": "Flört fotoğraflarınızı üretme zamanı.",
+            "btn": "Fotoğraflarımı Üret"
+        },
+        "failed": {
+            "title": "Eğitim başarısız",
+            "desc": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+            "btn": "Tekrar Dene"
+        },
+        "training": {
+            "title": "Yapay zeka modeliniz eğitiliyor",
+            "desc": "Bu işlem genellikle 15-25 dakika sürer. Bu sayfayı kapatıp daha sonra tekrar gelebilirsiniz."
+        },
+        "stages": {
+            "uploading": {
+                "title": "Fotoğraflar yükleniyor",
+                "desc": "Fotoğraflarınız güvenli bir şekilde yükleniyor."
+            },
+            "preparing": {
+                "title": "Eğitim verileri hazırlanıyor",
+                "desc": "Özçekimleriniz işleniyor ve paketleniyor."
+            },
+            "training": {
+                "title": "Yapay zeka modeli eğitimi",
+                "desc": "LoRA modeli yüz hatlarınızı öğreniyor."
+            },
+            "ready": {
+                "title": "Eğitim tamamlandı!",
+                "desc": "Kişisel yapay zekanız fotoğraf üretmeye hazır."
+            }
+        },
+        "elapsed": "Geçen süre",
+        "back": "Panele Dön"
+    },
+    "generate": {
+        "title": "Fotoğraf Üret",
+        "subtitle": "Bir stil seçin ve ultra gerçekçi çöpçatanlık profili fotoğrafları oluşturun.",
+        "credits": {
+            "loading": "Krediler yükleniyor...",
+            "remaining": "{count} kredi kaldı",
+            "buy": "Daha Fazla Al",
+            "error": "Krediniz kalmadı. Lütfen bir plan satın alın."
+        },
+        "model": {
+            "title": "Yapay Zeka Modeli",
+            "desc": "Kullanmak istediğiniz eğitilmiş modeli seçin",
+            "error": "Eğitilmiş model bulunamadı. Lütfen önce fotoğraflar yükleyin.",
+            "ready": "Hazır"
+        },
+        "prompt": {
+            "title": "Özel İstek (Prompt)",
+            "desc": "İsteğe bağlı: tam olarak ne istediğinizi açıklayın",
+            "placeholder": "örn., Lacivert bir takım elbiseyle bindiği aydınlık bir ofiste profesyonel vesikalık..."
+        },
+        "cta": {
+            "generating": "Fotoğraf üretiliyor...",
+            "generate": "Fotoğraf Üret (-1 Kredi)",
+            "error": "Lütfen bir stil ön ayarı seçin veya özel bir istek girin."
+        },
+        "result": {
+            "generating": "Fotoğrafınız üretiliyor...",
+            "wait": "Bu işlem genellikle 15-30 saniye sürer",
+            "empty": "Fotoğrafınızı burada görmek için bir stil seçin ve üret butonuna tıklayın.",
+            "success": "Fotoğraf üretildi!",
+            "download": "Fotoğrafı İndir",
+            "gallery": "Galeride Görüntüle"
+        }
+    },
+    "gallery": {
+        "title": "Fotoğraflarım",
+        "subtitle": "Yapay zeka tarafından oluşturulan tüm flört fotoğraflarınız tek bir yerde.",
+        "errors": {
+            "load": "Galeri yüklenemedi.",
+            "favorite": "Favori durumu güncellenemedi.",
+            "download": "İndirme başarısız. Resme sağ tıklayıp kaydetmeyi deneyin."
+        },
+        "empty": {
+            "title": "Henüz fotoğraf üretilmedi",
+            "desc": "Üretim sayfasına gidin, bir stil seçin ve ilk yapay zeka fotoğrafınızı oluşturun!",
+            "btn": "Fotoğraf Üret"
+        },
+        "success": {
+            "download": "Fotoğraf indirildi!"
+        },
+        "modal": {
+            "preview": "Önizleme",
+            "download": "İndir",
+            "favorite": "Favori",
+            "generateMore": "Daha Fazla Üret"
+        }
+    },
+    "auth": {
+        "google": "Google ile Devam Et",
+        "or": "veya",
+        "orEmail": "veya e-posta ile kayıt ol",
+        "email": "E-posta",
+        "emailPlaceholder": "siz@ornek.com",
+        "password": "Şifre",
+        "passwordPlaceholder": "••••••••",
+        "panda": {
+            "peeking": "Bakmıyorum...",
+            "watching": "Yazmanı izliyorum..."
+        },
+        "showPassword": "Şifreyi göster/gizle",
+        "tabLogin": "Giriş Yap",
+        "tabSignup": "Kayıt Ol",
+        "login": {
+            "signingIn": "Giriş yapılıyor...",
+            "submit": "Giriş Yap",
+            "success": "Tekrar hoş geldiniz!"
+        },
+        "signup": {
+            "creating": "Hesap oluşturuluyor...",
+            "create": "Hesabımı Oluştur",
+            "agree": "Kayıt olarak şunları kabul etmiş olursunuz:",
+            "and": "ve",
+            "success": "Hesap oluşturuldu! E-postanızı kontrol edin.",
+            "weak": "Lütfen daha güçlü bir şifre seçin.",
+            "great": "Harika şifre!",
+            "levels": {
+                "0": "Çok kısa",
+                "1": "Zayıf",
+                "2": "Orta",
+                "3": "İyi",
+                "4": "Güçlü"
+            },
+            "validation": {
+                "length": "En az 8 karakter",
+                "upper": "Büyük harf içermeli",
+                "number": "Rakam içermeli",
+                "symbol": "Sembol içermeli (!, @, #…)"
+            }
+        }
+    },
+    "legal": {
+        "faq": {
+            "back": "ana sayfaya dön",
+            "title": "Sıkça Sorulan Sorular",
+            "q1": "Kaç fotoğraf yüklemem gerekiyor?",
+            "a1": "En iyi sonuçlar için kendinizin 4 ila 10 fotoğrafını yüklemenizi öneririz. Net aydınlatmalı normal özçekimler gayet iyi çalışır.",
+            "q2": "Yapay zeka fotoğraflarımı almam ne kadar sürer?",
+            "a2": "Gelişmiş yapay zeka modellerimiz yüksek kaliteli profesyonel fotoğraflarınızı genellikle 15 dakikadan kısa sürede üretir.",
+            "q3": "Fotoğraflarım gizli mi?",
+            "a3": "Kesinlikle evet. Gizliliğinizi önemsiyoruz. Yüklenen ve oluşturulan tüm fotoğraflar 24 saat içinde güvenli sunucularımızdan otomatik olarak silinir.",
+            "q4": "Bu fotoğrafları LinkedIn için kullanabilir miyim?",
+            "a4": "Evet! Birincil stillerimiz flört profilleri için optimize edilmiş olsa da, LinkedIn ve profesyonel kullanım için de mükemmel olan kurumsal ve günlük stiller sunuyoruz."
+        },
+        "contact": {
+            "title": "Bize Ulaşın",
+            "subtitle": "Sizden haber almayı çok isteriz. Özellikler, fiyatlandırma veya başka herhangi bir konuda sorunuz varsa, ekibimiz yanıtlamaya hazırdır.",
+            "emailTitle": "Bize E-posta Gönderin",
+            "locationTitle": "Şirket Konumu"
+        },
+        "privacy": {
+            "title": "Gizlilik Politikası",
+            "lastUpdated": "Son güncelleme: 10 Mart 2026",
+            "s1": {
+                "title": "1. Giriş",
+                "p": "Facevia'ya hoş geldiniz. Gizliliğinize saygı duyuyor ve kişisel verilerinizi korumayı taahhüt ediyoruz. Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde kişisel verilerinize nasıl baktığımızı size bildirecektir."
+            },
+            "s2": {
+                "title": "2. Sizin Hakkınızda Topladığımız Veriler",
+                "p": "Sizinle ilgili aşağıdaki gibi gruplandırdığımız farklı türde kişisel verileri toplayabilir, kullanabilir, saklayabilir ve aktarabiliriz:",
+                "l1": "Kimlik Verileri: ad, soyad içerir.",
+                "l2": "İletişim Verileri: e-posta adresini içerir.",
+                "l3": "Görüntü Verileri: AI avatarları oluşturmak için yüklediğiniz fotoğrafları içerir.",
+                "l4": "Teknik Veriler: IP adresini, giriş verilerinizi, tarayıcı türünü içerir."
+            },
+            "s3": {
+                "title": "3. Veri Güvenliği ve Görüntü Saklama",
+                "p": "Kişisel verilerinizin kazara kaybolmasını önlemek için uygun güvenlik önlemleri aldık. Yüklenen tüm fotoğraflar ve oluşturulan görüntüler, üretiminiz tamamlandıktan 24 saat sonra sunucularımızdan otomatik olarak silinir."
+            }
+        },
+        "terms": {
+            "title": "Hizmet Şartları",
+            "lastUpdated": "Son güncelleme: 10 Mart 2026",
+            "s1": {
+                "title": "1. Şartların Kabulü",
+                "p": "Facevia'ya erişerek veya kullanarak, bu Hizmet Şartları'na ve geçerli tüm yasa ve düzenlemelere bağlı kalmayı kabul etmiş olursunuz. Bu şartlardan herhangi birini kabul etmiyorsanız, bu siteyi kullanmanız yasaktır."
+            },
+            "s2": {
+                "title": "2. Kullanım Lisansı",
+                "p1": "Sadece kişisel, ticari olmayan geçici görüntüleme için Facevia'nın web sitesindeki materyallerin (bilgi veya yazılım) bir kopyasını geçici olarak indirme izni verilir.",
+                "p2": "Bu, bir mülkiyet devri değil, bir lisans verilmesidir ve bu lisans kapsamında şunları yapamazsınız:",
+                "l1": "materyalleri değiştirmek veya kopyalamak;",
+                "l2": "materyalleri herhangi bir ticari amaçla veya herhangi bir kamuya açık görüntüleme için kullanmak;",
+                "l3": "Facevia'nın web sitesinde bulunan herhangi bir yazılımı derlemeye veya tersine mühendislik yapmaya çalışmak;",
+                "l4": "materyallerden herhangi bir telif hakkı veya diğer tescilli notları kaldırmak; veya",
+                "l5": "materyalleri başka bir kişiye devretmek veya materyalleri başka herhangi bir sunucuda \"aynalamak\"."
+            },
+            "s3": {
+                "title": "3. Feragatname",
+                "p": "Facevia'nın web sitesindeki materyaller 'olduğu gibi' sağlanmaktadır. Facevia, açık veya zımni hiçbir garanti vermez ve işbu belge ile zımni garantiler veya satılabilirlik koşulları, belirli bir amaca uygunluk veya fikri mülkiyet haklarının ihlal edilmemesi dahil ancak bunlarla sınırlı olmamak üzere diğer tüm garantileri reddeder ve geçersiz kılar."
+            }
+        },
+        "cookies": {
+            "title": "Çerez Politikası",
+            "lastUpdated": "Son güncelleme: 10 Mart 2026",
+            "s1": {
+                "title": "1. Çerezler Nedir",
+                "p": "Neredeyse tüm profesyonel web sitelerinde olduğu gibi, bu site de deneyiminizi iyileştirmek için bilgisayarınıza indirilen küçük dosyalar olan çerezleri kullanır. Bu sayfa hangi bilgileri topladıklarını, bunları nasıl kullandığımızı ve neden bazen bu çerezleri saklamamız gerektiğini açıklamaktadır."
+            },
+            "s2": {
+                "title": "2. Çerezleri Nasıl Kullanıyoruz",
+                "p": "Çerezleri aşağıda detaylandırılan çeşitli nedenlerle kullanıyoruz. Maalesef, çoğu durumda, bu siteye ekledikleri işlevselliği ve özellikleri tamamen devre dışı bırakmadan çerezleri devre dışı bırakmak için endüstri standardı seçenekleri bulunmamaktadır."
+            },
+            "s3": {
+                "title": "3. Ayarladığımız Çerezler",
+                "l1": "Hesapla ilgili çerezler: Bizde bir hesap oluşturursanız, kayıt sürecinin ve genel yönetimin yönetimi için çerezleri kullanacağız.",
+                "l2": "Girişle ilgili çerezler: Bu gerçeği hatırlayabilmemiz için giriş yaptığınızda çerezleri kullanıyoruz.",
+                "l3": "Site tercihleri çerezleri: Size bu sitede harika bir deneyim sunmak için, seçtiğiniz dil gibi tercihlerinizi ayarlama işlevselliğini sağlıyoruz."
             }
         }
     }

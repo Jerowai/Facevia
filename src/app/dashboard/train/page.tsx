@@ -4,8 +4,10 @@ import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
-import { Loader2, UploadCloud, X, CheckCircle2 } from 'lucide-react'
+import { Loader2, UploadCloud, X, CheckCircle2, Upload, Info, ShieldCheck, Sparkles, ImagePlus, ChevronRight, Wand2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '@/lib/i18n/LanguageContext'
+import Link from 'next/link'
 
 interface PreviewFile {
   file: File
@@ -13,30 +15,12 @@ interface PreviewFile {
   id: string
 }
 
-const STEPS = [
-  { n: 1, label: 'Upload Photos' },
-  { n: 2, label: 'AI Training' },
-  { n: 3, label: 'Generate Photos' },
-]
-
-const GOOD_TIPS = [
-  'Clear face, well lit',
-  'Multiple angles',
-  'Natural expressions',
-  'Different outfits / backgrounds',
-]
-const BAD_TIPS = [
-  'Sunglasses or hats',
-  'Dark or blurry shots',
-  'Group photos',
-  'Heavy filters',
-]
-
 export default function TrainPage() {
   const [previews, setPreviews] = useState<PreviewFile[]>([])
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const supabase = createClient()
+  const { t } = useLanguage()
 
   const addFiles = useCallback((incoming: FileList | null) => {
     if (!incoming) return
@@ -44,7 +28,7 @@ export default function TrainPage() {
       f => ['image/jpeg', 'image/png', 'image/webp'].includes(f.type) && f.size <= 10 * 1024 * 1024
     )
     if (Array.from(incoming).length !== valid.length) {
-      toast.error('Some files were skipped — only JPG/PNG/WebP under 10 MB accepted.')
+      toast.error(t('train.errors.format'))
     }
     const newPreviews: PreviewFile[] = valid.map(file => ({
       file,
@@ -54,12 +38,12 @@ export default function TrainPage() {
     setPreviews(prev => {
       const combined = [...prev, ...newPreviews]
       if (combined.length > 20) {
-        toast.error('Maximum 20 photos allowed. Extra files were removed.')
+        toast.error(t('train.errors.max'))
         return combined.slice(0, 20)
       }
       return combined
     })
-  }, [])
+  }, [t])
 
   function removePreview(id: string) {
     setPreviews(prev => {
@@ -75,11 +59,11 @@ export default function TrainPage() {
   }
 
   async function handleSubmit() {
-    if (previews.length < 10) { toast.error('Please select at least 10 photos.'); return }
+    if (previews.length < 10) { toast.error(t('train.errors.min')); return }
     setLoading(true)
 
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user) { toast.error('Please log in first.'); router.push('/login'); return }
+    if (!user) { toast.error(t('train.errors.login')); router.push('/login'); return }
 
     try {
       const uploadedPaths: string[] = []
@@ -99,7 +83,7 @@ export default function TrainPage() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Failed to start training.')
 
-      toast.success('Training started!')
+      toast.success(t('trainingStatus.ready.title'))
       router.push(data.model?.id ? `/dashboard/training/${data.model.id}` : '/dashboard')
     } catch (err: any) {
       toast.error(err.message || 'An error occurred.')
@@ -109,114 +93,215 @@ export default function TrainPage() {
 
   const count = previews.length
   const ready = count >= 10
+  const progress = Math.min((count / 10) * 100, 100)
 
   return (
-    <div className="flex-1 p-6 md:p-8 max-w-5xl mx-auto w-full space-y-8">
-      {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white tracking-tight mb-1">Upload Your Photos</h1>
-        <p className="text-gray-400">Upload 10–20 clear selfies so the AI can learn your unique facial features.</p>
+    <div className="flex-1 p-6 md:p-10 w-full max-w-[1440px] mx-auto space-y-12">
+      {/* ── Header ── */}
+      <div className="relative">
+        <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#ec4899]/10 blur-3xl rounded-full" />
+        <h1 className="text-4xl md:text-5xl font-[1000] tracking-tighter text-white mb-2 relative z-10">
+          {t('train.title')}
+        </h1>
+        <p className="text-gray-400 text-lg max-w-2xl">{t('train.subtitle')}</p>
       </div>
 
-      {/* Progress Steps */}
-      <div className="flex items-center gap-2">
-        {STEPS.map((s, i) => (
-          <div key={s.n} className="flex items-center gap-2">
-            <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold ${s.n === 1 ? 'bg-[#ec4899] text-white' : 'bg-white/5 text-gray-500'}`}>
-              {s.n === 1 ? <CheckCircle2 className="w-3.5 h-3.5" /> : <span className="w-3.5 h-3.5 rounded-full border border-current flex items-center justify-center text-[10px]">{s.n}</span>}
-              {s.label}
+      <div className="grid lg:grid-cols-[1fr_400px] gap-12 items-start">
+        
+        <div className="space-y-10">
+          {/* ── Progress & Upload Zones ── */}
+          <div className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/10 backdrop-blur-xl relative overflow-hidden">
+             
+             {/* Progress Bar (Integrated) */}
+             <div className="mb-8 space-y-3 px-2">
+                <div className="flex justify-between items-end">
+                   <p className="text-xs font-black uppercase tracking-widest text-[#ec4899]">Upload Progress</p>
+                   <p className="text-2xl font-black text-white">{count}<span className="text-gray-600">/10+</span></p>
+                </div>
+                <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden">
+                   <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progress}%` }}
+                    className={`h-full bg-gradient-to-r ${ready ? 'from-[#00E5FF] to-emerald-500 shadow-[0_0_20px_rgba(0,229,255,0.4)]' : 'from-[#ec4899] to-[#9D4EDD] shadow-[0_0_20px_rgba(236,72,153,0.4)]'}`}
+                   />
+                </div>
+                {!ready && (
+                   <div className="flex items-center gap-2 text-[10px] text-gray-500 font-bold uppercase tracking-tight italic">
+                      <ChevronRight className="w-3 h-3 text-[#ec4899]" /> 
+                      Need {10 - count} more photos for best results
+                   </div>
+                )}
+             </div>
+
+             {/* Dropzone (Premium) */}
+             <div
+                onDrop={handleDrop}
+                onDragOver={e => e.preventDefault()}
+                onClick={() => document.getElementById('file-input')?.click()}
+                className={`relative border-2 border-dashed rounded-[2rem] p-12 text-center transition-all group cursor-pointer ${
+                  ready ? 'border-[#00E5FF]/20 bg-[#00E5FF]/5' : 'border-white/10 hover:border-[#ec4899]/40 hover:bg-[#ec4899]/3'
+                }`}
+              >
+                <input
+                  id="file-input"
+                  type="file"
+                  multiple
+                  accept="image/jpeg,image/png,image/webp"
+                  className="hidden"
+                  onChange={e => addFiles(e.target.files)}
+                  disabled={loading}
+                />
+                
+                <div className="w-20 h-20 rounded-3xl bg-white/5 mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+                   <UploadCloud className={`w-10 h-10 ${ready ? 'text-[#00E5FF]' : 'text-gray-600 group-hover:text-[#ec4899]'}`} />
+                </div>
+                <h3 className="text-xl font-black text-white mb-2">{t('train.dropzone.title')}</h3>
+                <p className="text-gray-500 text-sm max-w-xs mx-auto mb-6">{t('train.dropzone.subtitle')}</p>
+                
+                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 text-white/50 text-[10px] font-black uppercase tracking-widest border border-white/5">
+                   Drag & Drop or Multi-Select
+                </div>
+             </div>
+          </div>
+
+          {/* ── Guidelines (Cinematic Grid) ── */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+              <ShieldCheck className="w-6 h-6 text-[#00E5FF]" />
+              {t('train.guidelines.good')} & {t('train.guidelines.bad')}
+            </h2>
+            
+            <div className="grid sm:grid-cols-2 gap-6">
+               <div className="p-8 rounded-[2.5rem] bg-emerald-500/[0.03] border border-emerald-500/10 space-y-6">
+                  <div className="flex items-center gap-3 text-emerald-400">
+                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                        <CheckCircle2 className="w-6 h-6" />
+                     </div>
+                     <span className="text-sm font-black uppercase tracking-widest">Recommended</span>
+                  </div>
+                  <ul className="space-y-4">
+                    {[1, 2, 3, 4].map(idx => (
+                      <li key={`g${idx}`} className="text-sm text-gray-400 flex items-center gap-3 font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                        {t(`train.guidelines.tips.g${idx}`)}
+                      </li>
+                    ))}
+                  </ul>
+               </div>
+
+               <div className="p-8 rounded-[2.5rem] bg-red-500/[0.03] border border-red-500/10 space-y-6">
+                  <div className="flex items-center gap-3 text-red-500">
+                     <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
+                        <X className="w-6 h-6" />
+                     </div>
+                     <span className="text-sm font-black uppercase tracking-widest">Avoid These</span>
+                  </div>
+                  <ul className="space-y-4">
+                    {[1, 2, 3, 4].map(idx => (
+                      <li key={`b${idx}`} className="text-sm text-gray-400 flex items-center gap-3 font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
+                        {t(`train.guidelines.tips.b${idx}`)}
+                      </li>
+                    ))}
+                  </ul>
+               </div>
             </div>
-            {i < 2 && <div className="w-6 h-px bg-white/10" />}
           </div>
-        ))}
+
+          {/* ── Preview Grid Overlay ── */}
+          {previews.length > 0 && (
+             <div className="space-y-6 pt-10 border-t border-white/5">
+                <div className="flex justify-between items-center px-2">
+                   <h2 className="text-2xl font-black text-white tracking-tight">Image Selection</h2>
+                   <button 
+                    onClick={() => setPreviews([])}
+                    className="text-[10px] font-black uppercase tracking-widest text-red-500/60 hover:text-red-500 transition-colors"
+                   >
+                    Clear All
+                   </button>
+                </div>
+                <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-10 gap-3">
+                  <AnimatePresence>
+                    {previews.map(p => (
+                      <motion.div
+                        key={p.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="relative aspect-square rounded-2xl overflow-hidden group border border-white/10"
+                      >
+                        <img src={p.preview} alt="" className="w-full h-full object-cover" />
+                        <button
+                          onClick={(e) => { e.stopPropagation(); removePreview(p.id) }}
+                          className="absolute inset-0 bg-red-500/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                        >
+                          <X className="w-6 h-6 text-white" />
+                        </button>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+             </div>
+          )}
+        </div>
+
+        {/* ── Action Panel (Right Side) ── */}
+        <div className="space-y-8 lg:sticky lg:top-10">
+           <div className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/10 backdrop-blur-xl space-y-8 shadow-2xl">
+              <div className="space-y-4">
+                 <h3 className="text-lg font-black text-white flex items-center gap-3">
+                    <Wand2 className="w-6 h-6 text-[#ec4899]" />
+                    AI Training Initiation
+                 </h3>
+                 <p className="text-xs text-gray-500 leading-relaxed italic">
+                    Training takes approx. <span className="text-[#00E5FF]">20-30 minutes</span>. We'll secure your persona data in our private vault.
+                 </p>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-white/5 border border-white/5 space-y-4">
+                 <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
+                    <span>Dataset Size</span>
+                    <span className={ready ? 'text-emerald-400' : 'text-orange-500'}>{count} images</span>
+                 </div>
+                 <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
+                    <span>Privacy Shield</span>
+                    <span className="text-emerald-400">Active</span>
+                 </div>
+              </div>
+
+              <button
+                onClick={handleSubmit}
+                disabled={!ready || loading}
+                className="w-full h-20 rounded-[2rem] bg-gradient-to-br from-[#ec4899] to-[#9D4EDD] text-white font-black text-xl tracking-tighter hover:scale-[1.02] transition-all shadow-[0_20px_40px_rgba(236,72,153,0.3)] disabled:opacity-40 disabled:grayscale disabled:scale-100 flex items-center justify-center gap-3"
+              >
+                {loading ? (
+                  <><Loader2 className="w-8 h-8 animate-spin" /> Training...</>
+                ) : (
+                  <><Sparkles className="w-8 h-8" /> Start Training</>
+                )}
+              </button>
+              
+              {!ready && (
+                 <p className="text-center text-[10px] font-black text-gray-600 uppercase tracking-widest">
+                    Select {10 - count} more to unlock
+                 </p>
+              )}
+           </div>
+
+           {/* Security / Quality Card */}
+           <div className="p-8 rounded-[2.5rem] bg-[#00E5FF]/5 border border-[#00E5FF]/10">
+              <div className="flex items-center gap-3 text-[#00E5FF] mb-4">
+                 <ShieldCheck className="w-5 h-5" />
+                 <span className="text-xs font-black uppercase tracking-widest">Secure Training</span>
+              </div>
+              <p className="text-xs text-[#00E5FF]/70 leading-relaxed font-medium">
+                Your photos are used exclusively for training your personal AI Persona. They are never shared or used for other purposes.
+              </p>
+           </div>
+        </div>
+
       </div>
-
-      {/* Upload Drop Zone */}
-      <div
-        onDrop={handleDrop}
-        onDragOver={e => e.preventDefault()}
-        className="relative border-2 border-dashed border-white/20 rounded-3xl p-10 text-center hover:border-[#ec4899]/60 hover:bg-[#ec4899]/5 transition-all group cursor-pointer"
-        onClick={() => document.getElementById('file-input')?.click()}
-      >
-        <input
-          id="file-input"
-          type="file"
-          multiple
-          accept="image/jpeg,image/png,image/webp"
-          className="hidden"
-          onChange={e => addFiles(e.target.files)}
-          disabled={loading}
-        />
-        <UploadCloud className="mx-auto mb-4 h-12 w-12 text-gray-500 group-hover:text-[#ec4899] transition-colors" />
-        <p className="font-semibold text-white text-lg mb-1">Drag & drop photos here</p>
-        <p className="text-gray-400 text-sm mb-4">or click to browse files</p>
-        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold ${ready ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/5 text-gray-400'}`}>
-          {count > 0 ? `${count} / 20 photos selected` : '0 / 20 photos selected'} {ready && '✓ Ready'}
-        </div>
-      </div>
-
-      {/* Thumbnail Grid */}
-      {previews.length > 0 && (
-        <div>
-          <p className="text-sm text-gray-400 mb-3 font-medium">Selected Photos</p>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-            <AnimatePresence>
-              {previews.map(p => (
-                <motion.div
-                  key={p.id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative aspect-square rounded-xl overflow-hidden group border border-white/10"
-                >
-                  <img src={p.preview} alt="" className="w-full h-full object-cover" />
-                  <button
-                    onClick={e => { e.stopPropagation(); removePreview(p.id) }}
-                    disabled={loading}
-                    className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/70 hover:bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      )}
-
-      {/* Guidelines */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-5">
-          <p className="text-emerald-400 font-semibold text-sm mb-3 flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4" /> Good Photos
-          </p>
-          <ul className="space-y-1.5">
-            {GOOD_TIPS.map(t => <li key={t} className="text-sm text-gray-300 flex items-center gap-2"><span className="text-emerald-400">✓</span>{t}</li>)}
-          </ul>
-        </div>
-        <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-5">
-          <p className="text-red-400 font-semibold text-sm mb-3 flex items-center gap-2">
-            <X className="w-4 h-4" /> Avoid These
-          </p>
-          <ul className="space-y-1.5">
-            {BAD_TIPS.map(t => <li key={t} className="text-sm text-gray-300 flex items-center gap-2"><span className="text-red-400">✕</span>{t}</li>)}
-          </ul>
-        </div>
-      </div>
-
-      {/* CTA */}
-      <button
-        onClick={handleSubmit}
-        disabled={!ready || loading}
-        className="w-full h-14 rounded-2xl bg-gradient-to-r from-[#ec4899] to-[#be185d] text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_0_30px_rgba(236,72,153,0.3)]"
-      >
-        {loading ? (
-          <><Loader2 className="w-5 h-5 animate-spin" /> Uploading &amp; Starting Training...</>
-        ) : (
-          <>Upload &amp; Start Training {!ready && `(need ${10 - count} more)`}</>
-        )}
-      </button>
     </div>
   )
 }
