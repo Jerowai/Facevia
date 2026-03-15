@@ -61,11 +61,13 @@
         }
     },
     "beforeAfter": {
-        "title": "Sıradanlıktan karşı konulmazlığa",
-        "subtitle": "Facevia'nın nihai çöpçatanlık profilini nasıl oluşturduğunu görmek için kaydırıcıyı sürükle.",
-        "before": "Sıradan Özçekim",
-        "after": "Facevia AI Eşleşmesi",
-        "caption": "← karşılaştırmak için kaydır → • 60 saniyenin altında oluşturuldu"
+        "title": "Görmek inanmaktır.",
+        "subtitle": "Birkaç selfie yükleyin ve Facevia'nın bunları nasıl yüksek performanslı flört fotoğraflarına dönüştürdüğünü izleyin.",
+        "before": "ÖNCESİ",
+        "after": "AI DÖNÜŞÜMÜ SONRASI",
+        "badge": "Facevia AI ile oluşturuldu",
+        "cta": "AI Fotoğraflarımı Oluştur",
+        "caption": "← karşılaştırmak için kaydırın → • 60 saniyenin altında oluşturuldu"
     },
     "pricing": {
         "title1": "Basit,",

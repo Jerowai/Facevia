@@ -61,10 +61,12 @@
         }
     },
     "beforeAfter": {
-        "title": "De ordinario a irresistible",
-        "subtitle": "Arrastra el control para ver cómo Facevia crea el mejor perfil de citas.",
-        "before": "Selfie Promedio",
-        "after": "Facevia AI Match",
+        "title": "Ver para creer.",
+        "subtitle": "Sube algunos selfies ve cómo Facevia los transforma en fotos de citas de alto rendimiento.",
+        "before": "ANTES",
+        "after": "DESPUÉS DE LA TRANSFORMACIÓN IA",
+        "badge": "Generado por Facevia AI",
+        "cta": "Generar Mis Fotos IA",
         "caption": "← arrastra para comparar → • Generado en menos de 60 segundos"
     },
     "pricing": {

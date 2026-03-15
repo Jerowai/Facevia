@@ -4,19 +4,21 @@ import { useState, useRef, useCallback } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-// Visually distinct before/after images:
-// BEFORE: grainy, gloomy unfiltered bathroom selfie
-// AFTER:  vibrant rooftop AI dating photo
-const BEFORE_IMG = "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=30&w=600&auto=format&fit=crop";
-const AFTER_IMG = "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1200&auto=format&fit=crop";
+interface BeforeAfterSliderProps {
+  beforeSrc: string;
+  afterSrc: string;
+}
 
-export function BeforeAfterSlider() {
+export function BeforeAfterSlider({ beforeSrc, afterSrc }: BeforeAfterSliderProps) {
   const { t } = useLanguage();
-  const [val, setVal] = useState(45);
+  const [val, setVal] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const sliderPos = useMotionValue(45);
+  const sliderPos = useMotionValue(50);
   const smoothSliderPos = useSpring(sliderPos, { stiffness: 400, damping: 35 });
   const clipPath = useTransform(smoothSliderPos, (v) => `inset(0 ${100 - v}% 0 0)`);
+  
+  // Adjusted handle position to stay centered on the line
   const leftPos = useTransform(smoothSliderPos, (v) => `${v}%`);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,91 +28,94 @@ export function BeforeAfterSlider() {
   }, [sliderPos]);
 
   return (
-    <section id="comparison" className="py-24 px-6 bg-[#0F172A] relative overflow-hidden">
-      <div className="container max-w-5xl mx-auto flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            {t('beforeAfter.title')}
-          </h2>
-          <p className="text-gray-400 text-lg px-4">
-            {t('beforeAfter.subtitle')}
-          </p>
-        </motion.div>
+    <div className="flex flex-col items-center w-full">
+      <div 
+        ref={containerRef}
+        className="relative w-full aspect-[4/3] sm:aspect-[16/9] rounded-[2rem] sm:rounded-[3rem] overflow-hidden select-none border border-white/10 shadow-3xl bg-[#090b14]"
+      >
+        {/* Native range slider for interaction */}
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="0.1"
+          value={val}
+          onChange={handleChange}
+          style={{ touchAction: "none" }}
+          className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50"
+          aria-label="Before and after comparison slider"
+        />
 
-        <div
-          className="relative w-full aspect-[4/3] sm:aspect-[16/9] rounded-3xl overflow-hidden select-none border border-white/10 shadow-2xl"
-        >
-          {/* Native range slider — touch-action: none so the drag doesn't scroll the page */}
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={val}
-            onChange={handleChange}
-            style={{ touchAction: "none" }}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50"
-            aria-label="Before and after comparison slider"
+        {/* BEFORE IMAGE */}
+        <div className="absolute inset-0">
+          <img
+            src={beforeSrc}
+            alt="Before"
+            className="w-full h-full object-cover"
           />
-
-          {/* BEFORE — grainy, washed-out selfie */}
-          <div className="absolute inset-0">
-            <img
-              src={BEFORE_IMG}
-              alt="Before — ordinary selfie"
-              className="w-full h-full object-cover grayscale brightness-50 contrast-75 blur-[1.5px]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-transparent" />
-            <div className="absolute bottom-6 right-6 px-5 py-2.5 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white/50 font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+          {/* Label: BEFORE */}
+          <div className="absolute top-6 left-6 z-30">
+            <div className="px-4 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white font-black text-[10px] tracking-[0.2em] uppercase">
               {t('beforeAfter.before')}
             </div>
           </div>
-
-          {/* AFTER — vibrant AI photo */}
-          <motion.div className="absolute inset-0 z-10" style={{ clipPath }}>
-            <img
-              src={AFTER_IMG}
-              alt="After — AI generated dating photo"
-              className="w-full h-full object-cover brightness-110 contrast-110 saturate-125"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ec4899]/10 to-transparent" />
-            <div className="absolute bottom-6 left-6 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ec4899] to-[#be185d] border border-white/20 text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-[0_4px_20px_rgba(236,72,153,0.5)]">
-              {t('beforeAfter.after')} ✨
-            </div>
-          </motion.div>
-
-          {/* Slider handle */}
-          <motion.div
-            className="absolute top-0 bottom-0 w-1.5 bg-white z-20 shadow-[0_0_15px_rgba(236,72,153,0.8)]"
-            style={{ left: leftPos }}
-          >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-[0_0_30px_rgba(236,72,153,0.6)] border-[3px] border-[#ec4899] flex items-center justify-center hover:scale-105 transition-transform">
-              <div className="flex gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[#ec4899]">
-                  <path d="m15 18-6-6 6-6" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[#ec4899]">
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
-        {/* Caption */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-gray-500 text-sm mt-6 text-center"
+        {/* AFTER IMAGE (Clipped) */}
+        <motion.div 
+          className="absolute inset-0 z-10 overflow-hidden" 
+          style={{ clipPath }}
         >
-          {t('beforeAfter.caption')}
-        </motion.p>
+          <div className="absolute inset-0 w-full h-full">
+             <img
+               src={afterSrc}
+               alt="After"
+               className="w-full h-full object-cover"
+             />
+             
+             {/* Glowing gradient border on the AFTER side edge */}
+             <div className="absolute top-0 bottom-0 right-0 w-[4px] bg-gradient-to-b from-[#ec4899] via-[#00E5FF] to-[#ec4899] shadow-[0_0_20px_rgba(236,72,153,0.5)] z-20" />
+             
+             {/* Label: AFTER */}
+             <div className="absolute top-6 right-6 z-30">
+                <div className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#ec4899] to-[#9D4EDD] text-white font-black text-[10px] tracking-[0.2em] uppercase shadow-lg shadow-[#ec4899]/20">
+                  {t('beforeAfter.after')}
+                </div>
+             </div>
+
+             {/* Badge: Generated by Facevia AI */}
+             <div className="absolute bottom-6 right-6 z-30">
+                <div className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white font-bold text-[9px] tracking-widest uppercase flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
+                  {t('beforeAfter.badge')}
+                </div>
+             </div>
+          </div>
+        </motion.div>
+
+        {/* Slider handle & Vertical Line */}
+        <motion.div
+          className="absolute top-0 bottom-0 w-[2px] bg-white/50 z-20 pointer-events-none"
+          style={{ left: leftPos }}
+        >
+          {/* Handle Circle */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-[0_0_40px_rgba(236,72,153,0.8)] border-[4px] border-[#ec4899] flex items-center justify-center">
+            <div className="flex gap-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="text-[#ec4899]">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="text-[#ec4899]">
+                <path d="m9 18 6-6 6-6" />
+              </svg>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </section>
+
+      {/* Caption below image */}
+      <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mt-8 opacity-50">
+        {t('beforeAfter.caption')}
+      </p>
+    </div>
   );
 }

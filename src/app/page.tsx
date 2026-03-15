@@ -1,5 +1,5 @@
 import { Hero } from "@/components/landing/Hero";
-import { BeforeAfterSlider } from "@/components/landing/BeforeAfterSlider";
+import { BeforeAfterCarousel } from "@/components/landing/BeforeAfterCarousel";
 import { PhotoGrid } from "@/components/landing/PhotoGrid";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { StylePresets } from "@/components/landing/StylePresets";
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen bg-[#0F172A] selection:bg-[#6C63FF]/30">
       <Hero />
-      <BeforeAfterSlider />
+      <BeforeAfterCarousel />
       <PhotoGrid />
       <HowItWorks />
       <StylePresets />
