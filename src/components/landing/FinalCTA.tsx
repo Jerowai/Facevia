@@ -32,16 +32,19 @@ export function FinalCTA() {
             </svg>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-8 leading-tight px-4">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1] px-4 tracking-tighter">
             {t('cta.title')}
           </h2>
-          <p className="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 px-4">
+          <p className="text-lg sm:text-2xl text-gray-400 max-w-2xl mx-auto mb-14 px-4 font-medium">
             {t('cta.subtitle')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button asChild size="lg" className="h-16 px-10 rounded-full font-bold text-lg sm:text-xl bg-primary-gradient glow-effect border-0 hover:scale-105 transition-transform">
-              <Link href="/login?tab=signup">{t('cta.button')}</Link>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+            <Button asChild size="lg" className="h-18 px-12 rounded-2xl font-black text-xl bg-[#ec4899] text-white hover:bg-[#db2777] transition-all transform hover:scale-105 shadow-[0_20px_40px_rgba(236,72,153,0.3)] border-0 uppercase tracking-wider group">
+              <Link href="/login?tab=signup" className="flex items-center gap-2">
+                {t('cta.button')}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
             </Button>
             <p className="text-gray-500 text-xs sm:text-sm font-medium">{t('pricing.features.ready')}</p>
           </div>

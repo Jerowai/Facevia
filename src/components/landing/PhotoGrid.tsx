@@ -6,12 +6,11 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 const EXAMPLE_IMAGES = [
   { id: "rooftop", src: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2574&auto=format&fit=crop" },
   { id: "beach", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop" },
-  { id: "coffee", src: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop" },
-  { id: "gym", src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2574&auto=format&fit=crop" },
+  { id: "coffee", src: "https://images.unsplash.com/photo-1512152329560-c9e9b042f72a?q=80&w=2574&auto=format&fit=crop" },
   { id: "travel", src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2574&auto=format&fit=crop" },
-  { id: "luxury", src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2574&auto=format&fit=crop" },
+  { id: "gym", src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2574&auto=format&fit=crop" },
   { id: "night_city", src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2574&auto=format&fit=crop" },
-  { id: "studio", src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2574&auto=format&fit=crop" },
+  { id: "restaurant", src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2574&auto=format&fit=crop" },
 ];
 
 export function PhotoGrid() {

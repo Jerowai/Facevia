@@ -38,9 +38,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-[4.5rem] font-bold tracking-tighter text-white mb-6 md:mb-8 leading-[1.1] text-center lg:text-left"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-black tracking-tighter text-white mb-6 md:mb-8 leading-[1.05] text-center lg:text-left"
             >
-              <span className="text-[#ec4899]">{t('hero.title1')}</span> <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-[#ec4899] to-[#9D4EDD] bg-clip-text text-transparent">{t('hero.title1')}</span> <br className="hidden sm:block" />
               {t('hero.title2')}
             </motion.h1>
 
@@ -48,7 +48,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-white/70 text-base sm:text-lg mb-8 text-center lg:text-left max-w-xl mx-auto lg:mx-0"
+              className="text-white/70 text-lg sm:text-xl mb-10 text-center lg:text-left max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
             >
               {t('hero.subtitle')}
             </motion.p>
@@ -57,19 +57,25 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-4 mb-8 md:mb-10 text-base md:text-lg lg:text-xl text-gray-200"
+              className="space-y-4 mb-10 md:mb-12 text-base md:text-lg text-gray-300"
             >
               <li className="flex items-center">
-                <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">{t('hero.bullets.b1')}</span>
+                <div className="w-6 h-6 rounded-full bg-[#ec4899]/20 flex items-center justify-center mr-3 shrink-0">
+                  <Check className="text-[#ec4899] w-4 h-4" strokeWidth={4} />
+                </div>
+                <span className="font-bold">{t('hero.bullets.b1')}</span>
               </li>
               <li className="flex items-center">
-                <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">{t('hero.bullets.b2')}</span>
+                <div className="w-6 h-6 rounded-full bg-[#ec4899]/20 flex items-center justify-center mr-3 shrink-0">
+                  <Check className="text-[#ec4899] w-4 h-4" strokeWidth={4} />
+                </div>
+                <span className="font-bold">{t('hero.bullets.b2')}</span>
               </li>
               <li className="flex items-center">
-                <Check className="text-pink-500 w-6 h-6 sm:w-7 sm:h-7 mr-3 shrink-0" strokeWidth={3} />
-                <span className="font-semibold">{t('hero.bullets.b3')}</span>
+                <div className="w-6 h-6 rounded-full bg-[#ec4899]/20 flex items-center justify-center mr-3 shrink-0">
+                  <Check className="text-[#ec4899] w-4 h-4" strokeWidth={4} />
+                </div>
+                <span className="font-bold">{t('hero.bullets.b3')}</span>
               </li>
             </motion.ul>
 
@@ -77,9 +83,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
+              className="flex flex-col sm:flex-row items-center gap-6"
             >
-              <Button asChild size="lg" className="h-14 sm:h-16 px-6 sm:px-10 rounded-md font-bold text-lg sm:text-xl bg-[#ec4899] text-white hover:bg-[#db2777] transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(236,72,153,0.4)] border-0 w-full sm:w-auto">
+              <Button asChild size="lg" className="h-16 sm:h-18 px-10 sm:px-12 rounded-2xl font-black text-lg sm:text-xl bg-[#ec4899] text-white hover:bg-[#db2777] transition-all transform hover:scale-105 shadow-[0_20px_40px_rgba(236,72,153,0.3)] border-0 w-full sm:w-auto uppercase tracking-wider">
                 <Link href="/login?tab=signup">{t('hero.cta')}</Link>
               </Button>
             </motion.div>

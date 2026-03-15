@@ -13,8 +13,9 @@ export default function Navbar() {
   const { t } = useLanguage()
 
   const NAV_LINKS = [
-    { href: '/#comparison', label: t('nav.photos') },
-    { href: '/#how-it-works', label: t('nav.howItWorks') || 'How It Works' },
+    { href: '/', label: 'Logo', isLogo: true },
+    { href: '/#photos', label: t('nav.photos') },
+    { href: '/#features', label: t('nav.features') },
     { href: '/#pricing', label: t('nav.pricing') },
     { href: '/#testimonials', label: t('nav.reviews') },
   ]
@@ -34,7 +35,7 @@ export default function Navbar() {
 
       {/* Center Nav Links */}
       <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-        {NAV_LINKS.map((link) => (
+        {NAV_LINKS.filter(link => !link.isLogo).map((link) => (
           <Link
             key={link.href}
             href={link.href}
@@ -110,7 +111,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex flex-col gap-4 py-2">
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS.filter(link => !link.isLogo).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

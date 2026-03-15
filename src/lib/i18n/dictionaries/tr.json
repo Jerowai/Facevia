@@ -7,7 +7,7 @@
         "dashboard": "Panel",
         "signOut": "Çıkış Yap",
         "login": "Giriş Yap",
-        "cta": "YAPAY ZEKA FOTOĞRAFLARIMI AL",
+        "cta": "AI Fotoğraflarını Al",
         "howItWorks": "Nasıl Çalışır"
     },
     "howItWorks": {
@@ -130,9 +130,9 @@
         "title2": "eşleşmeler yakalayın",
         "subtitle": "Birkaç selfie yükleyin ve yapay zekamız Tinder, Instagram ve diğer sosyal platformlar için tasarlanmış gerçekçi fotoğraflar üretsin.",
         "bullets": {
-            "b1": "Flört uygulamalarında daha çekici görünün",
-            "b2": "Gerçekten size benzeyen gerçekçi AI fotoğrafları",
-            "b3": "Pahalı fotoğraf çekimlerine gerek yok"
+            "b1": "Tinder için optimize edilmiş fotoğraflar",
+            "b2": "Anında daha çekici görünün",
+            "b3": "Pahalı fotoğraf çekimlerine son"
         },
         "cta": "AI Fotoğraflarımı Oluştur",
         "meta": "Dakikalar içinde hazır • Binlerce kullanıcı tarafından kullanılıyor",
@@ -145,9 +145,9 @@
         }
     },
     "cta": {
-        "title": "Daha fazla eşleşme almaya hazır mısın?",
-        "subtitle": "Facevia ile çöpçatanlık profillerini yükselten binlerce kullanıcıya katıl.",
-        "button": "FOTOĞRAFLARIMI OLUŞTUR"
+        "title": "Kötü fotoğrafları kullanmayı bırakın.",
+        "subtitle": "AI fotoğraflarınızı bugün oluşturun.",
+        "button": "AI Fotoğraflarımı Al"
     },
     "footer": {
         "desc": "Facevia, insanların flört profilleri ve sosyal medya için yüksek kaliteli yapay zeka fotoğrafları oluşturmasına yardımcı olur.",

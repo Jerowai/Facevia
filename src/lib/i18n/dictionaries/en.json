@@ -6,8 +6,8 @@
         "reviews": "Reviews",
         "dashboard": "Dashboard",
         "signOut": "Sign Out",
-        "login": "Log in",
-        "cta": "GET MY AI PHOTOS",
+        "login": "Login",
+        "cta": "Get AI Photos",
         "howItWorks": "How It Works"
     },
     "howItWorks": {
@@ -27,9 +27,9 @@
         }
     },
     "photoGrid": {
-        "title1": "Built for",
-        "title2": "high-quality matches",
-        "subtitle": "Our AI generates photos that look completely natural. No more awkward selfies or blurry shots.",
+        "title1": "Real AI",
+        "title2": "Photo Examples",
+        "subtitle": "High-performing dating photos across multiple lifestyle categories.",
         "badge": "AI Generated"
     },
     "features": {
@@ -130,11 +130,11 @@
         "title2": "matches with AI",
         "subtitle": "Upload a few selfies and our AI will generate realistic photos designed for Tinder, Instagram and other social platforms.",
         "bullets": {
-            "b1": "Look more attractive on dating apps",
-            "b2": "Realistic AI photos that actually look like you",
-            "b3": "No expensive photoshoots needed"
+            "b1": "Tinder optimized photos",
+            "b2": "Look more attractive instantly",
+            "b3": "No expensive photoshoots"
         },
-        "cta": "Get My AI Photos",
+        "cta": "Generate My AI Photos",
         "meta": "Ready in minutes • Used by thousands of users",
         "trust": "Trusted by 12,000+ users",
         "notifications": {
@@ -145,9 +145,9 @@
         }
     },
     "cta": {
-        "title": "Ready to get more matches?",
-        "subtitle": "Join thousands of users who have upgraded their dating profiles with Facevia.",
-        "button": "GENERATE MY PHOTOS"
+        "title": "Stop using bad photos.",
+        "subtitle": "Generate your AI photos today.",
+        "button": "Get My AI Photos"
     },
     "footer": {
         "desc": "Facevia helps people generate high-quality AI photos for dating profiles and social media.",
@@ -173,42 +173,42 @@
         }
     },
     "presets": {
-        "title1": "Choose your",
-        "title2": "vibe",
-        "subtitle": "Pick a preset style and let our AI do the work. Perfect for any dating profile.",
-        "tryStyle": "Try This Style \u2192",
+        "title1": "Choose the",
+        "title2": "style you want",
+        "subtitle": "Select from our premium lifestyle presets optimized for dating match rates.",
+        "tryStyle": "Try this style",
         "styles": {
             "rooftop": {
                 "name": "Tinder Rooftop",
-                "label": "City Vibes"
+                "label": "Sunset"
             },
             "beach": {
                 "name": "Beach Sunset",
-                "label": "Summer Feel"
+                "label": "Nature"
             },
             "coffee": {
-                "name": "Coffee Shop Candid",
-                "label": "Warm & Cozy"
-            },
-            "gym": {
-                "name": "Gym Lifestyle",
-                "label": "Fit & Active"
-            },
-            "travel": {
-                "name": "Travel Street",
-                "label": "Adventurous"
-            },
-            "luxury": {
-                "name": "Luxury Restaurant",
-                "label": "Fine Dining"
+                "name": "Cafe Lifestyle",
+                "label": "Casual"
             },
             "night_city": {
                 "name": "Night City",
-                "label": "Neon Nights"
+                "label": "Urban"
             },
-            "studio": {
-                "name": "Studio Portrait",
-                "label": "Professional"
+            "luxury": {
+                "name": "Luxury Dinner",
+                "label": "Premium"
+            },
+            "travel": {
+                "name": "Travel Shot",
+                "label": "Adventure"
+            },
+            "gym": {
+                "name": "Gym",
+                "label": "Fitness"
+            },
+            "restaurant": {
+                "name": "Restaurant",
+                "label": "Social"
             }
         }
     },
